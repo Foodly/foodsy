@@ -1,0 +1,781 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55A1DF76F5D739E70BA43779 /* Pods_foodsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDB72439C20CFA1B968681E /* Pods_foodsy.framework */; };
+		5D0983F2DD4C4CF468B24EA2 /* Pods_foodsyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */; };
+		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
+		82893BD01F8CB505000193A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* ViewController.swift */; };
+		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
+		82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */; };
+		82893BD81F8CB505000193A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD71F8CB505000193A5 /* Assets.xcassets */; };
+		82893BDB1F8CB505000193A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD91F8CB505000193A5 /* LaunchScreen.storyboard */; };
+		82893BE61F8CB505000193A5 /* foodsyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BE51F8CB505000193A5 /* foodsyTests.swift */; };
+		82893BF11F8CB505000193A5 /* foodsyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BF01F8CB505000193A5 /* foodsyUITests.swift */; };
+		F2AF9C40662FABD147FEBA9D /* Pods_foodsyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C3C6BC3927A69E0C41D872 /* Pods_foodsyUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		82893BE21F8CB505000193A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82893BC21F8CB505000193A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82893BC91F8CB505000193A5;
+			remoteInfo = foodsy;
+		};
+		82893BED1F8CB505000193A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82893BC21F8CB505000193A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82893BC91F8CB505000193A5;
+			remoteInfo = foodsy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		095D13F917A6062C66CC8B26 /* Pods-foodsyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyUITests/Pods-foodsyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46CC0D44A69F21D64C296C71 /* Pods-foodsyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
+		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		82893BCF1F8CB505000193A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		82893BD21F8CB505000193A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		82893BD51F8CB505000193A5 /* foodsy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foodsy.xcdatamodel; sourceTree = "<group>"; };
+		82893BD71F8CB505000193A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82893BDA1F8CB505000193A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82893BDC1F8CB505000193A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82893BE11F8CB505000193A5 /* foodsyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = foodsyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82893BE51F8CB505000193A5 /* foodsyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodsyTests.swift; sourceTree = "<group>"; };
+		82893BE71F8CB505000193A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82893BEC1F8CB505000193A5 /* foodsyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = foodsyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82893BF01F8CB505000193A5 /* foodsyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodsyUITests.swift; sourceTree = "<group>"; };
+		82893BF21F8CB505000193A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E7106DC05E48A37A3B41E57 /* Pods-foodsyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyUITests/Pods-foodsyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8EDB72439C20CFA1B968681E /* Pods_foodsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94C3C6BC3927A69E0C41D872 /* Pods_foodsyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F48C7FE5EA8FB75B52A853 /* Pods-foodsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsy/Pods-foodsy.debug.xcconfig"; sourceTree = "<group>"; };
+		AD28502749A13D7EC72BA627 /* Pods-foodsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsy/Pods-foodsy.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		82893BC71F8CB505000193A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55A1DF76F5D739E70BA43779 /* Pods_foodsy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BDE1F8CB505000193A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D0983F2DD4C4CF468B24EA2 /* Pods_foodsyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BE91F8CB505000193A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2AF9C40662FABD147FEBA9D /* Pods_foodsyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82893BC11F8CB505000193A5 = {
+			isa = PBXGroup;
+			children = (
+				82893BCC1F8CB505000193A5 /* foodsy */,
+				82893BE41F8CB505000193A5 /* foodsyTests */,
+				82893BEF1F8CB505000193A5 /* foodsyUITests */,
+				82893BCB1F8CB505000193A5 /* Products */,
+				D9A547418CF42B9F40F21CD0 /* Pods */,
+				8533C8BD0573D94A362B080E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		82893BCB1F8CB505000193A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82893BCA1F8CB505000193A5 /* foodsy.app */,
+				82893BE11F8CB505000193A5 /* foodsyTests.xctest */,
+				82893BEC1F8CB505000193A5 /* foodsyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82893BCC1F8CB505000193A5 /* foodsy */ = {
+			isa = PBXGroup;
+			children = (
+				82893BCD1F8CB505000193A5 /* AppDelegate.swift */,
+				82893BCF1F8CB505000193A5 /* ViewController.swift */,
+				82893BD11F8CB505000193A5 /* Main.storyboard */,
+				82893BD71F8CB505000193A5 /* Assets.xcassets */,
+				82893BD91F8CB505000193A5 /* LaunchScreen.storyboard */,
+				82893BDC1F8CB505000193A5 /* Info.plist */,
+				82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */,
+			);
+			path = foodsy;
+			sourceTree = "<group>";
+		};
+		82893BE41F8CB505000193A5 /* foodsyTests */ = {
+			isa = PBXGroup;
+			children = (
+				82893BE51F8CB505000193A5 /* foodsyTests.swift */,
+				82893BE71F8CB505000193A5 /* Info.plist */,
+			);
+			path = foodsyTests;
+			sourceTree = "<group>";
+		};
+		82893BEF1F8CB505000193A5 /* foodsyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				82893BF01F8CB505000193A5 /* foodsyUITests.swift */,
+				82893BF21F8CB505000193A5 /* Info.plist */,
+			);
+			path = foodsyUITests;
+			sourceTree = "<group>";
+		};
+		8533C8BD0573D94A362B080E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EDB72439C20CFA1B968681E /* Pods_foodsy.framework */,
+				0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */,
+				94C3C6BC3927A69E0C41D872 /* Pods_foodsyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9A547418CF42B9F40F21CD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2F48C7FE5EA8FB75B52A853 /* Pods-foodsy.debug.xcconfig */,
+				AD28502749A13D7EC72BA627 /* Pods-foodsy.release.xcconfig */,
+				46CC0D44A69F21D64C296C71 /* Pods-foodsyTests.debug.xcconfig */,
+				6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */,
+				8E7106DC05E48A37A3B41E57 /* Pods-foodsyUITests.debug.xcconfig */,
+				095D13F917A6062C66CC8B26 /* Pods-foodsyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82893BC91F8CB505000193A5 /* foodsy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82893BF51F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsy" */;
+			buildPhases = (
+				5C5254741E4BA3D46D34FA57 /* [CP] Check Pods Manifest.lock */,
+				82893BC61F8CB505000193A5 /* Sources */,
+				82893BC71F8CB505000193A5 /* Frameworks */,
+				82893BC81F8CB505000193A5 /* Resources */,
+				9919F57AF373413923BE61FF /* [CP] Embed Pods Frameworks */,
+				BD0CFA6EC07C19B789F83482 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = foodsy;
+			productName = foodsy;
+			productReference = 82893BCA1F8CB505000193A5 /* foodsy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		82893BE01F8CB505000193A5 /* foodsyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82893BF81F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsyTests" */;
+			buildPhases = (
+				50842263922E42B614DBF018 /* [CP] Check Pods Manifest.lock */,
+				82893BDD1F8CB505000193A5 /* Sources */,
+				82893BDE1F8CB505000193A5 /* Frameworks */,
+				82893BDF1F8CB505000193A5 /* Resources */,
+				79B481F10FDB3B096D7829D2 /* [CP] Embed Pods Frameworks */,
+				A4318E3F18EEE9C33D4A6D00 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82893BE31F8CB505000193A5 /* PBXTargetDependency */,
+			);
+			name = foodsyTests;
+			productName = foodsyTests;
+			productReference = 82893BE11F8CB505000193A5 /* foodsyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		82893BEB1F8CB505000193A5 /* foodsyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82893BFB1F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsyUITests" */;
+			buildPhases = (
+				E86DE2205803456722496106 /* [CP] Check Pods Manifest.lock */,
+				82893BE81F8CB505000193A5 /* Sources */,
+				82893BE91F8CB505000193A5 /* Frameworks */,
+				82893BEA1F8CB505000193A5 /* Resources */,
+				9D8F79D42379C1C6931CB00C /* [CP] Embed Pods Frameworks */,
+				EEA34D2A8D9598BFCD5DB3F6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82893BEE1F8CB505000193A5 /* PBXTargetDependency */,
+			);
+			name = foodsyUITests;
+			productName = foodsyUITests;
+			productReference = 82893BEC1F8CB505000193A5 /* foodsyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82893BC21F8CB505000193A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Foodly;
+				TargetAttributes = {
+					82893BC91F8CB505000193A5 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					82893BE01F8CB505000193A5 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 82893BC91F8CB505000193A5;
+					};
+					82893BEB1F8CB505000193A5 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 82893BC91F8CB505000193A5;
+					};
+				};
+			};
+			buildConfigurationList = 82893BC51F8CB505000193A5 /* Build configuration list for PBXProject "foodsy" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 82893BC11F8CB505000193A5;
+			productRefGroup = 82893BCB1F8CB505000193A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82893BC91F8CB505000193A5 /* foodsy */,
+				82893BE01F8CB505000193A5 /* foodsyTests */,
+				82893BEB1F8CB505000193A5 /* foodsyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		82893BC81F8CB505000193A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82893BDB1F8CB505000193A5 /* LaunchScreen.storyboard in Resources */,
+				82893BD81F8CB505000193A5 /* Assets.xcassets in Resources */,
+				82893BD31F8CB505000193A5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BDF1F8CB505000193A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BEA1F8CB505000193A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50842263922E42B614DBF018 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-foodsyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C5254741E4BA3D46D34FA57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-foodsy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79B481F10FDB3B096D7829D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9919F57AF373413923BE61FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-foodsy/Pods-foodsy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsy/Pods-foodsy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D8F79D42379C1C6931CB00C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsyUITests/Pods-foodsyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4318E3F18EEE9C33D4A6D00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD0CFA6EC07C19B789F83482 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsy/Pods-foodsy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E86DE2205803456722496106 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-foodsyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEA34D2A8D9598BFCD5DB3F6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsyUITests/Pods-foodsyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82893BC61F8CB505000193A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82893BD01F8CB505000193A5 /* ViewController.swift in Sources */,
+				82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */,
+				82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BDD1F8CB505000193A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82893BE61F8CB505000193A5 /* foodsyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82893BE81F8CB505000193A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82893BF11F8CB505000193A5 /* foodsyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82893BE31F8CB505000193A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82893BC91F8CB505000193A5 /* foodsy */;
+			targetProxy = 82893BE21F8CB505000193A5 /* PBXContainerItemProxy */;
+		};
+		82893BEE1F8CB505000193A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82893BC91F8CB505000193A5 /* foodsy */;
+			targetProxy = 82893BED1F8CB505000193A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		82893BD11F8CB505000193A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82893BD21F8CB505000193A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		82893BD91F8CB505000193A5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82893BDA1F8CB505000193A5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		82893BF31F8CB505000193A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		82893BF41F8CB505000193A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		82893BF61F8CB505000193A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2F48C7FE5EA8FB75B52A853 /* Pods-foodsy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		82893BF71F8CB505000193A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD28502749A13D7EC72BA627 /* Pods-foodsy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		82893BF91F8CB505000193A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46CC0D44A69F21D64C296C71 /* Pods-foodsyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/foodsy.app/foodsy";
+			};
+			name = Debug;
+		};
+		82893BFA1F8CB505000193A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/foodsy.app/foodsy";
+			};
+			name = Release;
+		};
+		82893BFC1F8CB505000193A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E7106DC05E48A37A3B41E57 /* Pods-foodsyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = foodsy;
+			};
+			name = Debug;
+		};
+		82893BFD1F8CB505000193A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095D13F917A6062C66CC8B26 /* Pods-foodsyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = foodsyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = foodsy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82893BC51F8CB505000193A5 /* Build configuration list for PBXProject "foodsy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82893BF31F8CB505000193A5 /* Debug */,
+				82893BF41F8CB505000193A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82893BF51F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82893BF61F8CB505000193A5 /* Debug */,
+				82893BF71F8CB505000193A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82893BF81F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82893BF91F8CB505000193A5 /* Debug */,
+				82893BFA1F8CB505000193A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82893BFB1F8CB505000193A5 /* Build configuration list for PBXNativeTarget "foodsyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82893BFC1F8CB505000193A5 /* Debug */,
+				82893BFD1F8CB505000193A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				82893BD51F8CB505000193A5 /* foodsy.xcdatamodel */,
+			);
+			currentVersion = 82893BD51F8CB505000193A5 /* foodsy.xcdatamodel */;
+			path = foodsy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 82893BC21F8CB505000193A5 /* Project object */;
+}
