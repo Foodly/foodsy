@@ -1,5 +1,10 @@
 # Final Project- *Foodsy*
 
+Foodsy is an application that will revolutionize the way you do meal prep and figure out what to eat. Foodsy is an application that allows you to maintain a list of
+ingredients you have and then use the recipe search feature to search for a recipe that you can make with the ingredients you have (amongst other filters). It also
+has a shopping list feature that allows you to search for ingredients and add them to your shopping list. In addition, you can search for grocery stores right from
+the App so you are ready to go. We also allow users to favorite recipes to make it easier to make their go-to comfort food.
+
 ## User Stories
 
 The following is **required** functionality:
