@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		55A1DF76F5D739E70BA43779 /* Pods_foodsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDB72439C20CFA1B968681E /* Pods_foodsy.framework */; };
 		5D0983F2DD4C4CF468B24EA2 /* Pods_foodsyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */; };
+		821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821FB45A1F8CB9E400722263 /* Profile.storyboard */; };
+		821FB45E1F8CBC4C00722263 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45D1F8CBC4C00722263 /* ProfileView.swift */; };
+		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
+		821FB4641F8CBEFE00722263 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4631F8CBEFE00722263 /* Constants.swift */; };
+		821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4651F8CC00500722263 /* ProfileViewController.swift */; };
 		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
 		82893BD01F8CB505000193A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* ViewController.swift */; };
 		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
@@ -42,6 +47,11 @@
 		0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46CC0D44A69F21D64C296C71 /* Pods-foodsyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
+		821FB45B1F8CB9E400722263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		821FB45D1F8CBC4C00722263 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		821FB45F1F8CBE4F00722263 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		821FB4631F8CBEFE00722263 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		821FB4651F8CC00500722263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82893BCF1F8CB505000193A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +101,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		821FB4561F8CB99100722263 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				821FB45F1F8CBE4F00722263 /* Profile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		821FB4571F8CB9A700722263 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				821FB4651F8CC00500722263 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		821FB4581F8CB9AF00722263 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				821FB4591F8CB9AF00722263 /* XIB */,
+				821FB45D1F8CBC4C00722263 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		821FB4591F8CB9AF00722263 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
 		82893BC11F8CB505000193A5 = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +163,13 @@
 				82893BD11F8CB505000193A5 /* Main.storyboard */,
 				82893BD71F8CB505000193A5 /* Assets.xcassets */,
 				82893BD91F8CB505000193A5 /* LaunchScreen.storyboard */,
+				821FB4561F8CB99100722263 /* Models */,
 				82893BDC1F8CB505000193A5 /* Info.plist */,
+				821FB4581F8CB9AF00722263 /* Views */,
+				821FB4571F8CB9A700722263 /* ViewControllers */,
 				82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */,
+				821FB45A1F8CB9E400722263 /* Profile.storyboard */,
+				821FB4631F8CBEFE00722263 /* Constants.swift */,
 			);
 			path = foodsy;
 			sourceTree = "<group>";
@@ -286,6 +333,7 @@
 			files = (
 				82893BDB1F8CB505000193A5 /* LaunchScreen.storyboard in Resources */,
 				82893BD81F8CB505000193A5 /* Assets.xcassets in Resources */,
+				821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */,
 				82893BD31F8CB505000193A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,9 +511,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				821FB45E1F8CBC4C00722263 /* ProfileView.swift in Sources */,
+				821FB4601F8CBE4F00722263 /* Profile.swift in Sources */,
 				82893BD01F8CB505000193A5 /* ViewController.swift in Sources */,
 				82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */,
+				821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */,
 				82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */,
+				821FB4641F8CBEFE00722263 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +553,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		821FB45A1F8CB9E400722263 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				821FB45B1F8CB9E400722263 /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
 		82893BD11F8CB505000193A5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
