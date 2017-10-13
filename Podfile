@@ -6,8 +6,9 @@ target 'foodsy' do
   use_frameworks!
 
   # Pods for foodsy
-  pod 'AFNetworking'
+  pod 'AFNetworking', '3.0.0'
   pod 'MBProgressHUD'
+  pod 'BDBOAuth1Manager', '2.0.0'
 
   target 'foodsyTests' do
     inherit! :search_paths
