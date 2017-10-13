@@ -31,20 +31,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="84T-tH-guh" kind="presentation" identifier="loginSegue" id="xoo-ap-8AC"/>
+                        <segue destination="kfA-Zq-iuk" kind="presentation" identifier="loginSegue" id="fCg-P7-fW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="25.637181409295355"/>
         </scene>
-        <!--ProfileViewController-->
-        <scene sceneID="ayf-rO-obV">
+        <!--ProfileNavigationController-->
+        <scene sceneID="1Nl-Pz-BZf">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="84T-tH-guh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="odJ-m1-ySa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileNavigationController" id="kfA-Zq-iuk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHR-nE-qrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-55"/>
+            <point key="canvasLocation" x="844" y="-18"/>
         </scene>
     </scenes>
 </document>

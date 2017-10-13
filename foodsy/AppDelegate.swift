@@ -16,14 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         if User.currentUser != nil {
             print("there is a current user")
             let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-            //let nav = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController") as! UINavigationController
-            //let tweetsViewController = nav.topViewController as! TweetsViewController
-            let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            window?.rootViewController = profileViewController
+            let profileNav = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            window?.rootViewController = profileNav
         } else {
             print("no current user")
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -111,7 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient?.handleOpenUrl(url: url)
-        
         return true
     }
 
