@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "cravely"
+                configuration.clientKey = nil  // set to nil assuming you have not set clientKey
+                configuration.server = "https://cravely.herokuapp.com/parse"
+            })
+        )
         if User.currentUser != nil {
             print("there is a current user")
             let storyboard = UIStoryboard(name: "Profile", bundle: nil)
