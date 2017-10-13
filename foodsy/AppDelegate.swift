@@ -31,13 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = profileNav
         } else {
             print("no current user")
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainStoryboard = UIStoryboard(name: "Login", bundle: nil)
             let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             window?.rootViewController = loginViewController
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let vc = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vc
         }

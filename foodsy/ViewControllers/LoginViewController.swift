@@ -23,8 +23,11 @@ class LoginViewController: UIViewController {
     @IBAction func onLoginButton(_ sender: Any) {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient?.login(success: { () -> () in
-            print("I'm logged in")
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            let navController = UINavigationController(rootViewController: profileViewController)
+            self.present(navController, animated: true, completion: nil)
+            
         }, failure: {(error: Error) -> () in
             print("Error: \(error.localizedDescription)")
         })
