@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func onLoginButton(_ sender: Any) {
+        let twitterClient = TwitterClient.sharedInstance
+        twitterClient?.login(success: { () -> () in
+            print("I'm logged in")
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }, failure: {(error: Error) -> () in
+            print("Error: \(error.localizedDescription)")
+        })
+        
+    }
+    
 }
 

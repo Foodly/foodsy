@@ -17,7 +17,7 @@
         <!--Profile-->
         <scene sceneID="fAW-ma-swR">
             <objects>
-                <viewController id="sNO-NP-fT4" customClass="ProfileViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="sNO-NP-fT4" customClass="ProfileViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eaE-A2-4ql">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SjR-qN-xkz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="F9Y-YC-qQC"/>
+                    <navigationItem key="navigationItem" title="Profile" id="F9Y-YC-qQC">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="gJG-wb-fTU">
+                            <connections>
+                                <action selector="onLogout:" destination="sNO-NP-fT4" id="G46-uj-iTY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbG-Hi-njr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +114,7 @@
         <!--Navigation Controller-->
         <scene sceneID="UZ2-Rp-vIt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ssg-N8-iOl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ssg-N8-iOl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tkh-3z-0rg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

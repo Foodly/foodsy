@@ -16,7 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if User.currentUser != nil {
+            print("there is a current user")
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileNav = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            window?.rootViewController = profileNav
+        } else {
+            print("no current user")
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            window?.rootViewController = loginViewController
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+        }
         return true
     }
 
@@ -87,6 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let twitterClient = TwitterClient.sharedInstance
+        twitterClient?.handleOpenUrl(url: url)
+        return true
     }
 
 }

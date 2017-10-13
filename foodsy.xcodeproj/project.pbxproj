@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		55A1DF76F5D739E70BA43779 /* Pods_foodsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDB72439C20CFA1B968681E /* Pods_foodsy.framework */; };
 		5D0983F2DD4C4CF468B24EA2 /* Pods_foodsyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */; };
+		6832DCC81F9031550044ADCC /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832DCC71F9031550044ADCC /* TwitterClient.swift */; };
+		6832DCCA1F9031BD0044ADCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832DCC91F9031BD0044ADCC /* User.swift */; };
 		821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821FB45A1F8CB9E400722263 /* Profile.storyboard */; };
 		821FB45E1F8CBC4C00722263 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45D1F8CBC4C00722263 /* ProfileView.swift */; };
 		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
 		821FB4641F8CBEFE00722263 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4631F8CBEFE00722263 /* Constants.swift */; };
 		821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4651F8CC00500722263 /* ProfileViewController.swift */; };
 		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
-		82893BD01F8CB505000193A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* ViewController.swift */; };
+		82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* LoginViewController.swift */; };
 		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
 		82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */; };
 		82893BD81F8CB505000193A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD71F8CB505000193A5 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		095D13F917A6062C66CC8B26 /* Pods-foodsyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyUITests/Pods-foodsyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0FCBCE2938D2E85D2B42A74D /* Pods_foodsyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46CC0D44A69F21D64C296C71 /* Pods-foodsyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6832DCC71F9031550044ADCC /* TwitterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		6832DCC91F9031BD0044ADCC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
 		821FB45B1F8CB9E400722263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		821FB45D1F8CBC4C00722263 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -54,7 +58,7 @@
 		821FB4651F8CC00500722263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82893BCF1F8CB505000193A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		82893BCF1F8CB505000193A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		82893BD21F8CB505000193A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82893BD51F8CB505000193A5 /* foodsy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foodsy.xcdatamodel; sourceTree = "<group>"; };
 		82893BD71F8CB505000193A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,10 +105,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6832DCC61F9030D00044ADCC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6832DCC71F9031550044ADCC /* TwitterClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		821FB4561F8CB99100722263 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				821FB45F1F8CBE4F00722263 /* Profile.swift */,
+				6832DCC91F9031BD0044ADCC /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,8 +171,9 @@
 		82893BCC1F8CB505000193A5 /* foodsy */ = {
 			isa = PBXGroup;
 			children = (
+				6832DCC61F9030D00044ADCC /* API */,
 				82893BCD1F8CB505000193A5 /* AppDelegate.swift */,
-				82893BCF1F8CB505000193A5 /* ViewController.swift */,
+				82893BCF1F8CB505000193A5 /* LoginViewController.swift */,
 				82893BD11F8CB505000193A5 /* Main.storyboard */,
 				82893BD71F8CB505000193A5 /* Assets.xcassets */,
 				82893BD91F8CB505000193A5 /* LaunchScreen.storyboard */,
@@ -414,11 +428,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-foodsy/Pods-foodsy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BDBOAuth1Manager/BDBOAuth1Manager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDBOAuth1Manager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,10 +527,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6832DCC81F9031550044ADCC /* TwitterClient.swift in Sources */,
 				821FB45E1F8CBC4C00722263 /* ProfileView.swift in Sources */,
 				821FB4601F8CBE4F00722263 /* Profile.swift in Sources */,
-				82893BD01F8CB505000193A5 /* ViewController.swift in Sources */,
+				82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */,
 				82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */,
+				6832DCCA1F9031BD0044ADCC /* User.swift in Sources */,
 				821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */,
 				82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */,
 				821FB4641F8CBEFE00722263 /* Constants.swift in Sources */,
@@ -693,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = foodsy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
@@ -708,6 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = foodsy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
