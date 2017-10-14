@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://cravely.herokuapp.com/parse"
             })
         )
+        APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
             print("there is a current user")
             let storyboard = UIStoryboard(name: "Profile", bundle: nil)
