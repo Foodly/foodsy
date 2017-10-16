@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import Parse
 
-class Ingredient: NSObject {
+class Ingredient: PFObject, PFSubclassing {
+    static var baseUrl = "https://spoonacular.com/cdn/ingredients_100x100/"
+    @NSManaged var name: String!
+    @NSManaged var image: String!
+    @NSManaged var userName: String!
     
-    // Based on this
-    // https://world.openfoodfacts.org/api/v0/product/737628064502.json
-    var brandName: String?
-    var productName: String?
-    var genericName: String?
-    var nutritionalGrade: String?
-    var thumbnailUrl: URL?
+    class func parseClassName() -> String {
+        return "Ingredient"
+    }
     
-    init(data: NSDictionary) {
-        self.brandName = data["brands"] as? String
-        self.productName = data["product_name"] as? String
-        self.genericName = data["generic_name"] as? String
-        let product = data["product"] as? NSDictionary
-        self.nutritionalGrade = product!["nutrition_grade_fr"] as? String
-        
-        let selectedImages = data["selected_images"] as? NSDictionary
-        let front = selectedImages!["front"] as? NSDictionary
-        let thumbnailUrlString = front!["thumb"] as? String
-        if let thumbnailUrlString = thumbnailUrlString {
-            self.thumbnailUrl = URL(string: thumbnailUrlString)
+    func getImageUrl() -> URL{
+        return URL(string: Ingredient.baseUrl + image)!
+    }
+    
+    func saveForUser() {
+        self.userName = User.currentUser?.screenname
+        self.saveInBackground()
+    }
+    
+    class func fetchIngredientsForUser(name: String, success: @escaping ([Ingredient])->()) {
+        let query = PFQuery(className: Ingredient.parseClassName())
+        query.whereKey("userName", equalTo: name)
+        query.findObjectsInBackground { (results, error) in
+            if results!.count > 0 {
+                let ingredients = results as! [Ingredient]
+                success(ingredients)
+            }
         }
     }
+    
 }
