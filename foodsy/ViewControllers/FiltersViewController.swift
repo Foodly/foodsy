@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol FiltersViewControllerDelegate {
-    @objc optional func filtersViewController(filtersViewController: FiltersViewController, dietChoice: String?, intoleranceChoices: [String]?, typeChoice: String?, cuisineChoices:[String]?)
+    @objc optional func filtersViewController(filtersViewController: FiltersViewController, dietChoice: String, intoleranceChoices: [String], typeChoice: String, cuisineChoices:[String])
 }
 
 class FiltersViewController: UIViewController {
