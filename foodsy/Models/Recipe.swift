@@ -10,17 +10,12 @@ import UIKit
 import Parse
 
 class Recipe: PFObject, PFSubclassing {
-    @NSManaged var vegetarian: NSNumber!
-    @NSManaged var vegan: NSNumber!
-    @NSManaged var glutenFree: NSNumber!
-    @NSManaged var diaryFree: NSNumber!
-    @NSManaged var time: NSNumber!
-    @NSManaged var timeUnit: String!
-    @NSManaged var servings: NSNumber!
     @NSManaged var title: String!
-    @NSManaged var imageUrl: String!
-    var instructions: [String]!
+    @NSManaged var image: String!
     @NSManaged var userName: String!
+    @NSManaged var analyzedInstructions: [NSDictionary]!
+    @NSManaged var id: NSNumber!
+    @NSManaged var extendedIngredients: [NSDictionary]?
     
     class func parseClassName() -> String {
         return "Recipe"
@@ -31,7 +26,18 @@ class Recipe: PFObject, PFSubclassing {
         self.saveInBackground()
     }
     
-    class func fetchIngredientsForUser(name: String, success: @escaping ([Recipe])->()) {
+    func getIngredients() -> [String] {
+        var ingredients = [String]()
+        let instructions = self.extendedIngredients as! [NSDictionary]
+        
+        for step in instructions {
+            let original = step["originalString"] as! String
+            ingredients.append(original)
+        }
+        return ingredients
+    }
+    
+    class func fetchFavoriteRecipesForUser(name: String, success: @escaping ([Recipe])->()) {
         let query = PFQuery(className: Recipe.parseClassName())
         query.whereKey("userName", equalTo: name)
         query.findObjectsInBackground { (results, error) in

@@ -23,7 +23,6 @@ class IngredientClient: NSObject {
         )
         let task = session.dataTask(with: request) { (dataOrNil, response, error) in
             if let data = dataOrNil {
-                print(data)
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? [NSDictionary] {
                     NSLog("response: \(responseDictionary)")

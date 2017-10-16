@@ -9,13 +9,23 @@
 import UIKit
 
 class RecipeIngredientsView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var titleImageView: UIImageView!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        recipeIngredientsInit()
     }
-    */
+    
+    required init?(coder aDecoder:NSCoder) {
+        super.init(coder: aDecoder)
+        recipeIngredientsInit()
+    }
+    
+    private func recipeIngredientsInit() {
+        Bundle.main.loadNibNamed("RecipeIngredientsView", owner: self, options: nil)
+    }
+    
 
 }
