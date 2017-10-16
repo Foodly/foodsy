@@ -26,10 +26,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
+            let ingredientListStoryboard = UIStoryboard(name: "IngredientList", bundle: nil)
+            let ingredientListNavigationController = ingredientListStoryboard.instantiateViewController(withIdentifier: "IngredientsListNavigation") as! UINavigationController
+            let ingredientListViewController = ingredientListNavigationController.topViewController as! IngredientsListViewController
+            ingredientListViewController.tabBarItem.title = "Ingredients"
+            
+            let recipeListStoryboard = UIStoryboard(name: "RecipeList", bundle: nil)
+            let recipeListNavigationController = recipeListStoryboard.instantiateViewController(withIdentifier: "RecipeListNavigationController") as! UINavigationController
+            let recipeListViewController = recipeListNavigationController.topViewController as! RecipeListViewController
+            recipeListViewController.tabBarItem.title = "Recipes"
+            
+            let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            let profileViewController = profileNavigationController.topViewController as! ProfileViewController
+            profileViewController.tabBarItem.title = "Recipes"
+            
+            
+            
+            let tabBarController = UITabBarController()
+            tabBarController.viewControllers = [ingredientListNavigationController, recipeListNavigationController, profileNavigationController]
+            
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
+            
+            let appearance = UITabBarItem.appearance()
+            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font:UIFont(name: "Helvetica Neue", size: 20)]
+            appearance.setTitleTextAttributes(attributes, for: [])
+            
             print("there is a current user")
-            let storyboard = UIStoryboard(name: "RecipeList", bundle: nil)
-            let profileNav = storyboard.instantiateViewController(withIdentifier: "RecipeListNavigationController") as! UINavigationController
-            window?.rootViewController = profileNav
         } else {
             print("no current user")
             let mainStoryboard = UIStoryboard(name: "Login", bundle: nil)
