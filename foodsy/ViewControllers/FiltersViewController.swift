@@ -38,7 +38,7 @@ class FiltersViewController: UIViewController {
         var dietChoice: String!
             
         if tableView.dietSelectState > 0 {
-            dietChoice = DIET[tableView.dietSelectState]
+            dietChoice = DIET_FILTER_OPTIONS[tableView.dietSelectState]
         } else {
             dietChoice = ""
         }
@@ -46,14 +46,14 @@ class FiltersViewController: UIViewController {
         var intoleranceChoices = [String]()
         for (row,isSelected) in tableView.intolerancesSwitchStates{
             if isSelected {
-                intoleranceChoices.append(INTOLERANCES[row])
+                intoleranceChoices.append(INTOLERANCES_FILTER_OPTIONS[row])
             }
         }
         
         var typeChoice: String!
         
         if tableView.typeSelectState > 0 {
-            typeChoice = TYPE[tableView.typeSelectState]
+            typeChoice = TYPE_FILTER_OPTIONS[tableView.typeSelectState]
         } else {
             typeChoice = ""
         }
@@ -61,13 +61,9 @@ class FiltersViewController: UIViewController {
         var cuisineChoices = [String]()
         for (row,isSelected) in tableView.cuisineSwitchStates{
             if isSelected {
-                cuisineChoices.append(CUISINE[row])
+                cuisineChoices.append(CUISINE_FILTER_OPTIONS[row])
             }
         }
-        print (dietChoice)
-        print (intoleranceChoices)
-        print (typeChoice)
-        print (cuisineChoices)
         delegate?.filtersViewController!(filtersViewController: self, dietChoice: dietChoice, intoleranceChoices: intoleranceChoices, typeChoice: typeChoice, cuisineChoices: cuisineChoices)
     }
 }
@@ -151,17 +147,12 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.collapsedLabel.text = tableView.filterSectionData[indexPath.section]?[selectState]
                 return cell
             }
-        case FiltersTableView.SectionId.INTOLERANCES.rawValue, FiltersTableView.SectionId.CUISINE.rawValue:
+        case FiltersTableView.SectionId.INTOLERANCES.rawValue, FiltersTableView.SectionId.CUISINE.rawValue, FiltersTableView.SectionId.USE_INGREDIENTS.rawValue, FiltersTableView.SectionId.USE_SHOPPING_LIST.rawValue:
             if !tableView.expandedSections[indexPath.section]! {
                 if (indexPath.row < tableView.collapsedSwitchCellsSize - 1) {
                  let cell = tableView.dequeueReusableCell(withIdentifier: "FiltersSwitchCell", for: indexPath) as! FiltersSwitchCell
                 cell.switchLabel.text = tableView.filterSectionData[indexPath.section]?[indexPath.row]
-                    
-                if indexPath.section == FiltersTableView.SectionId.INTOLERANCES.rawValue {
-                    cell.onSwitch.isOn = tableView.intolerancesSwitchStates[indexPath.row] ?? false
-                }else{
-                    cell.onSwitch.isOn = tableView.cuisineSwitchStates[indexPath.row] ?? false
-                }
+                cell.onSwitch.isOn = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
                 cell.delegate = self
                  return cell
                 } else {
@@ -172,15 +163,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "FiltersSwitchCell", for: indexPath) as! FiltersSwitchCell
                 cell.switchLabel.text = tableView.filterSectionData[indexPath.section]?[indexPath.row]
-                if indexPath.section == FiltersTableView.SectionId.INTOLERANCES.rawValue {
-                    cell.onSwitch.isOn = tableView.intolerancesSwitchStates[indexPath.row] ?? false
-                }else{
-                    cell.onSwitch.isOn = tableView.cuisineSwitchStates[indexPath.row] ?? false
-                }
+                cell.onSwitch.isOn = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
                 cell.delegate = self
                 return cell
             }
-            
         default:
             break
         }
@@ -192,12 +178,8 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension FiltersViewController: SwitchCellDelegate, SelectCellDelegate {
     func switchCell(switchCell: FiltersSwitchCell, didChangeValue value: Bool) {
-       let indexPath = tableView.indexPath(for: switchCell)!
-        if indexPath.section == FiltersTableView.SectionId.INTOLERANCES.rawValue {
-            tableView.intolerancesSwitchStates[indexPath.row] = value
-        } else if indexPath.section == FiltersTableView.SectionId.CUISINE.rawValue {
-            tableView.cuisineSwitchStates[indexPath.row] = value
-        }
+        let indexPath = tableView.indexPath(for: switchCell)!
+        tableView.setSwitchState(section: indexPath.section, row: indexPath.row, value: value)
     }
     
     func selectCell(selectCell: FiltersSelectCell, isSelected value: Bool) {
