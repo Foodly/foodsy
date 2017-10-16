@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
             print("there is a current user")
-            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-            let profileNav = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+            let storyboard = UIStoryboard(name: "Filters", bundle: nil)
+            let profileNav = storyboard.instantiateViewController(withIdentifier: "FiltersNavigationController") as! UINavigationController
             window?.rootViewController = profileNav
         } else {
             print("no current user")
