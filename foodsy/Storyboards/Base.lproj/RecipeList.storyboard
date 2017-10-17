@@ -56,27 +56,27 @@
                                     <constraint firstAttribute="width" secondItem="XxI-c3-e4D" secondAttribute="height" multiplier="2:1" id="RaC-Jh-khv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhU-G1-5ce">
-                                <rect key="frame" x="16" y="291" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot7-MZ-unE" customClass="RecipeIngredientsView" customModule="foodsy" customModuleProvider="target">
+                                <rect key="frame" x="16" y="227.5" width="343" height="439.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XxI-c3-e4D" firstAttribute="top" secondItem="Z6p-0y-nrC" secondAttribute="top" id="16h-nZ-vaa"/>
                             <constraint firstItem="XxI-c3-e4D" firstAttribute="leading" secondItem="Z6p-0y-nrC" secondAttribute="leading" id="2ZN-xZ-Ate"/>
-                            <constraint firstItem="Z6p-0y-nrC" firstAttribute="trailing" secondItem="NhU-G1-5ce" secondAttribute="trailing" constant="16" id="I8W-fD-2yL"/>
+                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="top" secondItem="XxI-c3-e4D" secondAttribute="bottom" constant="-24" id="C0N-3f-iG6"/>
+                            <constraint firstItem="Z6p-0y-nrC" firstAttribute="bottom" secondItem="Ot7-MZ-unE" secondAttribute="bottom" id="JQo-X9-Rea"/>
                             <constraint firstItem="XxI-c3-e4D" firstAttribute="trailing" secondItem="Z6p-0y-nrC" secondAttribute="trailing" id="Kuy-fO-xvR"/>
-                            <constraint firstItem="NhU-G1-5ce" firstAttribute="leading" secondItem="Z6p-0y-nrC" secondAttribute="leading" constant="16" id="Q4E-G6-D9Q"/>
-                            <constraint firstItem="NhU-G1-5ce" firstAttribute="top" secondItem="XxI-c3-e4D" secondAttribute="bottom" constant="40" id="rXb-Xj-JTz"/>
+                            <constraint firstItem="Z6p-0y-nrC" firstAttribute="trailing" secondItem="Ot7-MZ-unE" secondAttribute="trailing" constant="16" id="UAo-1J-Jwc"/>
+                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="leading" secondItem="Z6p-0y-nrC" secondAttribute="leading" constant="16" id="bLa-kg-JaY"/>
+                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="centerX" secondItem="tAy-uh-S2Q" secondAttribute="centerX" id="fj1-gm-a8a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z6p-0y-nrC"/>
                     </view>
                     <connections>
-                        <outlet property="ingredientsLabel" destination="NhU-G1-5ce" id="DWC-vF-bb8"/>
                         <outlet property="recipeImageView" destination="XxI-c3-e4D" id="cru-25-krT"/>
+                        <outlet property="recipeIngredientsView" destination="Ot7-MZ-unE" id="EKd-1m-igk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUn-IL-dsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
