@@ -16,6 +16,8 @@ class Recipe: PFObject, PFSubclassing {
     @NSManaged var analyzedInstructions: [NSDictionary]!
     @NSManaged var id: NSNumber!
     @NSManaged var extendedIngredients: [NSDictionary]?
+    @NSManaged var readyInMinutes: NSNumber!
+    @NSManaged var servings: NSNumber!
     
     class func parseClassName() -> String {
         return "Recipe"
