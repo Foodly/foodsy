@@ -39,13 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
             let profileViewController = profileNavigationController.topViewController as! ProfileViewController
-            profileViewController.tabBarItem.title = "Recipes"
+            profileViewController.tabBarItem.title = "Profile"
             
             
             
             let tabBarController = UITabBarController()
             tabBarController.viewControllers = [ingredientListNavigationController, recipeListNavigationController, profileNavigationController]
-            
+            tabBarController.tabBar.items![0].title = "Ingredients"
+            tabBarController.tabBar.items![1].title = "Recipes"
+            tabBarController.tabBar.items![2].title = "Profile"
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
             
