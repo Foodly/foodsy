@@ -21,17 +21,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syq-pk-dDg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="syq-pk-dDg" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="09a-GJ-a30"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="VWg-1R-sbx"/>
+                            <constraint firstItem="syq-pk-dDg" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="Vuv-8S-j2b"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="bBf-Wc-FwK"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="gO8-zT-0U9"/>
+                            <constraint firstItem="syq-pk-dDg" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="mGB-bJ-tas"/>
+                            <constraint firstItem="syq-pk-dDg" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="ndF-Wz-Fqk"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="qNF-IL-bam"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sqh-6A-dif"/>
                     </view>
                     <navigationItem key="navigationItem" id="BbV-OY-CYJ">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="sK1-Yv-PhK">
+                            <connections>
+                                <action selector="onMapViewToggle:" destination="KYl-jr-wt7" id="HGn-ZA-5UH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus-simple-7" id="F5h-zn-8to">
                             <connections>
                                 <segue destination="ybw-4h-T0w" kind="presentation" identifier="searchIngredients" id="MyE-UG-C9a"/>
@@ -39,6 +51,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapButton" destination="sK1-Yv-PhK" id="f4g-iY-5aw"/>
+                        <outlet property="mapView" destination="syq-pk-dDg" id="vrw-ij-2Zc"/>
                         <outlet property="tableView" destination="yh3-Rd-2gy" id="ajv-uA-dZW"/>
                     </connections>
                 </viewController>
