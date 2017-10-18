@@ -60,6 +60,7 @@ class IngredientsListViewController: UIViewController {
             isMapViewShowing = false
             tableView.isHidden = false
             self.searchBar.isHidden = true
+            self.title = "Ingredients"
         } else {
             mapButton.title = "List"
             mapView.isHidden = false
