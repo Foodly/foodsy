@@ -10,6 +10,7 @@ target 'foodsy' do
   pod 'MBProgressHUD'
   pod 'BDBOAuth1Manager', '2.0.0'
   pod 'Parse'
+  pod 'AnimatedCollectionViewLayout'
 
   target 'foodsyTests' do
     inherit! :search_paths

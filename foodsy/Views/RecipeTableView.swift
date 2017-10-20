@@ -11,6 +11,7 @@ import UIKit
 class RecipeTableView: UITableView {
 
     var recipes: [Recipe]?
+    var recipeFavorites = [Int: Bool]()
     override func awakeFromNib() {
         self.estimatedRowHeight = 100
         self.rowHeight = UITableViewAutomaticDimension

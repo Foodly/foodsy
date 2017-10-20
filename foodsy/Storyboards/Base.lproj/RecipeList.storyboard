@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Yp-Bg-i6R" customClass="RecipeTableView" customModule="foodsy" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Yp-Bg-i6R" customClass="RecipeTableView" customModule="foodsy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.90196078431372551" green="0.90980392156862744" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,53 +35,11 @@
                     <navigationItem key="navigationItem" title="Recipes" id="YnC-UF-aaA"/>
                     <connections>
                         <outlet property="tableView" destination="6Yp-Bg-i6R" id="yfE-j7-cvx"/>
-                        <segue destination="MSl-aA-PE1" kind="show" identifier="showRecipeDetails" id="bn2-RD-LmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lb-QU-5iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="-30.134932533733135"/>
-        </scene>
-        <!--Recipe Details View Controller-->
-        <scene sceneID="S8z-I9-gV5">
-            <objects>
-                <viewController id="MSl-aA-PE1" customClass="RecipeDetailsViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tAy-uh-S2Q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XxI-c3-e4D">
-                                <rect key="frame" x="0.0" y="64" width="375" height="187.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XxI-c3-e4D" secondAttribute="height" multiplier="2:1" id="RaC-Jh-khv"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot7-MZ-unE" customClass="RecipeIngredientsView" customModule="foodsy" customModuleProvider="target">
-                                <rect key="frame" x="16" y="227.5" width="343" height="439.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XxI-c3-e4D" firstAttribute="top" secondItem="Z6p-0y-nrC" secondAttribute="top" id="16h-nZ-vaa"/>
-                            <constraint firstItem="XxI-c3-e4D" firstAttribute="leading" secondItem="Z6p-0y-nrC" secondAttribute="leading" id="2ZN-xZ-Ate"/>
-                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="top" secondItem="XxI-c3-e4D" secondAttribute="bottom" constant="-24" id="C0N-3f-iG6"/>
-                            <constraint firstItem="Z6p-0y-nrC" firstAttribute="bottom" secondItem="Ot7-MZ-unE" secondAttribute="bottom" id="JQo-X9-Rea"/>
-                            <constraint firstItem="XxI-c3-e4D" firstAttribute="trailing" secondItem="Z6p-0y-nrC" secondAttribute="trailing" id="Kuy-fO-xvR"/>
-                            <constraint firstItem="Z6p-0y-nrC" firstAttribute="trailing" secondItem="Ot7-MZ-unE" secondAttribute="trailing" constant="16" id="UAo-1J-Jwc"/>
-                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="leading" secondItem="Z6p-0y-nrC" secondAttribute="leading" constant="16" id="bLa-kg-JaY"/>
-                            <constraint firstItem="Ot7-MZ-unE" firstAttribute="centerX" secondItem="tAy-uh-S2Q" secondAttribute="centerX" id="fj1-gm-a8a"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Z6p-0y-nrC"/>
-                    </view>
-                    <connections>
-                        <outlet property="recipeImageView" destination="XxI-c3-e4D" id="cru-25-krT"/>
-                        <outlet property="recipeIngredientsView" destination="Ot7-MZ-unE" id="EKd-1m-igk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kUn-IL-dsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="-29.23538230884558"/>
+            <point key="canvasLocation" x="263" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="avf-8m-sy4">

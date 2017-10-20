@@ -15,7 +15,7 @@ class RecipeClient: NSObject {
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
     
     func fetchRecipes(params: NSDictionary?, success: @escaping ([Recipe])->(), failure: @escaping (Error)->()) {
-        var relativeUrl = baseUrl + "searchComplex?number=30&addRecipeInformation=true"
+        var relativeUrl = baseUrl + "searchComplex?number=15&addRecipeInformation=true"
         var urlComponents = URLComponents(string : relativeUrl)!
         var queryItems = [URLQueryItem]()
         var url: URL!
@@ -47,12 +47,16 @@ class RecipeClient: NSObject {
             if let data = dataOrNil {
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? NSDictionary {
-                    print("response: \(responseDictionary)")
+                    //print("response: \(responseDictionary)")
                     
                     let recipesDictionary = responseDictionary["results"] as! [NSDictionary]
                     var recipes = [Recipe]()
                     for recipe in recipesDictionary {
-                        recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
+                        let analyzedInstructions = recipe["analyzedInstructions"] as! [NSDictionary]
+                        if analyzedInstructions.count > 0 {
+                            recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
+                        }
+                        
                     }
                     success(recipes)
                 }
@@ -80,7 +84,7 @@ class RecipeClient: NSObject {
             if let data = dataOrNil {
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? NSDictionary {
-                    print("response: \(responseDictionary)")
+                    //print("response: \(responseDictionary)")
                     let recipe = Recipe(className: "Recipe", dictionary: responseDictionary as? [String : Any]);
                     success(recipe)
                 }

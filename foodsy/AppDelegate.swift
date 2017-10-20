@@ -41,13 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let profileViewController = profileNavigationController.topViewController as! ProfileViewController
             profileViewController.tabBarItem.title = "Profile"
             
+            let favoritesStoryboard = UIStoryboard(name: "Favorites", bundle: nil)
+            let favoritesNavigationController = favoritesStoryboard.instantiateViewController(withIdentifier: "FavoritesNavigationController") as! UINavigationController
+            let favoritesViewController = favoritesNavigationController.topViewController as! FavoritesViewController
+            favoritesViewController.tabBarItem.title = "Favorites"
+            
             
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [ingredientListNavigationController, recipeListNavigationController, profileNavigationController]
+            tabBarController.viewControllers = [ingredientListNavigationController, recipeListNavigationController, profileNavigationController, favoritesViewController]
             tabBarController.tabBar.items![0].title = "Ingredients"
             tabBarController.tabBar.items![1].title = "Recipes"
             tabBarController.tabBar.items![2].title = "Profile"
+            tabBarController.tabBar.items![3].title = "Favorites"
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
             
