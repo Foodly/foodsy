@@ -5,37 +5,67 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Recipe Details View Controller-->
         <scene sceneID="HJG-uB-yGu">
             <objects>
-                <viewController id="BNw-6F-cuy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeDetailsViewController" id="BNw-6F-cuy" customClass="RecipeDetailsViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ggW-4K-2f5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ats-77-qMr" customClass="RecipeIngredientsView" customModule="foodsy" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-7N-J9J">
+                                <rect key="frame" x="0.0" y="20" width="375" height="187.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z68-7N-J9J" secondAttribute="height" multiplier="2:1" id="BYa-76-Man"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-Si-kfT">
+                                <rect key="frame" x="0.0" y="183.5" width="375" height="483.5"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="asB-cF-B25">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9V-Mc-2q6">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.51372549020000002" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OXg-0B-Mna" firstAttribute="trailing" secondItem="ats-77-qMr" secondAttribute="trailing" id="Q3t-K9-qCd"/>
-                            <constraint firstItem="OXg-0B-Mna" firstAttribute="bottom" secondItem="ats-77-qMr" secondAttribute="bottom" id="Q67-mw-FtG"/>
-                            <constraint firstItem="ats-77-qMr" firstAttribute="leading" secondItem="OXg-0B-Mna" secondAttribute="leading" id="iK8-Z0-wgM"/>
-                            <constraint firstItem="ats-77-qMr" firstAttribute="top" secondItem="OXg-0B-Mna" secondAttribute="top" id="qhn-6o-jyf"/>
+                            <constraint firstItem="xgp-Si-kfT" firstAttribute="top" secondItem="Z68-7N-J9J" secondAttribute="bottom" constant="-24" id="3Cm-2h-xLx"/>
+                            <constraint firstItem="OXg-0B-Mna" firstAttribute="trailing" secondItem="xgp-Si-kfT" secondAttribute="trailing" id="CWS-pf-vjn"/>
+                            <constraint firstItem="Z68-7N-J9J" firstAttribute="leading" secondItem="OXg-0B-Mna" secondAttribute="leading" id="HBO-bn-kby"/>
+                            <constraint firstItem="xgp-Si-kfT" firstAttribute="leading" secondItem="OXg-0B-Mna" secondAttribute="leading" id="Id6-z3-BjO"/>
+                            <constraint firstItem="u9V-Mc-2q6" firstAttribute="top" secondItem="OXg-0B-Mna" secondAttribute="top" id="QkU-iZ-3WZ"/>
+                            <constraint firstItem="Z68-7N-J9J" firstAttribute="trailing" secondItem="OXg-0B-Mna" secondAttribute="trailing" id="VFA-VN-8Sl"/>
+                            <constraint firstItem="Z68-7N-J9J" firstAttribute="top" secondItem="OXg-0B-Mna" secondAttribute="top" id="ZaA-5l-E9f"/>
+                            <constraint firstItem="OXg-0B-Mna" firstAttribute="bottom" secondItem="xgp-Si-kfT" secondAttribute="bottom" id="eZW-CQ-B63"/>
+                            <constraint firstItem="u9V-Mc-2q6" firstAttribute="bottom" secondItem="OXg-0B-Mna" secondAttribute="bottom" id="fiM-YG-6H3"/>
+                            <constraint firstItem="OXg-0B-Mna" firstAttribute="trailing" secondItem="u9V-Mc-2q6" secondAttribute="trailing" id="ifM-Wi-eJd"/>
+                            <constraint firstItem="u9V-Mc-2q6" firstAttribute="leading" secondItem="OXg-0B-Mna" secondAttribute="leading" id="vdO-kz-buu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXg-0B-Mna"/>
                     </view>
                     <navigationItem key="navigationItem" id="eoU-cV-reO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="xgp-Si-kfT" id="BcY-4r-h6U"/>
+                        <outlet property="containerView" destination="ggW-4K-2f5" id="fAv-8e-9SS"/>
+                        <outlet property="curtainView" destination="u9V-Mc-2q6" id="9p1-WS-enl"/>
+                        <outlet property="recipeImageView" destination="Z68-7N-J9J" id="qTu-4O-fsG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaT-5P-h3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546.39999999999998" y="-150.67466266866569"/>
+            <point key="canvasLocation" x="-82" y="-152"/>
         </scene>
     </scenes>
 </document>

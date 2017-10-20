@@ -28,6 +28,11 @@ class Recipe: PFObject, PFSubclassing {
         self.saveInBackground()
     }
     
+    func unfavoriteForUser() {
+        self.userName = User.currentUser?.screenname
+        self.deleteInBackground()
+    }
+    
     func getIngredients() -> [String] {
         var ingredients = [String]()
         let instructions = self.extendedIngredients as! [NSDictionary]
@@ -37,6 +42,19 @@ class Recipe: PFObject, PFSubclassing {
             ingredients.append(original)
         }
         return ingredients
+    }
+    
+    func getInstructions() -> [String] {
+        var instructions = [String]()
+        print(self.analyzedInstructions)
+        let firstPart = self.analyzedInstructions[0]
+        let steps = firstPart["steps"] as! [NSDictionary]
+        for step in steps {
+            let stepInstruction = step["step"] as! String
+            instructions.append(stepInstruction)
+        }
+        
+        return instructions
     }
     
     class func fetchFavoriteRecipesForUser(name: String, success: @escaping ([Recipe])->()) {
