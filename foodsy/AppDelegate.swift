@@ -27,19 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
             let ingredientListStoryboard = UIStoryboard(name: "IngredientList", bundle: nil)
+            let shoppingListNavigationController = ingredientListStoryboard.instantiateViewController(withIdentifier: "IngredientsListNavigation") as! UINavigationController
+            let shoppingListViewController = shoppingListNavigationController.topViewController as! IngredientsListViewController
+            shoppingListViewController.vcIdentifier = "shopping"
+            
             let ingredientListNavigationController = ingredientListStoryboard.instantiateViewController(withIdentifier: "IngredientsListNavigation") as! UINavigationController
             let ingredientListViewController = ingredientListNavigationController.topViewController as! IngredientsListViewController
-            ingredientListViewController.tabBarItem.title = "Ingredients"
+            ingredientListViewController.vcIdentifier = "ingredient"
+            ingredientListNavigationController.tabBarItem.title = "Kitchen"
             
             let recipeListStoryboard = UIStoryboard(name: "RecipeList", bundle: nil)
             let recipeListNavigationController = recipeListStoryboard.instantiateViewController(withIdentifier: "RecipeListNavigationController") as! UINavigationController
             let recipeListViewController = recipeListNavigationController.topViewController as! RecipeListViewController
-            recipeListViewController.tabBarItem.title = "Recipes"
+            recipeListNavigationController.tabBarItem.title = "Recipes"
             
             let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
             let profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
             let profileViewController = profileNavigationController.topViewController as! ProfileViewController
-            profileViewController.tabBarItem.title = "Profile"
+            profileNavigationController.tabBarItem.title = "Profile"
             
             let favoritesStoryboard = UIStoryboard(name: "Favorites", bundle: nil)
             let favoritesNavigationController = favoritesStoryboard.instantiateViewController(withIdentifier: "FavoritesNavigationController") as! UINavigationController
@@ -47,20 +52,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             favoritesViewController.tabBarItem.title = "Favorites"
             
             
-            
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [ingredientListNavigationController, recipeListNavigationController, profileNavigationController, favoritesViewController]
-            tabBarController.tabBar.items![0].title = "Ingredients"
-            tabBarController.tabBar.items![1].title = "Recipes"
-            tabBarController.tabBar.items![2].title = "Profile"
-            tabBarController.tabBar.items![3].title = "Favorites"
+            tabBarController.viewControllers = [shoppingListNavigationController, ingredientListNavigationController, recipeListNavigationController, profileNavigationController, favoritesViewController]
+            tabBarController.tabBar.items![0].image = #imageLiteral(resourceName: "shopping-cart")
+            tabBarController.tabBar.items![1].image = #imageLiteral(resourceName: "ingredient-list")
+            tabBarController.tabBar.items![2].image = #imageLiteral(resourceName: "recipes")
+            tabBarController.tabBar.items![3].image = #imageLiteral(resourceName: "profile")
+            tabBarController.tabBar.items![4].image = #imageLiteral(resourceName: "favorite")
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
+            window?.tintColor = UIColor(red: 1, green: 0.5137, blue: 0.2667, alpha: 1.0)
             
-            let appearance = UITabBarItem.appearance()
+            /*let appearance = UITabBarItem.appearance()
             let attributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font:UIFont(name: "Helvetica Neue", size: 20)]
             appearance.setTitleTextAttributes(attributes, for: [])
-            
+             */
             print("there is a current user")
         } else {
             print("no current user")

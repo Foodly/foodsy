@@ -25,7 +25,9 @@ class IngredientSearchViewController: UIViewController {
         self.searchBar.placeholder = "Search"
         navigationItem.titleView = self.searchBar
         let cellNib = UINib(nibName: "IngredientTableViewCell", bundle: nil)
+        let customNib = UINib(nibName: "AddCustomTableViewCell", bundle: nil)
         ingredientsTable.register(cellNib, forCellReuseIdentifier: "IngredientCellSearch")
+        ingredientsTable.register(customNib, forCellReuseIdentifier: "AddCustomCell")
         ingredientsTable.delegate = self
         ingredientsTable.dataSource = self
         ingredientsTable.rowHeight = UITableViewAutomaticDimension
@@ -53,18 +55,38 @@ extension IngredientSearchViewController: IngredientTableViewCellDelegate {
 
 extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ingredients != nil {
-            return ingredients.count
+        if section == 0 {
+            return 1
         } else {
-            return 0
+            if ingredients != nil {
+                return ingredients.count
+            } else {
+                return 0
+            }
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            performSegue(withIdentifier: "addCustomIngredient", sender: self)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCellSearch") as! IngredientTableViewCell
-        cell.delegate = self
-        cell.ingredient = ingredients[indexPath.row]
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCustomCell") as! AddCustomTableViewCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCellSearch") as! IngredientTableViewCell
+            cell.ingredientDelegate = self
+            cell.ingredient = ingredients[indexPath.row]
+            return cell
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
 }
