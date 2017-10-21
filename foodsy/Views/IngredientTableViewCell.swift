@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 @objc protocol IngredientTableViewCellDelegate {
     @objc optional func ingredientAdded(ingredient: Ingredient)
 }
 
-class IngredientTableViewCell: UITableViewCell {
+class IngredientTableViewCell: SwipeTableViewCell {
 
     @IBOutlet weak var ingredientImage: UIImageView!
     @IBOutlet weak var ingredientName: UILabel!
     @IBOutlet weak var addButton: UIImageView!
-    var delegate: IngredientTableViewCellDelegate!
+    var ingredientDelegate: IngredientTableViewCellDelegate!
     var ingredient: Ingredient! {
         didSet {
             ingredientImage.setImageWith(ingredient.getImageUrl())
@@ -33,7 +34,7 @@ class IngredientTableViewCell: UITableViewCell {
     }
     
     @objc func onAddIngredient(tapGestureRecognizer: UITapGestureRecognizer) {
-        delegate.ingredientAdded!(ingredient: ingredient)
+        ingredientDelegate.ingredientAdded!(ingredient: ingredient)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

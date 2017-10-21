@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SwipeCellKit
 
 class IngredientsListViewController: UIViewController {
 
@@ -19,13 +20,30 @@ class IngredientsListViewController: UIViewController {
     var isMapViewShowing = false
     var searchBar: UISearchBar!
     var lastLocation : CLLocationCoordinate2D!
+    var vcIdentifier: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
         self.ingredients = [Ingredient]()
-        Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!) { (ingredients) in
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchIngredientsAndUpdateTable();
+        setTitleBasedOnIdentifier()
+    }
+    
+    func setTitleBasedOnIdentifier() {
+        if self.vcIdentifier == "ingredient" {
+            self.title = "Kitchen"
+        } else {
+            self.title = "Cart"
+        }
+    }
+    
+    func fetchIngredientsAndUpdateTable() {
+        Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!, type: self.vcIdentifier) { (ingredients) in
             self.ingredients = ingredients
             self.tableView.reloadData()
         }
@@ -39,13 +57,11 @@ class IngredientsListViewController: UIViewController {
         // Do any additional setup after loading the view.
         let cellNib = UINib(nibName: "IngredientTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "IngredientCell")
-        self.title = "Ingredients"
         self.searchBar = UISearchBar()
         self.searchBar.sizeToFit()
         self.searchBar.delegate = self
         self.searchBar.placeholder = "Search"
         self.searchBar.isHidden = true
-        navigationItem.titleView = self.searchBar
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,9 +76,11 @@ class IngredientsListViewController: UIViewController {
             isMapViewShowing = false
             tableView.isHidden = false
             self.searchBar.isHidden = true
-            self.title = "Ingredients"
+            navigationItem.titleView = nil
+            setTitleBasedOnIdentifier()
         } else {
             mapButton.title = "List"
+            navigationItem.titleView = self.searchBar
             mapView.isHidden = false
             isMapViewShowing = true
             tableView.isHidden = true
@@ -107,6 +125,7 @@ extension IngredientsListViewController: MKMapViewDelegate {
 
 extension IngredientsListViewController: IngredientSearchViewControllerDelegate {
     func ingredientAdded(ingredient: Ingredient) {
+        ingredient.type = self.vcIdentifier
         ingredient.saveForUser()
         self.ingredients.append(ingredient)
         self.tableView.reloadData()
@@ -125,6 +144,7 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientTableViewCell
         cell.addButton.isHidden = true
+        cell.delegate = self
         cell.ingredient = ingredients[indexPath.row]
         return cell
     }
@@ -133,4 +153,38 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
         return true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+extension IngredientsListViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let ingredient = self.ingredients[indexPath.row]
+        if orientation == .right {
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+                // handle action by updating model with deletion
+                ingredient.deleteInBackground()
+                self.ingredients.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            }
+            return [deleteAction]
+        } else if orientation == .left {
+            let completedAction = SwipeAction(style: .default, title: "Done", handler: { (action, indexPath) in
+                if self.vcIdentifier == "shopping" {
+                    ingredient.type = "ingredient"
+                    ingredient.saveInBackground()
+                } else {
+                    ingredient.type = "shopping"
+                    ingredient.saveInBackground()
+                }
+                self.ingredients.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            })
+            return [completedAction]
+        }
+        return nil
+
+    }
 }

@@ -17,6 +17,9 @@
 		68243B021F9457D50016F9F8 /* IngredientClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68243B011F9457D50016F9F8 /* IngredientClient.swift */; };
 		6832DCC81F9031550044ADCC /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832DCC71F9031550044ADCC /* TwitterClient.swift */; };
 		6832DCCA1F9031BD0044ADCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6832DCC91F9031BD0044ADCC /* User.swift */; };
+		6864E9981F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864E9961F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift */; };
+		6864E9991F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6864E9971F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib */; };
+		6864E99B1F9B0B6D00C9A5D4 /* AddCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */; };
 		68D51C6E1F928AA400EAF4D0 /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */; };
 		821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821FB45A1F8CB9E400722263 /* Profile.storyboard */; };
 		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
@@ -91,6 +94,9 @@
 		68243B011F9457D50016F9F8 /* IngredientClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientClient.swift; sourceTree = "<group>"; };
 		6832DCC71F9031550044ADCC /* TwitterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		6832DCC91F9031BD0044ADCC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6864E9961F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomTableViewCell.swift; sourceTree = "<group>"; };
+		6864E9971F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomTableViewCell.xib; sourceTree = "<group>"; };
+		6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomViewController.swift; sourceTree = "<group>"; };
 		68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
 		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
 		821FB45B1F8CB9E400722263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 				829C45311F9480E7001B3439 /* RecipeDetailsViewController.swift */,
 				829C453A1F94B016001B3439 /* RecipeListViewController.swift */,
 				82B264171F99FED700668662 /* FavoritesViewController.swift */,
+				6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +224,7 @@
 			children = (
 				821FB4591F8CB9AF00722263 /* XIB */,
 				82E7990F1F99DA4200F7A2F0 /* RecipeInstructionCardCell.swift */,
+				6864E9961F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift */,
 				829C44FB1F90A925001B3439 /* ProfileSetupView.swift */,
 				68243AFB1F943FF70016F9F8 /* IngredientTableViewCell.swift */,
 				829C45121F928F42001B3439 /* FiltersSwitchCell.swift */,
@@ -238,6 +246,7 @@
 				829C45171F928F56001B3439 /* FiltersSelectCell.xib */,
 				829C44FD1F90A940001B3439 /* ProfileSetupView.xib */,
 				68243AFC1F943FF70016F9F8 /* IngredientTableViewCell.xib */,
+				6864E9971F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib */,
 				829C451F1F929017001B3439 /* FiltersCollapsedCell.xib */,
 				829C453D1F94B08E001B3439 /* RecipeCell.xib */,
 				829EFCD41F97471E00D32D69 /* RecipeMainIngredientsCardCell.xib */,
@@ -474,6 +483,7 @@
 				829EFCD61F97471E00D32D69 /* RecipeMainIngredientsCardCell.xib in Resources */,
 				829C450F1F928E9B001B3439 /* Filters.storyboard in Resources */,
 				82893BD31F8CB505000193A5 /* Main.storyboard in Resources */,
+				6864E9991F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib in Resources */,
 				829C45191F928F56001B3439 /* FiltersSelectCell.xib in Resources */,
 				829C453F1F94B08E001B3439 /* RecipeCell.xib in Resources */,
 			);
@@ -560,6 +570,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -569,6 +580,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -666,6 +678,7 @@
 				829C453E1F94B08E001B3439 /* RecipeCell.swift in Sources */,
 				821FB4601F8CBE4F00722263 /* Profile.swift in Sources */,
 				829C45321F9480E7001B3439 /* RecipeDetailsViewController.swift in Sources */,
+				6864E9981F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift in Sources */,
 				82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */,
 				68D51C6E1F928AA400EAF4D0 /* ApiToken.swift in Sources */,
 				829C44FC1F90A925001B3439 /* ProfileSetupView.swift in Sources */,
@@ -686,6 +699,7 @@
 				82E799101F99DA4200F7A2F0 /* RecipeInstructionCardCell.swift in Sources */,
 				829C45231F941F20001B3439 /* FiltersTableView.swift in Sources */,
 				829C45141F928F42001B3439 /* FiltersSwitchCell.swift in Sources */,
+				6864E99B1F9B0B6D00C9A5D4 /* AddCustomViewController.swift in Sources */,
 				68243B021F9457D50016F9F8 /* IngredientClient.swift in Sources */,
 				829C45011F90BF40001B3439 /* Ingredient.swift in Sources */,
 				82B264181F99FED700668662 /* FavoritesViewController.swift in Sources */,
