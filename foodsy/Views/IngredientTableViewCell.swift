@@ -18,11 +18,30 @@ class IngredientTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var ingredientImage: UIImageView!
     @IBOutlet weak var ingredientName: UILabel!
     @IBOutlet weak var addButton: UIImageView!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var reminder: UILabel!
     var ingredientDelegate: IngredientTableViewCellDelegate!
     var ingredient: Ingredient! {
         didSet {
             ingredientImage.setImageWith(ingredient.getImageUrl())
             ingredientName.text = ingredient.name
+            if ingredient.quantity != nil {
+                quantityLabel.text = ingredient.quantity?.description
+                quantity.isHidden = false
+            } else {
+                quantity.isHidden = true
+                quantityLabel.text = ""
+            }
+            if ingredient.reminderDays != nil {
+                reminderLabel.text = (ingredient.reminderDays?.description)! + " DAYS"
+                reminder.isHidden = false
+            } else {
+                reminderLabel.text = ""
+                reminder.isHidden = true
+            }
+            
         }
     }
     

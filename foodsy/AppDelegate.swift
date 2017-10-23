@@ -62,11 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
             window?.tintColor = UIColor(red: 1, green: 0.5137, blue: 0.2667, alpha: 1.0)
-            
-            /*let appearance = UITabBarItem.appearance()
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font:UIFont(name: "Helvetica Neue", size: 20)]
-            appearance.setTitleTextAttributes(attributes, for: [])
-             */
             print("there is a current user")
         } else {
             print("no current user")
