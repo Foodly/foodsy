@@ -17,6 +17,7 @@ class IngredientsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var locationManager: CLLocationManager!
     var ingredients: [Ingredient]!
+    var selectedIngredient: Ingredient!
     var isMapViewShowing = false
     var searchBar: UISearchBar!
     var lastLocation : CLLocationCoordinate2D!
@@ -93,6 +94,11 @@ class IngredientsListViewController: UIViewController {
             let nav = segue.destination as! UINavigationController
             let searchVc = nav.topViewController as! IngredientSearchViewController
             searchVc.delegate = self
+        } else if segue.identifier == "showIngredientDetails" {
+            let detailsVc = segue.destination as! AddCustomViewController
+            detailsVc.ingredient = self.selectedIngredient
+            detailsVc.mode = "edit"
+            detailsVc.editDelegate = self
         }
     }
 }
@@ -132,6 +138,15 @@ extension IngredientsListViewController: IngredientSearchViewControllerDelegate 
     }
 }
 
+extension IngredientsListViewController: EditCustomViewControllerDelegate {
+    func onEditIngredient(ingredient: Ingredient) {
+        self.navigationController?.popToViewController(self, animated: true)
+        ingredient.saveInBackground { (result, error) in
+            self.tableView.reloadData()
+        }
+    }
+}
+
 extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ingredients != nil {
@@ -155,6 +170,8 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedIngredient = ingredients[indexPath.row]
+        performSegue(withIdentifier: "showIngredientDetails", sender: self)
     }
     
 }

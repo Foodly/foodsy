@@ -16,7 +16,8 @@ class IngredientSearchViewController: UIViewController {
     @IBOutlet weak var ingredientsTable: UITableView!
     var searchBar: UISearchBar!
     var ingredients: [Ingredient]!
-    var delegate: IngredientSearchViewControllerDelegate!
+    var selectedIngredient: Ingredient!
+    weak var delegate: IngredientSearchViewControllerDelegate!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar = UISearchBar()
@@ -40,6 +41,16 @@ class IngredientSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addCustomIngredient" {
+            let addVc = segue.destination as! AddCustomViewController
+            if let ingredient = self.selectedIngredient {
+                addVc.ingredient = ingredient
+                addVc.delegate = self
+            }
+        }
+    }
+    
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -48,8 +59,8 @@ class IngredientSearchViewController: UIViewController {
 
 extension IngredientSearchViewController: IngredientTableViewCellDelegate {
     func ingredientAdded(ingredient: Ingredient) {
-        self.delegate.ingredientAdded!(ingredient: ingredient)
-        dismiss(animated: true, completion: nil)
+        self.selectedIngredient = ingredient
+        performSegue(withIdentifier: "addCustomIngredient", sender: self)
     }
 }
 
@@ -99,5 +110,13 @@ extension IngredientSearchViewController: UISearchBarDelegate {
         }) { (error) in
             print("Error: \(error.localizedDescription)")
         }
+    }
+}
+
+extension IngredientSearchViewController: AddCustomViewControllerDelegate {
+    func onAddIngredient(ingredient: Ingredient) {
+        self.navigationController?.popToViewController(self, animated: true)
+        self.delegate.ingredientAdded!(ingredient: ingredient)
+        dismiss(animated: true, completion: nil)
     }
 }

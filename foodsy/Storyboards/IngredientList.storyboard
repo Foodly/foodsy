@@ -54,11 +54,12 @@
                         <outlet property="mapButton" destination="sK1-Yv-PhK" id="f4g-iY-5aw"/>
                         <outlet property="mapView" destination="syq-pk-dDg" id="vrw-ij-2Zc"/>
                         <outlet property="tableView" destination="yh3-Rd-2gy" id="ajv-uA-dZW"/>
+                        <segue destination="GQr-NL-8tE" kind="push" identifier="showIngredientDetails" id="zlV-2Z-3bN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FX7-Ib-Q45" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439.19999999999999" y="85.907046476761622"/>
+            <point key="canvasLocation" x="434" y="-783"/>
         </scene>
         <!--Ingredient Search View Controller-->
         <scene sceneID="yRN-aj-8No">
@@ -96,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fu-qL-T1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2511.1999999999998" y="-783.05847076461771"/>
+            <point key="canvasLocation" x="1622" y="-348"/>
         </scene>
         <!--Add Custom View Controller-->
         <scene sceneID="SiM-a4-6xX">
@@ -131,13 +132,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-w8-Ym4">
-                                <rect key="frame" x="16" y="308.5" width="65" height="20.5"/>
+                                <rect key="frame" x="16" y="324.5" width="65" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVf-xQ-PqZ">
-                                <rect key="frame" x="16" y="337" width="103.5" height="20.5"/>
+                                <rect key="frame" x="16" y="369" width="103.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,7 +153,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-8h-9k9">
-                                <rect key="frame" x="190" y="304" width="169" height="30"/>
+                                <rect key="frame" x="190" y="320" width="169" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="ciM-aL-RYC"/>
                                 </constraints>
@@ -161,7 +162,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LEh-oc-RLP">
-                                <rect key="frame" x="190" y="332.5" width="169" height="30"/>
+                                <rect key="frame" x="190" y="364.5" width="169" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="zzb-YT-KdL"/>
                                 </constraints>
@@ -180,20 +181,27 @@
                             <constraint firstItem="ajf-8h-9k9" firstAttribute="centerY" secondItem="qVH-w8-Ym4" secondAttribute="centerY" id="D5J-kF-V4R"/>
                             <constraint firstItem="9Xc-Ue-Zdv" firstAttribute="top" secondItem="zs0-th-Sux" secondAttribute="top" id="Fab-4V-d1e"/>
                             <constraint firstItem="zs0-th-Sux" firstAttribute="trailing" secondItem="77b-ab-ZJF" secondAttribute="trailing" constant="16" id="G6e-d3-ueY"/>
-                            <constraint firstItem="qVH-w8-Ym4" firstAttribute="top" secondItem="Vfz-cp-Trz" secondAttribute="bottom" constant="8" id="MNS-2a-uZ6"/>
+                            <constraint firstItem="qVH-w8-Ym4" firstAttribute="top" secondItem="Vfz-cp-Trz" secondAttribute="bottom" constant="24" id="MNS-2a-uZ6"/>
                             <constraint firstItem="Vfz-cp-Trz" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" constant="16" id="OQu-by-3uN"/>
                             <constraint firstItem="Bxg-LL-49H" firstAttribute="centerX" secondItem="9Xc-Ue-Zdv" secondAttribute="centerX" id="bWP-bl-s9u"/>
                             <constraint firstItem="77b-ab-ZJF" firstAttribute="centerY" secondItem="Vfz-cp-Trz" secondAttribute="centerY" id="fpj-Ua-XxH"/>
                             <constraint firstItem="YVf-xQ-PqZ" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" constant="16" id="gLb-mg-I1j"/>
-                            <constraint firstItem="YVf-xQ-PqZ" firstAttribute="top" secondItem="qVH-w8-Ym4" secondAttribute="bottom" constant="8" id="h3A-L9-rCm"/>
+                            <constraint firstItem="YVf-xQ-PqZ" firstAttribute="top" secondItem="qVH-w8-Ym4" secondAttribute="bottom" constant="24" id="h3A-L9-rCm"/>
                             <constraint firstItem="9Xc-Ue-Zdv" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" id="kYH-WV-J7p"/>
                             <constraint firstItem="zs0-th-Sux" firstAttribute="trailing" secondItem="ajf-8h-9k9" secondAttribute="trailing" constant="16" id="m1S-uW-fwd"/>
                             <constraint firstItem="Bxg-LL-49H" firstAttribute="centerY" secondItem="9Xc-Ue-Zdv" secondAttribute="centerY" id="o3g-fP-X9x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zs0-th-Sux"/>
                     </view>
-                    <navigationItem key="navigationItem" id="u70-V9-BfA"/>
+                    <navigationItem key="navigationItem" id="u70-V9-BfA">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Cij-Ng-rHa">
+                            <connections>
+                                <action selector="onAddIngredient:" destination="GQr-NL-8tE" id="hos-WL-Vmu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addIngredientItem" destination="Cij-Ng-rHa" id="mOf-9P-gpf"/>
                         <outlet property="addPhotoButton" destination="Bxg-LL-49H" id="Qid-SQ-afB"/>
                         <outlet property="ingredientImage" destination="9Xc-Ue-Zdv" id="hbE-Xe-x52"/>
                         <outlet property="name" destination="77b-ab-ZJF" id="xzl-Vk-hAc"/>
@@ -203,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd1-0t-gUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141.6000000000004" y="-783.05847076461771"/>
+            <point key="canvasLocation" x="2822" y="-783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mCB-sJ-zdH">
@@ -221,7 +229,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbV-qJ-8mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446" y="86"/>
+            <point key="canvasLocation" x="-703" y="-63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8zF-Lg-2jf">
@@ -239,7 +247,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANA-wK-BeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="-783"/>
+            <point key="canvasLocation" x="668" y="292"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cC5-7D-dJG">
@@ -257,13 +265,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vu-0E-avy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3407" y="86"/>
+            <point key="canvasLocation" x="2511" y="-29"/>
         </scene>
     </scenes>
     <resources>
         <image name="plus-simple-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hlq-jU-mBU"/>
+        <segue reference="zlV-2Z-3bN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,8 @@ class Ingredient: PFObject, PFSubclassing {
     @NSManaged var image: String!
     @NSManaged var userName: String!
     @NSManaged var type: String!
+    @NSManaged var quantity: NSNumber!
+    @NSManaged var reminderDays: NSNumber!
     
     class func parseClassName() -> String {
         return "Ingredient"
