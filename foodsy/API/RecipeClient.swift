@@ -15,7 +15,7 @@ class RecipeClient: NSObject {
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
     
     func fetchRecipes(params: NSDictionary?, success: @escaping ([Recipe])->(), failure: @escaping (Error)->()) {
-        var relativeUrl = baseUrl + "searchComplex?number=15&addRecipeInformation=true"
+        let relativeUrl = baseUrl + "searchComplex?number=15&addRecipeInformation=true"
         var urlComponents = URLComponents(string : relativeUrl)!
         var queryItems = [URLQueryItem]()
         var url: URL!
@@ -59,6 +59,8 @@ class RecipeClient: NSObject {
                         
                     }
                     success(recipes)
+                } else {
+                    
                 }
             }
             if let error = error {
@@ -69,7 +71,7 @@ class RecipeClient: NSObject {
     }
     
     func fetchRecipe(recipeId: Int, success: @escaping (Recipe)->(), failure: @escaping (Error)->()) {
-        var relativeUrl = baseUrl + "\(recipeId)/information"
+        let relativeUrl = baseUrl + "\(recipeId)/information"
         let url = URL(string: relativeUrl)
         
         var request = URLRequest(url: url!)
