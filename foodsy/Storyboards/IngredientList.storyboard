@@ -92,7 +92,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientsTable" destination="GOb-UU-7rg" id="0wg-Nb-IY4"/>
-                        <segue destination="GQr-NL-8tE" kind="push" identifier="addCustomIngredient" id="Hlq-jU-mBU"/>
+                        <segue destination="GQr-NL-8tE" kind="show" identifier="addCustomIngredient" id="Hlq-jU-mBU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fu-qL-T1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,10 +109,14 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xc-Ue-Zdv">
                                 <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="VFq-kq-3Rz"/>
                                     <constraint firstAttribute="width" constant="375" id="c80-RI-TYb"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S3S-xw-ez3" appends="YES" id="dAC-i7-pbp"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-LL-49H">
                                 <rect key="frame" x="170" y="147" width="35" height="35"/>
@@ -120,7 +124,7 @@
                                     <constraint firstAttribute="height" constant="35" id="F0E-9H-5JM"/>
                                     <constraint firstAttribute="width" constant="35" id="GTA-Wk-Xpz"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="plus-simple-7"/>
+                                <state key="normal" image="plus-simple-7"/>
                                 <connections>
                                     <action selector="onAddPhoto:" destination="GQr-NL-8tE" eventType="touchUpInside" id="DfH-GV-Nes"/>
                                 </connections>
@@ -203,15 +207,63 @@
                     <connections>
                         <outlet property="addIngredientItem" destination="Cij-Ng-rHa" id="mOf-9P-gpf"/>
                         <outlet property="addPhotoButton" destination="Bxg-LL-49H" id="Qid-SQ-afB"/>
+                        <outlet property="imageTapRecognizer" destination="S3S-xw-ez3" id="nTq-V9-Ug4"/>
                         <outlet property="ingredientImage" destination="9Xc-Ue-Zdv" id="hbE-Xe-x52"/>
                         <outlet property="name" destination="77b-ab-ZJF" id="xzl-Vk-hAc"/>
                         <outlet property="quantity" destination="ajf-8h-9k9" id="edX-Fw-IlH"/>
                         <outlet property="remindIn" destination="LEh-oc-RLP" id="q8R-oa-kYx"/>
+                        <segue destination="1C2-9M-jfg" kind="presentation" identifier="showPhotoDetail" id="iLp-MG-cre"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd1-0t-gUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="S3S-xw-ez3">
+                    <connections>
+                        <action selector="onTapIngredientImage:" destination="GQr-NL-8tE" id="dWD-fO-J8o"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2822" y="-783"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="2fN-zz-dgD">
+            <objects>
+                <viewController id="2bv-va-Pjf" customClass="PhotoDetailViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXg-ek-NgS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m8k-Gy-KQU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tyf-Lc-eZd" firstAttribute="trailing" secondItem="m8k-Gy-KQU" secondAttribute="trailing" id="8p2-Zr-lSm"/>
+                            <constraint firstItem="m8k-Gy-KQU" firstAttribute="leading" secondItem="tyf-Lc-eZd" secondAttribute="leading" id="PFB-Kh-Zh1"/>
+                            <constraint firstItem="m8k-Gy-KQU" firstAttribute="top" secondItem="tyf-Lc-eZd" secondAttribute="top" id="gZA-pB-2Sf"/>
+                            <constraint firstItem="tyf-Lc-eZd" firstAttribute="bottom" secondItem="m8k-Gy-KQU" secondAttribute="bottom" id="rb5-ig-tuM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tyf-Lc-eZd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vcu-8h-vPb">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="qsK-NS-DN5">
+                            <connections>
+                                <action selector="onDone:" destination="2bv-va-Pjf" id="QZB-H8-KX1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus-simple-7" id="lb9-K2-TGv">
+                            <connections>
+                                <action selector="onAddNewPhoto:" destination="2bv-va-Pjf" id="UOd-Sn-DCy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoImageView" destination="m8k-Gy-KQU" id="5sU-WJ-TRJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWD-ud-pvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4088.8000000000002" y="-774.06296851574223"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mCB-sJ-zdH">
@@ -267,11 +319,29 @@
             </objects>
             <point key="canvasLocation" x="2511" y="-29"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9jT-jg-pdi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1C2-9M-jfg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cue-q3-SCy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2bv-va-Pjf" kind="relationship" relationship="rootViewController" id="SuO-m4-0D5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFC-8H-Wdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3470" y="-29"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus-simple-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zlV-2Z-3bN"/>
+        <segue reference="Hlq-jU-mBU"/>
     </inferredMetricsTieBreakers>
 </document>
