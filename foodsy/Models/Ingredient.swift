@@ -30,10 +30,12 @@ class Ingredient: PFObject, PFSubclassing {
         return nil
     }
     
-    func saveForUser() {
+    func saveForUser(success: @escaping () ->()) {
         self.name = self.name.capitalized
         self.userName = User.currentUser?.screenname
-        self.saveInBackground()
+        self.saveInBackground { (result, error) in
+            success()
+        }
     }
     
     func setImage(image: UIImage?) {

@@ -78,6 +78,9 @@ extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             self.selectedIngredient = nil
             performSegue(withIdentifier: "addCustomIngredient", sender: self)
+        } else if indexPath.section == 1 {
+            self.selectedIngredient = self.ingredients[indexPath.row]
+            performSegue(withIdentifier: "addCustomIngredient", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

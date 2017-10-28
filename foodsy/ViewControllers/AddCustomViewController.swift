@@ -13,7 +13,7 @@ protocol AddCustomViewControllerDelegate {
 }
 
 protocol EditCustomViewControllerDelegate {
-    func onEditIngredient(ingredient: Ingredient)
+    func onEditIngredient(ingredient: Ingredient, index: Int)
 }
 
 class AddCustomViewController: UIViewController {
@@ -29,7 +29,7 @@ class AddCustomViewController: UIViewController {
     var editDelegate: EditCustomViewControllerDelegate!
     var mode = "create"
     var ingredient: Ingredient?
-    
+    var index: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         if let ingredient = self.ingredient {
@@ -45,22 +45,29 @@ class AddCustomViewController: UIViewController {
             if let remind = ingredient.reminderDays {
                 remindIn.text = remind.description
             }
-            addPhotoButton.isHidden = true
-            ingredientImage.setImageWith(ingredient.getImageUrl()!)
+            addPhotoButton.isHidden = true            
+            ingredient.getImage(success: { (image) in
+                if image != nil {
+                    self.ingredientImage.image = image
+                } else if self.ingredient?.image != nil {
+                    self.ingredientImage.setImageWith((self.ingredient?.getImageUrl()!)!)
+                }
+            }) { (error) in
+                print("Error: \(error.localizedDescription)")
+            }
             ingredientImage.isUserInteractionEnabled = true
-            self.addIngredientItem.isEnabled = true
         } else {
-            self.addIngredientItem.isEnabled = false
             ingredientImage.isUserInteractionEnabled = false
         }
+
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
         if textField.text?.isEmpty == false {
-            self.addIngredientItem.isEnabled = false
-        } else {
             self.addIngredientItem.isEnabled = true
+        } else {
+            self.addIngredientItem.isEnabled = false
         }
     }
     
@@ -112,7 +119,7 @@ class AddCustomViewController: UIViewController {
         if self.mode == "create" {
             self.delegate.onAddIngredient(ingredient: ingredient!)
         } else if self.mode == "edit" {
-            self.editDelegate.onEditIngredient(ingredient: ingredient!)
+            self.editDelegate.onEditIngredient(ingredient: ingredient!, index: self.index!)
         }
     }
 }
@@ -121,6 +128,7 @@ extension AddCustomViewController: PhotoDetailViewControllerDelegate {
     func onAddedNewPhoto(ingredient: Ingredient, changed: Bool, image: UIImage) {
         if changed == true {
             self.ingredientImage.image = image
+            self.addIngredientItem.isEnabled = true
         }
     }
 }
@@ -134,6 +142,10 @@ extension AddCustomViewController: UIImagePickerControllerDelegate, UINavigation
         
         // Do something with the images (based on your use case)
         self.ingredientImage.image = editedImage
+        if self.ingredient == nil {
+            self.ingredient = Ingredient()
+        }
+        self.ingredient?.setImage(image: editedImage)
         addPhotoButton.isHidden = true
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)

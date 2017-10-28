@@ -68,5 +68,6 @@ extension PhotoDetailViewController: UIImagePickerControllerDelegate, UINavigati
         self.photoImageView.image = editedImage
         self.ingredient.setImage(image: editedImage)
         changedImage = true
+        dismiss(animated: true, completion: nil)
     }
 }
