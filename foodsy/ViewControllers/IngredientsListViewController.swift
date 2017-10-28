@@ -22,6 +22,7 @@ class IngredientsListViewController: UIViewController {
     var searchBar: UISearchBar!
     var lastLocation : CLLocationCoordinate2D!
     var vcIdentifier: String!
+    var selectedIndex: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -99,6 +100,7 @@ class IngredientsListViewController: UIViewController {
             detailsVc.ingredient = self.selectedIngredient
             detailsVc.mode = "edit"
             detailsVc.editDelegate = self
+            detailsVc.index = self.selectedIndex
         }
     }
 }
@@ -132,16 +134,18 @@ extension IngredientsListViewController: MKMapViewDelegate {
 extension IngredientsListViewController: IngredientSearchViewControllerDelegate {
     func ingredientAdded(ingredient: Ingredient) {
         ingredient.type = self.vcIdentifier
-        ingredient.saveForUser()
-        self.ingredients.append(ingredient)
-        self.tableView.reloadData()
+        ingredient.saveForUser {
+            self.ingredients.append(ingredient)
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension IngredientsListViewController: EditCustomViewControllerDelegate {
-    func onEditIngredient(ingredient: Ingredient) {
+    func onEditIngredient(ingredient: Ingredient, index: Int) {
         self.navigationController?.popToViewController(self, animated: true)
         ingredient.saveInBackground { (result, error) in
+            self.ingredients[index] = ingredient
             self.tableView.reloadData()
         }
     }
@@ -171,6 +175,7 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.selectedIngredient = ingredients[indexPath.row]
+        self.selectedIndex = indexPath.row
         performSegue(withIdentifier: "showIngredientDetails", sender: self)
     }
     

@@ -33,7 +33,6 @@ class IngredientSearchViewController: UIViewController {
         ingredientsTable.dataSource = self
         ingredientsTable.rowHeight = UITableViewAutomaticDimension
         ingredientsTable.estimatedRowHeight = 300
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +43,8 @@ class IngredientSearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addCustomIngredient" {
             let addVc = segue.destination as! AddCustomViewController
-            if let ingredient = self.selectedIngredient {
-                addVc.ingredient = ingredient
-                addVc.delegate = self
-            }
+            addVc.ingredient = self.selectedIngredient
+            addVc.delegate = self
         }
     }
     
@@ -79,6 +76,10 @@ extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            self.selectedIngredient = nil
+            performSegue(withIdentifier: "addCustomIngredient", sender: self)
+        } else if indexPath.section == 1 {
+            self.selectedIngredient = self.ingredients[indexPath.row]
             performSegue(withIdentifier: "addCustomIngredient", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -86,6 +87,7 @@ extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            self.selectedIngredient = nil
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCustomCell") as! AddCustomTableViewCell
             return cell
         } else {

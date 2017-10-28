@@ -25,7 +25,15 @@ class IngredientTableViewCell: SwipeTableViewCell {
     var ingredientDelegate: IngredientTableViewCellDelegate!
     var ingredient: Ingredient! {
         didSet {
-            ingredientImage.setImageWith(ingredient.getImageUrl())
+            ingredient.getImage(success: { (image) in
+                if image != nil {
+                    self.ingredientImage.image = image
+                } else if self.ingredient.image != nil {
+                    self.ingredientImage.setImageWith(self.ingredient.getImageUrl()!)
+                }
+            }) { (error) in
+                print("Error: \(error.localizedDescription)")
+            }
             ingredientName.text = ingredient.name
             if ingredient.quantity != nil {
                 quantityLabel.text = ingredient.quantity?.description
