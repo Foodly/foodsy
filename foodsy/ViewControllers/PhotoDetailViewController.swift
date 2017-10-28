@@ -24,7 +24,7 @@ class PhotoDetailViewController: UIViewController {
             if image != nil {
                 self.photoImageView.image = image
             } else if self.ingredient.image != nil {
-                self.photoImageView.setImageWith(self.ingredient.getImageUrl()!)
+                self.photoImageView.setImageWith((self.ingredient?.getBigImageUrl()!)!)
             }
         }) { (error) in
             print("Error: \(error.localizedDescription)")

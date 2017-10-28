@@ -11,6 +11,7 @@ import Parse
 
 class Ingredient: PFObject, PFSubclassing {
     static var baseUrl = "https://spoonacular.com/cdn/ingredients_100x100/"
+    static var baseHighUrl = "https://spoonacular.com/cdn/ingredients_500x500/"
     @NSManaged var name: String!
     @NSManaged var image: String!
     @NSManaged var userName: String!
@@ -26,6 +27,13 @@ class Ingredient: PFObject, PFSubclassing {
     func getImageUrl() -> URL?{
         if image != nil {
             return URL(string: Ingredient.baseUrl + image)!
+        }
+        return nil
+    }
+    
+    func getBigImageUrl() -> URL? {
+        if image != nil {
+            return URL(string: Ingredient.baseHighUrl + image)!
         }
         return nil
     }
