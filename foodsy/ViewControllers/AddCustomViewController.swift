@@ -55,11 +55,8 @@ class AddCustomViewController: UIViewController {
             }) { (error) in
                 print("Error: \(error.localizedDescription)")
             }
-            ingredientImage.isUserInteractionEnabled = true
-        } else {
-            ingredientImage.isUserInteractionEnabled = false
         }
-
+        ingredientImage.isUserInteractionEnabled = true
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
     

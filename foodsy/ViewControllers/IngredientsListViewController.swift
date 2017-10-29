@@ -217,7 +217,7 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
             options.expansionStyle = .selection
             options.backgroundColor = UIColor(red: 0/255, green: 178/255, blue: 29/255, alpha: 1.0)
         }
-        options.transitionStyle = .drag
+        options.transitionStyle = .reveal
         return options
     }
 }

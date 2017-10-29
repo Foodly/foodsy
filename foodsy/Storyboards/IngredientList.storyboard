@@ -233,9 +233,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m8k-Gy-KQU">
-                                <rect key="frame" x="0.0" y="83.5" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="158.5" width="375" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="inL-6B-zqY"/>
+                                    <constraint firstAttribute="height" constant="350" id="inL-6B-zqY"/>
                                 </constraints>
                             </imageView>
                         </subviews>
