@@ -50,16 +50,13 @@ class AddCustomViewController: UIViewController {
                 if image != nil {
                     self.ingredientImage.image = image
                 } else if self.ingredient?.image != nil {
-                    self.ingredientImage.setImageWith((self.ingredient?.getImageUrl()!)!)
+                    self.ingredientImage.setImageWith((self.ingredient?.getBigImageUrl()!)!)
                 }
             }) { (error) in
                 print("Error: \(error.localizedDescription)")
             }
-            ingredientImage.isUserInteractionEnabled = true
-        } else {
-            ingredientImage.isUserInteractionEnabled = false
         }
-
+        ingredientImage.isUserInteractionEnabled = true
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
     

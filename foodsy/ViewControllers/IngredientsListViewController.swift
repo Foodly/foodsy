@@ -185,12 +185,11 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let ingredient = self.ingredients[indexPath.row]
         if orientation == .right {
-            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            let deleteAction = SwipeAction(style: .destructive, title: "Delete", handler: { action, indexPath in
                 // handle action by updating model with deletion
                 ingredient.deleteInBackground()
                 self.ingredients.remove(at: indexPath.row)
-                self.tableView.reloadData()
-            }
+            })
             return [deleteAction]
         } else if orientation == .left {
             let completedAction = SwipeAction(style: .default, title: "Done", handler: { (action, indexPath) in
@@ -204,9 +203,21 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                 self.ingredients.remove(at: indexPath.row)
                 self.tableView.reloadData()
             })
+            completedAction.backgroundColor = UIColor(red: 0/255, green: 178/255, blue: 29/255, alpha: 1.0)
             return [completedAction]
         }
         return nil
-
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        if orientation == .right {
+            options.expansionStyle = .destructive
+        } else if orientation == .left {
+            options.expansionStyle = .selection
+            options.backgroundColor = UIColor(red: 0/255, green: 178/255, blue: 29/255, alpha: 1.0)
+        }
+        options.transitionStyle = .reveal
+        return options
     }
 }
