@@ -22,6 +22,9 @@
 		6864E9991F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6864E9971F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib */; };
 		6864E99B1F9B0B6D00C9A5D4 /* AddCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */; };
 		687770D21FA6B136000B0D72 /* PushClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D11FA6B136000B0D72 /* PushClient.swift */; };
+		687770D41FA6CBE3000B0D72 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D31FA6CBE3000B0D72 /* MapItem.swift */; };
+		687770D61FA6CC06000B0D72 /* MapItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 687770D51FA6CC06000B0D72 /* MapItem.xib */; };
+		687770D81FA6DAD3000B0D72 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D71FA6DAD3000B0D72 /* Annotation.swift */; };
 		68D51C6E1F928AA400EAF4D0 /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */; };
 		821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821FB45A1F8CB9E400722263 /* Profile.storyboard */; };
 		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
@@ -102,6 +105,9 @@
 		6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomViewController.swift; sourceTree = "<group>"; };
 		68723F0A1FA63B120033D771 /* foodsy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = foodsy.entitlements; sourceTree = "<group>"; };
 		687770D11FA6B136000B0D72 /* PushClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushClient.swift; sourceTree = "<group>"; };
+		687770D31FA6CBE3000B0D72 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		687770D51FA6CC06000B0D72 /* MapItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapItem.xib; sourceTree = "<group>"; };
+		687770D71FA6DAD3000B0D72 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
 		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
 		821FB45B1F8CB9E400722263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				829C453C1F94B08E001B3439 /* RecipeCell.swift */,
 				829C45401F94B4FB001B3439 /* RecipeTableView.swift */,
 				829EFCD31F97471E00D32D69 /* RecipeMainIngredientsCardCell.swift */,
+				687770D31FA6CBE3000B0D72 /* MapItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +264,7 @@
 				829C451F1F929017001B3439 /* FiltersCollapsedCell.xib */,
 				829C453D1F94B08E001B3439 /* RecipeCell.xib */,
 				829EFCD41F97471E00D32D69 /* RecipeMainIngredientsCardCell.xib */,
+				687770D51FA6CC06000B0D72 /* MapItem.xib */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				82893BD41F8CB505000193A5 /* foodsy.xcdatamodeld */,
 				821FB4631F8CBEFE00722263 /* Constants.swift */,
 				829C44F91F90A759001B3439 /* AppStoryboard.swift */,
+				687770D71FA6DAD3000B0D72 /* Annotation.swift */,
 			);
 			path = foodsy;
 			sourceTree = "<group>";
@@ -496,6 +505,7 @@
 				829EFCD61F97471E00D32D69 /* RecipeMainIngredientsCardCell.xib in Resources */,
 				829C450F1F928E9B001B3439 /* Filters.storyboard in Resources */,
 				82893BD31F8CB505000193A5 /* Main.storyboard in Resources */,
+				687770D61FA6CC06000B0D72 /* MapItem.xib in Resources */,
 				6864E9991F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib in Resources */,
 				829C45191F928F56001B3439 /* FiltersSelectCell.xib in Resources */,
 				829C453F1F94B08E001B3439 /* RecipeCell.xib in Resources */,
@@ -705,6 +715,7 @@
 				82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */,
 				829C45411F94B4FB001B3439 /* RecipeTableView.swift in Sources */,
 				829C45201F929017001B3439 /* FiltersCollapsedCell.swift in Sources */,
+				687770D41FA6CBE3000B0D72 /* MapItem.swift in Sources */,
 				821FB4641F8CBEFE00722263 /* Constants.swift in Sources */,
 				68243AFD1F943FF70016F9F8 /* IngredientTableViewCell.swift in Sources */,
 				829EFCD51F97471E00D32D69 /* RecipeMainIngredientsCardCell.swift in Sources */,
@@ -718,6 +729,7 @@
 				68243B021F9457D50016F9F8 /* IngredientClient.swift in Sources */,
 				829C45011F90BF40001B3439 /* Ingredient.swift in Sources */,
 				82B264181F99FED700668662 /* FavoritesViewController.swift in Sources */,
+				687770D81FA6DAD3000B0D72 /* Annotation.swift in Sources */,
 				829C45361F94A02D001B3439 /* RecipeClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

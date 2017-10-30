@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import SwipeCellKit
 
 class IngredientsListViewController: UIViewController {
@@ -88,6 +89,9 @@ class IngredientsListViewController: UIViewController {
             isMapViewShowing = true
             tableView.isHidden = true
             self.searchBar.isHidden = false
+            let span = MKCoordinateSpanMake(0.3, 0.3)
+            let region = MKCoordinateRegionMake(lastLocation, span)
+            mapView.setRegion(region, animated: true)
         }
     }
     
@@ -110,17 +114,19 @@ extension IngredientsListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchText
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.3, 0.3)
         let region = MKCoordinateRegion(center: lastLocation, span: span)
         request.region = region
         let search = MKLocalSearch(request: request)
         search.start(completionHandler: { response, error in
-            let placemarks = NSMutableArray()
+            var annotations = [Annotation]()
             if let response = response {
                 for item in response.mapItems {
-                    placemarks.add(item.placemark)
+                    let annotation = Annotation(coordinate: item.placemark.coordinate)
+                    annotation.mapItem = item
+                    self.mapView.addAnnotation(annotation)
+                    annotations.append(annotation)
                 }
-                self.mapView.showAnnotations(placemarks as! [MKAnnotation], animated: true)
             }
         })
     }
@@ -129,6 +135,24 @@ extension IngredientsListViewController: UISearchBarDelegate {
 extension IngredientsListViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         lastLocation = userLocation.coordinate
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let views = Bundle.main.loadNibNamed("MapItem", owner: nil, options: nil)
+        let annotationView = views?[0] as! MapItem
+        annotationView.center = CGPoint(x: view.bounds.size.width, y: -annotationView.bounds.size.height)
+        let annotation = view.annotation as! Annotation
+        annotationView.mapItem = annotation.mapItem
+        annotationView.canShowCallout = false
+        view.addSubview(annotationView)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        for view in view.subviews {
+            if let obj = view as? MapItem {
+                obj.removeFromSuperview()
+            }
+        }
     }
 }
 
