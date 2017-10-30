@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class Annotation: NSObject, MKAnnotation {
-    var mapItem: MKMapItem!
+    var business: Business!
     var coordinate: CLLocationCoordinate2D
     
     init(coordinate: CLLocationCoordinate2D) {

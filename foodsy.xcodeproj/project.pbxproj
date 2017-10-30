@@ -25,6 +25,8 @@
 		687770D41FA6CBE3000B0D72 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D31FA6CBE3000B0D72 /* MapItem.swift */; };
 		687770D61FA6CC06000B0D72 /* MapItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 687770D51FA6CC06000B0D72 /* MapItem.xib */; };
 		687770D81FA6DAD3000B0D72 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D71FA6DAD3000B0D72 /* Annotation.swift */; };
+		687770DA1FA6F0C4000B0D72 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687770D91FA6F0C4000B0D72 /* YelpClient.swift */; };
+		68BF8D821FA6F3BC00FBEDB5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF8D811FA6F3BC00FBEDB5 /* Business.swift */; };
 		68D51C6E1F928AA400EAF4D0 /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */; };
 		821FB45C1F8CB9E400722263 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821FB45A1F8CB9E400722263 /* Profile.storyboard */; };
 		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
@@ -108,6 +110,8 @@
 		687770D31FA6CBE3000B0D72 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
 		687770D51FA6CC06000B0D72 /* MapItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapItem.xib; sourceTree = "<group>"; };
 		687770D71FA6DAD3000B0D72 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		687770D91FA6F0C4000B0D72 /* YelpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		68BF8D811FA6F3BC00FBEDB5 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
 		6E73ACB0888BF240657DCA6B /* Pods-foodsyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsyTests/Pods-foodsyTests.release.xcconfig"; sourceTree = "<group>"; };
 		821FB45B1F8CB9E400722263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				6832DCC71F9031550044ADCC /* TwitterClient.swift */,
 				68243B011F9457D50016F9F8 /* IngredientClient.swift */,
 				829C45351F94A02D001B3439 /* RecipeClient.swift */,
+				687770D91FA6F0C4000B0D72 /* YelpClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				829C45001F90BF40001B3439 /* Ingredient.swift */,
 				68D51C6D1F928AA400EAF4D0 /* ApiToken.swift */,
 				829C45331F9497BA001B3439 /* Recipe.swift */,
+				68BF8D811FA6F3BC00FBEDB5 /* Business.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				6832DCC81F9031550044ADCC /* TwitterClient.swift in Sources */,
 				829C453E1F94B08E001B3439 /* RecipeCell.swift in Sources */,
 				821FB4601F8CBE4F00722263 /* Profile.swift in Sources */,
+				68BF8D821FA6F3BC00FBEDB5 /* Business.swift in Sources */,
 				829C45321F9480E7001B3439 /* RecipeDetailsViewController.swift in Sources */,
 				6864E9981F9B02AC00C9A5D4 /* AddCustomTableViewCell.swift in Sources */,
 				82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */,
@@ -730,6 +737,7 @@
 				829C45011F90BF40001B3439 /* Ingredient.swift in Sources */,
 				82B264181F99FED700668662 /* FavoritesViewController.swift in Sources */,
 				687770D81FA6DAD3000B0D72 /* Annotation.swift in Sources */,
+				687770DA1FA6F0C4000B0D72 /* YelpClient.swift in Sources */,
 				829C45361F94A02D001B3439 /* RecipeClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

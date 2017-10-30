@@ -12,9 +12,9 @@ import MapKit
 class MapItem: MKAnnotationView {
 
     @IBOutlet weak var placeLabel: UILabel!
-    var mapItem: MKMapItem! {
+    var business: Business! {
         didSet {
-            placeLabel.text = mapItem.placemark.name
+            placeLabel.text = business.name
         }
     }
     /*
