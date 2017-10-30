@@ -53,6 +53,8 @@
 	<string>&quot;To add custom photo for ingredients&quot;</string>
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;To add custom photo for ingredients&quot;</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>&quot;To Allow you to search for grocery stores&quot;</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

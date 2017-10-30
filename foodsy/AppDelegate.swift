@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
+            registerForPushNotifications()
+            application.registerForRemoteNotifications()
             let ingredientListStoryboard = UIStoryboard(name: "IngredientList", bundle: nil)
             let shoppingListNavigationController = ingredientListStoryboard.instantiateViewController(withIdentifier: "IngredientsListNavigation") as! UINavigationController
             let shoppingListViewController = shoppingListNavigationController.topViewController as! IngredientsListViewController
@@ -151,6 +154,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient?.handleOpenUrl(url: url)
         return true
+    }
+
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let installation = PFInstallation.current()
+        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.channels = [(User.currentUser?.screenname)!]
+        installation?.saveInBackground()
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject> {
+            let alert = UIAlertController(title: info["title"] as? String, message: info["alert"] as? String, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                // continue your work
+                // important to hide the window after work completed.
+                // this also keeps a reference to the window until the action is invoked.
+                topWindow.isHidden = true
+            }))
+            topWindow.makeKeyAndVisible()
+            topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 
 }
