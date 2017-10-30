@@ -108,27 +108,26 @@ class IngredientsListViewController: UIViewController {
             detailsVc.index = self.selectedIndex
         }
     }
+    
+    func addAnnotationsForBusiness(businesses: [Business]!) -> Void {
+        for business in businesses {
+            let coordinate = CLLocationCoordinate2DMake(business.latitude!, business.longitude!)
+            self.addAnnotationAtCoordinate(coordinate: coordinate, business: business)
+        }
+    }
+    
+    func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, business: Business) {
+        let annotation = Annotation(coordinate: coordinate)
+        annotation.business = business
+        mapView.addAnnotation(annotation)
+    }
 }
 
 extension IngredientsListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchText
-        let span = MKCoordinateSpanMake(0.3, 0.3)
-        let region = MKCoordinateRegion(center: lastLocation, span: span)
-        request.region = region
-        let search = MKLocalSearch(request: request)
-        search.start(completionHandler: { response, error in
-            var annotations = [Annotation]()
-            if let response = response {
-                for item in response.mapItems {
-                    let annotation = Annotation(coordinate: item.placemark.coordinate)
-                    annotation.mapItem = item
-                    self.mapView.addAnnotation(annotation)
-                    annotations.append(annotation)
-                }
-            }
-        })
+        Business.searchWithTerm(term: searchText, location: lastLocation, sort: nil, deals: nil, distance: nil, offset: nil) { (businesses, error) in
+            self.addAnnotationsForBusiness(businesses: businesses)
+        }
     }
 }
 
@@ -142,7 +141,7 @@ extension IngredientsListViewController: MKMapViewDelegate {
         let annotationView = views?[0] as! MapItem
         annotationView.center = CGPoint(x: view.bounds.size.width, y: -annotationView.bounds.size.height)
         let annotation = view.annotation as! Annotation
-        annotationView.mapItem = annotation.mapItem
+        annotationView.business = annotation.business
         annotationView.canShowCallout = false
         view.addSubview(annotationView)
     }
