@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         APIToken.initializeTokensInBackground()
         if User.currentUser != nil {
+            registerForPushNotifications()
+            application.registerForRemoteNotifications()
             let ingredientListStoryboard = UIStoryboard(name: "IngredientList", bundle: nil)
             let shoppingListNavigationController = ingredientListStoryboard.instantiateViewController(withIdentifier: "IngredientsListNavigation") as! UINavigationController
             let shoppingListViewController = shoppingListNavigationController.topViewController as! IngredientsListViewController
@@ -151,6 +154,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let twitterClient = TwitterClient.sharedInstance
         twitterClient?.handleOpenUrl(url: url)
         return true
+    }
+
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let installation = PFInstallation.current()
+        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.channels = [(User.currentUser?.screenname)!]
+        installation?.saveInBackground()
     }
 
 }
