@@ -18,7 +18,7 @@ class PushClient: NSObject {
         request.setValue("cravely", forHTTPHeaderField: "X-Parse-Application-Id")
         request.setValue("22142e23-57a2-4c24-b14e-d516a94aaeee", forHTTPHeaderField: "X-Parse-Master-Key")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params = ["data": ["title" : "message", "alert": message], "where": ["channels": (User.currentUser?.screenname)!]]
+        let params = ["data": ["title" : "message", "alert": message, "badge": 1], "where": ["channels": (User.currentUser?.screenname)!]]
         let jsonData = try? JSONSerialization.data(withJSONObject: params)
         request.httpBody = jsonData
         request.httpMethod = "POST"

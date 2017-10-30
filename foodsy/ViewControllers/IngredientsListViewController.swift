@@ -28,6 +28,7 @@ class IngredientsListViewController: UIViewController {
         setUpViews()
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         self.ingredients = [Ingredient]()
     }
     
