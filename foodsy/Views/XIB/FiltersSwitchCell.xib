@@ -4,14 +4,20 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="KGk-i7-Jjw" customClass="FiltersSwitchCell" customModule="foodsy" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="82" id="KGk-i7-Jjw" customClass="FiltersSwitchCell" customModule="foodsy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="336" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,28 +25,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNC-VG-jSQ">
-                        <rect key="frame" x="16" y="30" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="16" y="30.5" width="40" height="19"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
+                        <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dok-EV-dUu">
-                        <rect key="frame" x="271" y="25" width="51" height="31"/>
-                    </switch>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-cD-Uds">
+                        <rect key="frame" x="0.0" y="78.5" width="336" height="1"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Kbw-0e-zw6"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Axy-gA-P50">
+                        <rect key="frame" x="308" y="29.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="FGR-Wz-DrO"/>
+                            <constraint firstAttribute="width" constant="20" id="ydm-Gr-Vn8"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VNC-VG-jSQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="BKa-DU-MMD"/>
                     <constraint firstItem="VNC-VG-jSQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ExX-BJ-N7D"/>
-                    <constraint firstAttribute="trailing" secondItem="Dok-EV-dUu" secondAttribute="trailing" constant="16" id="Tnd-gY-6pX"/>
-                    <constraint firstItem="Dok-EV-dUu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zV4-ib-j03"/>
+                    <constraint firstItem="Axy-gA-P50" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gb5-oJ-1hg"/>
+                    <constraint firstAttribute="trailing" secondItem="r2G-cD-Uds" secondAttribute="trailing" id="IiP-BC-aqE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Axy-gA-P50" secondAttribute="trailing" id="ZFl-k8-Sh1"/>
+                    <constraint firstAttribute="bottom" secondItem="r2G-cD-Uds" secondAttribute="bottom" id="hYX-ub-Xcd"/>
+                    <constraint firstItem="r2G-cD-Uds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qC9-be-Y1j"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="onSwitch" destination="Dok-EV-dUu" id="42l-lp-iUs"/>
+                <outlet property="bottomSeperatorView" destination="r2G-cD-Uds" id="YNJ-ib-Zuu"/>
+                <outlet property="checkImageView" destination="Axy-gA-P50" id="KR3-rP-HHJ"/>
                 <outlet property="switchLabel" destination="VNC-VG-jSQ" id="h8Z-Xj-Hmw"/>
             </connections>
             <point key="canvasLocation" x="33" y="71"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="check" width="30" height="30"/>
+    </resources>
 </document>

@@ -15,7 +15,7 @@ class RecipeClient: NSObject {
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
     
     func fetchRecipes(params: NSDictionary?, success: @escaping ([Recipe])->(), failure: @escaping (Error)->()) {
-        let relativeUrl = baseUrl + "searchComplex?number=15&addRecipeInformation=true"
+        let relativeUrl = baseUrl + "searchComplex?"
         var urlComponents = URLComponents(string : relativeUrl)!
         var queryItems = [URLQueryItem]()
         var url: URL!
@@ -29,11 +29,12 @@ class RecipeClient: NSObject {
                 }
                 
             }
-            urlComponents.queryItems = queryItems
-            url = urlComponents.url
-        } else {
-            url = URL(string: relativeUrl)
         }
+        queryItems.append(URLQueryItem(name: "number", value: "15"))
+        queryItems.append(URLQueryItem(name: "addRecipeInformation", value: "true"))
+        urlComponents.queryItems = queryItems
+        url = urlComponents.url
+        print(url)
         
         var request = URLRequest(url: url!)
         request.setValue(APIToken.ProdToken?.api_key, forHTTPHeaderField: "X-Mashape-Key")
@@ -52,10 +53,13 @@ class RecipeClient: NSObject {
                     let recipesDictionary = responseDictionary["results"] as! [NSDictionary]
                     var recipes = [Recipe]()
                     for recipe in recipesDictionary {
-                        let analyzedInstructions = recipe["analyzedInstructions"] as! [NSDictionary]
-                        if analyzedInstructions.count > 0 {
-                            recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
+                        let analyzedInstructions = recipe["analyzedInstructions"] as? [NSDictionary]
+                        if let analyzedInstructions = analyzedInstructions {
+                            if analyzedInstructions.count > 0 {
+                                recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
+                            }
                         }
+                        
                         
                     }
                     success(recipes)

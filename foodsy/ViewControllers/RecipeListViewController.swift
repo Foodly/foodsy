@@ -13,6 +13,7 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: RecipeTableView!
     @IBOutlet weak var searchBtn: UIBarButtonItem!
     var selectedRecipe: Recipe?
+    var searchParams = [String:[String]]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -29,17 +30,19 @@ class RecipeListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        searchRecipes(params: nil)
+        searchRecipes(params: searchParams as NSDictionary)
     }
     func searchRecipes(params: NSDictionary?) {
         RecipeClient.SharedInstance.fetchRecipes(params: params, success: { (recipes) in
             self.tableView.recipes = recipes
             self.tableView.reloadData()
             Recipe.fetchFavoriteRecipesForUser(name: (User.currentUser?.screenname)!) { (recipes) in
-                for recipe in recipes {
-                    let recipeID = recipe.id as! Int
-                    self.tableView.recipeFavorites[recipeID] = true
-                    self.tableView.reloadData()
+                if let recipes = recipes {
+                    for recipe in recipes {
+                        let recipeID = recipe.id as! Int
+                        self.tableView.recipeFavorites[recipeID] = true
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }) { (error) in
@@ -118,7 +121,13 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         recipeDetailsViewController.recipe = selectedRecipe
         recipeDetailsViewController.navigationItem.leftBarButtonItem?.tintColor = .white
         let navController = UINavigationController(rootViewController: recipeDetailsViewController)
-        navController.childViewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Recipes", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
+        recipeDetailsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Recipes", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
+        
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "camera"), for: .normal)
+        button.sizeToFit()
+        button.addTarget(recipeDetailsViewController, action: #selector(recipeDetailsViewController.onAddNewPhoto(_:)), for: .touchUpInside)
+        navController.childViewControllers[0].navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         self.show(navController, sender: self)
     }
     
@@ -146,8 +155,8 @@ extension RecipeListViewController: FiltersViewControllerDelegate {
         if cuisineChoices.count > 0 {
             params["cuisine"] = cuisineChoices
         }
-        
-        searchRecipes(params:params as NSDictionary)
+        searchParams = params
+        //searchRecipes(params:params as NSDictionary)
     }
 }
 

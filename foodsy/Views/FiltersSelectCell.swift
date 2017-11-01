@@ -14,6 +14,7 @@ import UIKit
 
 class FiltersSelectCell: UITableViewCell {
 
+    @IBOutlet weak var bottomSeperatorView: UIView!
     @IBOutlet weak var selectLabel: UILabel!
     @IBOutlet weak var selectBtn: UIButton!
     

@@ -38,7 +38,7 @@ class FiltersViewController: UIViewController {
         var dietChoice: String!
             
         if tableView.dietSelectState > 0 {
-            dietChoice = DIET_FILTER_OPTIONS[tableView.dietSelectState]
+            dietChoice = DIET_FILTER_OPTIONS[tableView.dietSelectState].lowercased()
         } else {
             dietChoice = ""
         }
@@ -46,14 +46,14 @@ class FiltersViewController: UIViewController {
         var intoleranceChoices = [String]()
         for (row,isSelected) in tableView.intolerancesSwitchStates{
             if isSelected {
-                intoleranceChoices.append(INTOLERANCES_FILTER_OPTIONS[row])
+                intoleranceChoices.append(INTOLERANCES_FILTER_OPTIONS[row].lowercased())
             }
         }
         
         var typeChoice: String!
         
         if tableView.typeSelectState > 0 {
-            typeChoice = TYPE_FILTER_OPTIONS[tableView.typeSelectState]
+            typeChoice = TYPE_FILTER_OPTIONS[tableView.typeSelectState].lowercased()
         } else {
             typeChoice = ""
         }
@@ -61,7 +61,7 @@ class FiltersViewController: UIViewController {
         var cuisineChoices = [String]()
         for (row,isSelected) in tableView.cuisineSwitchStates{
             if isSelected {
-                cuisineChoices.append(CUISINE_FILTER_OPTIONS[row])
+                cuisineChoices.append(CUISINE_FILTER_OPTIONS[row].lowercased())
             }
         }
         delegate?.filtersViewController!(filtersViewController: self, dietChoice: dietChoice, intoleranceChoices: intoleranceChoices, typeChoice: typeChoice, cuisineChoices: cuisineChoices)
@@ -82,6 +82,10 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         } else if indexPath.section == FiltersTableView.SectionId.CUISINE.rawValue || indexPath.section == FiltersTableView.SectionId.INTOLERANCES.rawValue {
             if (!tableView.expandedSections[indexPath.section]!) && (indexPath.row == tableView.collapsedSwitchCellsSize - 1) {
                 tableView.sectionTapped(section:indexPath.section)
+            } else {
+                let value = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
+                tableView.setSwitchState(section: indexPath.section, row: indexPath.row, value: !value)
+                tableView.reloadData()
             }
         }
     }
@@ -91,10 +95,6 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         return tableView.filterSectionData.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let tableView = tableView as! FiltersTableView
-        return tableView.filterSections[section]
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tableView = tableView as! FiltersTableView
         if tableView.expandedSections[section]! {
@@ -127,13 +127,12 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
                 
                 
                 if selectState == indexPath.row {
-                    let image = UIImage(named: "check") as UIImage!
+                    let image = UIImage(named: "record") as UIImage!
                     cell.selectBtn.setBackgroundImage(image, for: UIControlState.normal)
                 } else {
-                    cell.selectBtn.setBackgroundImage(nil, for: UIControlState.normal)
-                    cell.selectBtn.backgroundColor = .gray
+                    let image = UIImage(named: "empty-record") as UIImage!
+                    cell.selectBtn.setBackgroundImage(image, for: UIControlState.normal)
                 }
-                
                 return cell
             } else {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "FiltersCollapsedCell", for: indexPath) as! FiltersCollapsedCell
@@ -144,27 +143,46 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
                 } else {
                     selectState = tableView.typeSelectState
                 }
+                cell.collapsedLabel.font = UIFont(name: "Nunito-Bold", size: 16)
                 cell.collapsedLabel.text = tableView.filterSectionData[indexPath.section]?[selectState]
                 return cell
             }
-        case FiltersTableView.SectionId.INTOLERANCES.rawValue, FiltersTableView.SectionId.CUISINE.rawValue, FiltersTableView.SectionId.USE_INGREDIENTS.rawValue, FiltersTableView.SectionId.USE_SHOPPING_LIST.rawValue:
+        case FiltersTableView.SectionId.INTOLERANCES.rawValue, FiltersTableView.SectionId.CUISINE.rawValue:
             if !tableView.expandedSections[indexPath.section]! {
                 if (indexPath.row < tableView.collapsedSwitchCellsSize - 1) {
                  let cell = tableView.dequeueReusableCell(withIdentifier: "FiltersSwitchCell", for: indexPath) as! FiltersSwitchCell
                 cell.switchLabel.text = tableView.filterSectionData[indexPath.section]?[indexPath.row]
-                cell.onSwitch.isOn = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
-                cell.delegate = self
+                
+                let value = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
+                
+                    if value == false {
+                        cell.checkImageView.isHidden = true
+                    } else {
+                        cell.checkImageView.isHidden = false
+                    }
                  return cell
                 } else {
                     let cell =  tableView.dequeueReusableCell(withIdentifier: "FiltersCollapsedCell", for: indexPath) as! FiltersCollapsedCell
-                    cell.collapsedLabel.text = "See More"
+                    cell.collapsedLabel.font = UIFont(name: "Nunito-Light", size: 9)
+                    
+                    if indexPath.section == FiltersTableView.SectionId.INTOLERANCES.rawValue {
+                        cell.collapsedLabel.text = "SEE ALL ALLERGY FILTERS"
+                    } else {
+                        cell.collapsedLabel.text = "SEE ALL CUISINE FILTERS"
+                    }
+                    
                     return cell
                 }
             } else {
                 let cell =  tableView.dequeueReusableCell(withIdentifier: "FiltersSwitchCell", for: indexPath) as! FiltersSwitchCell
                 cell.switchLabel.text = tableView.filterSectionData[indexPath.section]?[indexPath.row]
-                cell.onSwitch.isOn = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
-                cell.delegate = self
+                let value = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
+                
+                if value == false {
+                    cell.checkImageView.isHidden = true
+                } else {
+                    cell.checkImageView.isHidden = false
+                }
                 return cell
             }
         default:
@@ -173,14 +191,42 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         
         return UITableViewCell()
     }
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let tableView = tableView as! FiltersTableView
+        let headerView = UIView()
+        let bottomSeparatorView = UIView()
+        bottomSeparatorView.backgroundColor = Utils.getSecondaryColor()
+        bottomSeparatorView.frame =  CGRect(x:0, y:headerView.bounds.height-1, width: UIScreen.main.bounds.width, height: 1)
+        headerView.backgroundColor = UIColor.white
+        let label = UILabel()
+        label.text = tableView.filterSections[section]
+        label.frame = CGRect(x:5, y: 5, width: 100, height: 35)
+        headerView.addSubview(label)
+        headerView.addSubview(bottomSeparatorView)
+        label.textColor = Utils.getTextColor()
+        label.font = UIFont(name: "Nunito-SemiBold", size: 13)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        bottomSeparatorView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1, constant: 16))
+        headerView.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0))
+        
+        headerView.addConstraint(NSLayoutConstraint(item: bottomSeparatorView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1, constant: 0))
+        headerView.addConstraint(NSLayoutConstraint(item: bottomSeparatorView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1, constant: 0))
+        headerView.addConstraint(NSLayoutConstraint(item: bottomSeparatorView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1, constant: 0))
+        headerView.addConstraint(NSLayoutConstraint(item: bottomSeparatorView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 1))
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
 }
 
-extension FiltersViewController: SwitchCellDelegate, SelectCellDelegate {
-    func switchCell(switchCell: FiltersSwitchCell, didChangeValue value: Bool) {
+extension FiltersViewController: SelectCellDelegate {
+    /*func switchCell(switchCell: FiltersSwitchCell, didChangeValue value: Bool) {
         let indexPath = tableView.indexPath(for: switchCell)!
         tableView.setSwitchState(section: indexPath.section, row: indexPath.row, value: value)
-    }
+    }*/
     
     func selectCell(selectCell: FiltersSelectCell, isSelected value: Bool) {
         let indexPath = tableView.indexPath(for: selectCell)!

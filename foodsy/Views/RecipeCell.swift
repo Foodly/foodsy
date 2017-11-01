@@ -14,6 +14,9 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
+    @IBOutlet weak var mealColor: UIView!
+    @IBOutlet weak var infoImageView1: UIImageView!
+    @IBOutlet weak var infoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     
@@ -26,26 +29,45 @@ class RecipeCell: UITableViewCell {
     var recipe: Recipe! {
         didSet {
             self.titleLabel.text = recipe.title
-            if recipe.image != nil {
-                self.foodImageView.setImageWith(URL(string:recipe.image)!)
+            if let url = URL(string:recipe.image){
+                self.foodImageView.setImageWith(url)
             }
             self.preptimeLabel.text = getFormattedTime(timeInMin: recipe.readyInMinutes!)
             self.servingsLabel.text = "\(recipe.servings!)"
+            
+            if recipe.vegetarian != nil {
+                if recipe.vegetarian == 0 {
+                    mealColor.backgroundColor = Utils.getMeatColor()
+                } else {
+                    mealColor.backgroundColor = Utils.getVegetarianColor()
+                }
+            } else {
+                mealColor.backgroundColor = Utils.getNeutralColor()
+            }
+            var recipeIndicatorsCount = 0
+            if recipe.dairyFree == 1 {
+                recipeIndicatorsCount = recipeIndicatorsCount + 1
+                self.infoImageView.image = UIImage(named: "no-dairy")
+            }
+            if recipe.glutenFree == 1 {
+                if recipeIndicatorsCount == 1 {
+                    self.infoImageView1.image = UIImage(named: "no-gluten")
+                } else {
+                    self.infoImageView.image = UIImage(named: "no-gluten")
+                    self.infoImageView1.isHidden = true
+                }
+            }
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         favoriteBtn.addTarget(self, action: #selector(favoriteBtnClicked), for: UIControlEvents.touchDown)
-        /*cardView.layer.masksToBounds = false;
-        cardView.layer.shadowOffset = CGSize(width:CGFloat(-0.2), height:CGFloat(0.2));
-        cardView.layer.shadowRadius = 0.5; //%%% I prefer thinner, subtler shadows, but you can play with this
-        cardView.layer.shadowOpacity = 0.2; //%%% same thing with this, subtle is better for me
-        
-        //%%% This is a little hard to explain, but basically, it lowers the performance required to build shadows.  If you don't use this, it will lag
-        let path: UIBezierPath = UIBezierPath(rect: cardView.frame)
-        cardView.layer.shadowPath = path.cgPath;
-        
-        // Initialization code*/
+        cardView.layer.cornerRadius = cardView.frame.size.height/20
+        layer.masksToBounds = true
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

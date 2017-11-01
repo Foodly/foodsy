@@ -11,8 +11,8 @@ import UIKit
 class RecipeMainIngredientsCardCell: UICollectionViewCell {
 
     @IBOutlet weak var recipeView: UIView!
-    @IBOutlet weak var mealColorView: UIView!
-    @IBOutlet weak var mealColorView1: UIView!
+    @IBOutlet weak var infoImageView: UIImageView!
+    @IBOutlet weak var infoImageView1: UIImageView!
     @IBOutlet weak var favoriteBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var preptimeLabel: UILabel!
@@ -31,7 +31,10 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
     @IBOutlet weak var bulletImageView4: UIImageView!
     @IBOutlet weak var bulletImageView5: UIImageView!
     
+    @IBOutlet weak var ingredientsTitleLabel: UILabel!
+    @IBOutlet weak var preptimeTitleLabel: UILabel!
     
+    @IBOutlet weak var servingsTitleLabel: UILabel!
     var bulletImageViews:[UIImageView]!
     var ingredientLabels:[UILabel]!
     
@@ -40,6 +43,20 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
             titleLabel.text = recipe.title
             servingsLabel.text = "\(recipe.servings!) servings"
             preptimeLabel.text = "\(recipe.readyInMinutes!) min"
+            
+            var recipeIndicatorsCount = 0
+            if recipe.dairyFree == 1 {
+                recipeIndicatorsCount = recipeIndicatorsCount + 1
+                infoImageView.image = UIImage(named: "no-dairy")
+            }
+            if recipe.glutenFree == 1 {
+                if recipeIndicatorsCount == 1 {
+                    infoImageView1.image = UIImage(named: "no-gluten")
+                } else {
+                    infoImageView.image = UIImage(named: "no-gluten")
+                    infoImageView1.isHidden = true
+                }
+            }
         }
     }
     
@@ -56,6 +73,11 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 2.0
         
         bulletImageView.layer.cornerRadius = bulletImageView.frame.width/2
         bulletImageView.clipsToBounds = true
@@ -91,6 +113,10 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         ingredientLabels.append(ingredientsLabel4)
         ingredientLabels.append(ingredientsLabel5)
         
+    }
+    
+    func changeFonts() {
+        titleLabel?.font = UIFont(name: "Nunito-Bold", size: 20.0)
     }
 
 }
