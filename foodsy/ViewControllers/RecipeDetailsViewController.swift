@@ -55,6 +55,20 @@ class RecipeDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @objc func onAddNewPhoto(_ sender: UIBarButtonItem) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available 📸")
+            vc.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            vc.sourceType = .photoLibrary
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -91,6 +105,31 @@ extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height);
     }
-    
-    
+}
+
+extension RecipeDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        // Do something with the images (based on your use case)
+        let timeInterval = Date().timeIntervalSince1970
+        let currentTime = NSNumber(value: timeInterval)
+        
+        SelfRecipeImage.fetchByRecipeIdForUser(name: (User.currentUser?.screenname)!, recipeId: (recipe?.id)!) { (selfRecipeImage) in
+            if let recipeImage = selfRecipeImage {
+                recipeImage.setImage(image: editedImage)
+                recipeImage.saveForUser()
+            } else {
+                let selfRecipeImage = SelfRecipeImage()
+                selfRecipeImage.title = (self.recipe?.title)!
+                selfRecipeImage.recipeId = (self.recipe?.id)!
+                selfRecipeImage.date = currentTime
+                selfRecipeImage.setImage(image: editedImage)
+                selfRecipeImage.saveForUser()
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
 }

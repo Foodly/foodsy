@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UINavigationBar.appearance().barTintColor = Utils.getPrimaryColor()
+        UINavigationBar.appearance().tintColor = .white
+        let navigationTitleFont = UIFont(name: "Nunito", size: 20)!
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont]
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "cravely"
@@ -49,19 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let profileViewController = profileNavigationController.topViewController as! ProfileViewController
             profileNavigationController.tabBarItem.title = "Profile"
             
-            let favoritesStoryboard = UIStoryboard(name: "Favorites", bundle: nil)
-            let favoritesNavigationController = favoritesStoryboard.instantiateViewController(withIdentifier: "FavoritesNavigationController") as! UINavigationController
-            let favoritesViewController = favoritesNavigationController.topViewController as! FavoritesViewController
-            favoritesViewController.tabBarItem.title = "Favorites"
-            
             
             let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [shoppingListNavigationController, ingredientListNavigationController, recipeListNavigationController, profileNavigationController, favoritesViewController]
+            tabBarController.viewControllers = [shoppingListNavigationController, ingredientListNavigationController, recipeListNavigationController, profileNavigationController]
             tabBarController.tabBar.items![0].image = #imageLiteral(resourceName: "shopping-cart")
             tabBarController.tabBar.items![1].image = #imageLiteral(resourceName: "ingredient-list")
             tabBarController.tabBar.items![2].image = #imageLiteral(resourceName: "recipes")
             tabBarController.tabBar.items![3].image = #imageLiteral(resourceName: "profile")
-            tabBarController.tabBar.items![4].image = #imageLiteral(resourceName: "favorite")
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
             window?.tintColor = UIColor(red: 1, green: 0.5137, blue: 0.2667, alpha: 1.0)

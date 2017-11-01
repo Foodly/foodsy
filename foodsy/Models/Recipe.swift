@@ -18,6 +18,9 @@ class Recipe: PFObject, PFSubclassing {
     @NSManaged var extendedIngredients: [NSDictionary]?
     @NSManaged var readyInMinutes: NSNumber!
     @NSManaged var servings: NSNumber!
+    @NSManaged var dairyFree: NSNumber!
+    @NSManaged var glutenFree: NSNumber!
+    @NSManaged var vegetarian: NSNumber!
     
     class func parseClassName() -> String {
         return "Recipe"
@@ -57,13 +60,15 @@ class Recipe: PFObject, PFSubclassing {
         return instructions
     }
     
-    class func fetchFavoriteRecipesForUser(name: String, success: @escaping ([Recipe])->()) {
+    class func fetchFavoriteRecipesForUser(name: String, success: @escaping ([Recipe]?)->()) {
         let query = PFQuery(className: Recipe.parseClassName())
         query.whereKey("userName", equalTo: name)
         query.findObjectsInBackground { (results, error) in
             if results!.count > 0 {
                 let recipes = results as! [Recipe]
                 success(recipes)
+            } else {
+                success(nil)
             }
         }
     }

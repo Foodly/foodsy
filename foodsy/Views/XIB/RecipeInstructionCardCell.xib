@@ -4,10 +4,18 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,77 +27,82 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3h-HB-VeR">
-                        <rect key="frame" x="15" y="0.0" width="373" height="332"/>
+                        <rect key="frame" x="8" y="0.0" width="387" height="332"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zY-Mp-oEp">
-                                <rect key="frame" x="0.0" y="0.0" width="373" height="6"/>
+                                <rect key="frame" x="0.0" y="0.0" width="387" height="3"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="6" id="OxF-oO-hAU"/>
+                                    <constraint firstAttribute="height" constant="3" id="OxF-oO-hAU"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khf-Fq-wAC">
-                                <rect key="frame" x="16" y="22" width="52" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="13" width="45" height="21"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-UV-Bb1">
-                                <rect key="frame" x="327" y="18" width="30" height="30"/>
+                                <rect key="frame" x="341" y="15" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="M8c-Gy-EyC"/>
-                                    <constraint firstAttribute="width" constant="30" id="Tx1-rZ-zhY"/>
+                                    <constraint firstAttribute="height" constant="20" id="M8c-Gy-EyC"/>
+                                    <constraint firstAttribute="width" constant="20" id="Tx1-rZ-zhY"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="heart"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG9-0i-abG">
-                                <rect key="frame" x="16" y="66" width="39" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="55" width="30" height="14"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2j-MH-vB9">
-                                <rect key="frame" x="16" y="93.5" width="341" height="21.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Label">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="18"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2j-MH-vB9">
+                                <rect key="frame" x="16" y="77" width="355" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntG-15-xJd">
+                                <rect key="frame" x="0.0" y="44" width="387" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ouP-h0-0fF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7SR-UV-Bb1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="khf-Fq-wAC" secondAttribute="trailing" constant="16" id="0cU-Rg-rAW"/>
                             <constraint firstItem="e2j-MH-vB9" firstAttribute="leading" secondItem="HG9-0i-abG" secondAttribute="leading" id="18Z-oJ-kZ6"/>
+                            <constraint firstItem="HG9-0i-abG" firstAttribute="top" secondItem="ntG-15-xJd" secondAttribute="bottom" constant="10" id="5mP-iE-F8K"/>
                             <constraint firstAttribute="trailing" secondItem="9zY-Mp-oEp" secondAttribute="trailing" id="7iI-Wp-wpk"/>
-                            <constraint firstItem="khf-Fq-wAC" firstAttribute="top" secondItem="9zY-Mp-oEp" secondAttribute="bottom" constant="16" id="Dsd-PC-Wit"/>
+                            <constraint firstItem="khf-Fq-wAC" firstAttribute="top" secondItem="9zY-Mp-oEp" secondAttribute="bottom" constant="10" id="Dsd-PC-Wit"/>
                             <constraint firstItem="khf-Fq-wAC" firstAttribute="leading" secondItem="P3h-HB-VeR" secondAttribute="leading" constant="16" id="FVu-qu-boR"/>
-                            <constraint firstItem="HG9-0i-abG" firstAttribute="top" secondItem="khf-Fq-wAC" secondAttribute="bottom" constant="20" id="IK2-Vv-weC"/>
                             <constraint firstItem="e2j-MH-vB9" firstAttribute="top" secondItem="HG9-0i-abG" secondAttribute="bottom" constant="8" id="IKb-C6-GVI"/>
                             <constraint firstItem="9zY-Mp-oEp" firstAttribute="top" secondItem="P3h-HB-VeR" secondAttribute="top" id="Lby-Ub-Vnp"/>
+                            <constraint firstAttribute="trailing" secondItem="ntG-15-xJd" secondAttribute="trailing" id="M6w-7U-QcF"/>
                             <constraint firstItem="7SR-UV-Bb1" firstAttribute="top" secondItem="9zY-Mp-oEp" secondAttribute="bottom" constant="12" id="QKW-TE-lFB"/>
                             <constraint firstItem="HG9-0i-abG" firstAttribute="leading" secondItem="khf-Fq-wAC" secondAttribute="leading" id="QdK-Kz-w0u"/>
+                            <constraint firstItem="ntG-15-xJd" firstAttribute="leading" secondItem="P3h-HB-VeR" secondAttribute="leading" id="a9k-BP-fA9"/>
                             <constraint firstAttribute="trailing" secondItem="e2j-MH-vB9" secondAttribute="trailing" constant="16" id="c6E-I6-Fcb"/>
                             <constraint firstItem="9zY-Mp-oEp" firstAttribute="leading" secondItem="P3h-HB-VeR" secondAttribute="leading" id="mns-n4-TbV"/>
-                            <constraint firstAttribute="trailing" secondItem="7SR-UV-Bb1" secondAttribute="trailing" constant="16" id="urh-4G-Spu"/>
+                            <constraint firstAttribute="trailing" secondItem="7SR-UV-Bb1" secondAttribute="trailing" constant="26" id="urh-4G-Spu"/>
+                            <constraint firstItem="ntG-15-xJd" firstAttribute="top" secondItem="khf-Fq-wAC" secondAttribute="bottom" constant="10" id="xR7-O4-hLY"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="P3h-HB-VeR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4nF-s5-MMW"/>
-                <constraint firstAttribute="trailing" secondItem="P3h-HB-VeR" secondAttribute="trailing" constant="15" id="Ecs-tf-lot"/>
-                <constraint firstItem="P3h-HB-VeR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="RQX-Ex-Nf5"/>
+                <constraint firstAttribute="trailing" secondItem="P3h-HB-VeR" secondAttribute="trailing" constant="8" id="Ecs-tf-lot"/>
+                <constraint firstItem="P3h-HB-VeR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="RQX-Ex-Nf5"/>
                 <constraint firstAttribute="bottom" secondItem="P3h-HB-VeR" secondAttribute="bottom" id="hLZ-W8-F3X"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="403" height="332"/>
             <connections>
                 <outlet property="instructionLabel" destination="e2j-MH-vB9" id="kfu-a1-Y1w"/>
+                <outlet property="recipeView" destination="P3h-HB-VeR" id="d2j-x2-EDM"/>
                 <outlet property="stepLabel" destination="HG9-0i-abG" id="e3C-HA-6I3"/>
                 <outlet property="titleLabel" destination="khf-Fq-wAC" id="gU9-D5-CkS"/>
             </connections>

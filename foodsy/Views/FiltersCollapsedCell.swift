@@ -10,6 +10,7 @@ import UIKit
 
 class FiltersCollapsedCell: UITableViewCell {
 
+    @IBOutlet weak var bottomSeperatorView: UIView!
     @IBOutlet weak var collapsedLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
