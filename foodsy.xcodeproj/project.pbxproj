@@ -33,6 +33,7 @@
 		821FB4601F8CBE4F00722263 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB45F1F8CBE4F00722263 /* Profile.swift */; };
 		821FB4641F8CBEFE00722263 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4631F8CBEFE00722263 /* Constants.swift */; };
 		821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4651F8CC00500722263 /* ProfileViewController.swift */; };
+		822126EB1FAA928700A39652 /* MainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822126EA1FAA928700A39652 /* MainDisplay.swift */; };
 		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
 		82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* LoginViewController.swift */; };
 		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
@@ -127,6 +128,7 @@
 		821FB45F1F8CBE4F00722263 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		821FB4631F8CBEFE00722263 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		821FB4651F8CC00500722263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		822126EA1FAA928700A39652 /* MainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDisplay.swift; sourceTree = "<group>"; };
 		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82893BCF1F8CB505000193A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				829C44F91F90A759001B3439 /* AppStoryboard.swift */,
 				687770D71FA6DAD3000B0D72 /* Annotation.swift */,
 				82B109611FA510BB0097C6E2 /* Utils.swift */,
+				822126EA1FAA928700A39652 /* MainDisplay.swift */,
 			);
 			path = foodsy;
 			sourceTree = "<group>";
@@ -475,13 +478,12 @@
 				TargetAttributes = {
 					82893BC91F8CB505000193A5 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
-						ProvisioningStyle = Manual;
 					};
 					82893BE01F8CB505000193A5 = {
 						CreatedOnToolsVersion = 9.0;
@@ -742,6 +744,7 @@
 				82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */,
 				68D51C6E1F928AA400EAF4D0 /* ApiToken.swift in Sources */,
 				829C44FC1F90A925001B3439 /* ProfileSetupView.swift in Sources */,
+				822126EB1FAA928700A39652 /* MainDisplay.swift in Sources */,
 				82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */,
 				6832DCCA1F9031BD0044ADCC /* User.swift in Sources */,
 				829C45341F9497BA001B3439 /* Recipe.swift in Sources */,
@@ -988,8 +991,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = foodsy/foodsy.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7BFULV8CN5;
 				INFOPLIST_FILE = foodsy/Info.plist;
@@ -997,7 +998,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				PROVISIONING_PROFILE = "28b11a68-ad25-42d4-8642-245c708874f6";
 				PROVISIONING_PROFILE_SPECIFIER = foodsy2;
 				SWIFT_VERSION = 4.0;
@@ -1012,8 +1012,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = foodsy/foodsy.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7BFULV8CN5;
 				INFOPLIST_FILE = foodsy/Info.plist;
@@ -1021,7 +1019,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Foodly.foodsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				PROVISIONING_PROFILE = "28b11a68-ad25-42d4-8642-245c708874f6";
 				PROVISIONING_PROFILE_SPECIFIER = foodsy2;
 				SWIFT_VERSION = 4.0;

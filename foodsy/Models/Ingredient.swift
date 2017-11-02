@@ -67,7 +67,7 @@ class Ingredient: PFObject, PFSubclassing {
         }
     }
     
-    class func fetchIngredientsForUser(name: String, type: String, success: @escaping ([Ingredient])->()) {
+    class func fetchIngredientsForUser(name: String, type: String, success: @escaping ([Ingredient]?)->()) {
         let query = PFQuery(className: Ingredient.parseClassName())
         query.whereKey("userName", equalTo: name)
         query.whereKey("type", equalTo: type)
@@ -75,6 +75,8 @@ class Ingredient: PFObject, PFSubclassing {
             if results!.count > 0 {
                 let ingredients = results as! [Ingredient]
                 success(ingredients)
+            } else {
+                success(nil)
             }
         }
     }

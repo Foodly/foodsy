@@ -10,9 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 import SwipeCellKit
+import MBProgressHUD
 
 class IngredientsListViewController: UIViewController {
 
+    @IBOutlet weak var emptyStateView: UIView!
     @IBOutlet weak var mapButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -34,6 +36,7 @@ class IngredientsListViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        emptyStateView.isHidden = true
         fetchIngredientsAndUpdateTable();
         setTitleBasedOnIdentifier()
     }
@@ -47,9 +50,19 @@ class IngredientsListViewController: UIViewController {
     }
     
     func fetchIngredientsAndUpdateTable() {
+        MBProgressHUD.showAdded(to: self.tableView, animated: true)
         Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!, type: self.vcIdentifier) { (ingredients) in
-            self.ingredients = ingredients
-            self.tableView.reloadData()
+            
+            if let ingredients = ingredients {
+                self.ingredients = ingredients
+                self.emptyStateView.isHidden = true;
+                MBProgressHUD.hide(for: self.tableView, animated: true)
+                self.tableView.reloadData()
+                
+            } else {
+                self.emptyStateView.isHidden = false;
+            }
+            
         }
     }
     
@@ -74,6 +87,7 @@ class IngredientsListViewController: UIViewController {
     }
     
     @IBAction func onMapViewToggle(_ sender: UIBarButtonItem) {
+        emptyStateView.isHidden = true;
         if isMapViewShowing {
             mapButton.title = "Map"
             mapView.isHidden = true
