@@ -60,6 +60,7 @@ class IngredientsListViewController: UIViewController {
                 self.tableView.reloadData()
                 
             } else {
+                MBProgressHUD.hide(for: self.tableView, animated: true)
                 self.emptyStateView.isHidden = false;
             }
             
