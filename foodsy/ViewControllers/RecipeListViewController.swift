@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class RecipeListViewController: UIViewController {
 
@@ -30,12 +31,29 @@ class RecipeListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        searchRecipes(params: searchParams as NSDictionary)
+        Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!, type: "ingredient") { (ingredients) in
+            if let ingredients = ingredients {
+                var ingredientList = [String]()
+                
+                for ingredient in ingredients {
+                    ingredientList.append(ingredient.name.lowercased())
+                }
+                self.searchParams["includeIngredients"] = ingredientList
+                
+            } else {
+                self.searchParams["includeIngredients"] = []
+            }
+            self.searchRecipes(params: self.searchParams as NSDictionary)
+        }
+        
     }
+    
     func searchRecipes(params: NSDictionary?) {
+        MBProgressHUD.showAdded(to: self.tableView, animated: true)
         RecipeClient.SharedInstance.fetchRecipes(params: params, success: { (recipes) in
             self.tableView.recipes = recipes
             self.tableView.reloadData()
+            MBProgressHUD.hide(for: self.tableView, animated: true)
             Recipe.fetchFavoriteRecipesForUser(name: (User.currentUser?.screenname)!) { (recipes) in
                 if let recipes = recipes {
                     for recipe in recipes {
@@ -155,7 +173,7 @@ extension RecipeListViewController: FiltersViewControllerDelegate {
         if cuisineChoices.count > 0 {
             params["cuisine"] = cuisineChoices
         }
-        searchParams = params
+
         //searchRecipes(params:params as NSDictionary)
     }
 }

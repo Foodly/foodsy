@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Ingredients List View Controller-->
         <scene sceneID="1h3-Rs-xuH">
@@ -24,16 +29,49 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syq-pk-dDg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qm-jA-ubz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="qyZ-Wx-Ndf">
+                                        <rect key="frame" x="62.5" y="50" width="250" height="350"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="3gu-MZ-s5Y"/>
+                                            <constraint firstAttribute="height" constant="350" id="bcy-sr-2Ex"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you haven't added anything. Aliens, again?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-UP-mfK">
+                                        <rect key="frame" x="8" y="440" width="359" height="56"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
+                                        <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="leading" secondItem="6qm-jA-ubz" secondAttribute="leading" constant="8" id="Ncz-MF-zpe"/>
+                                    <constraint firstAttribute="trailing" secondItem="1K0-UP-mfK" secondAttribute="trailing" constant="8" id="NpX-7X-4WJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1K0-UP-mfK" secondAttribute="trailing" constant="8" id="Sef-tK-6Mv"/>
+                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="leading" secondItem="6qm-jA-ubz" secondAttribute="leading" constant="8" id="cli-9k-HjJ"/>
+                                    <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="fOb-W2-Rem"/>
+                                    <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="top" secondItem="6qm-jA-ubz" secondAttribute="top" constant="50" id="g6s-Kf-2ic"/>
+                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="pn7-3v-vqA"/>
+                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="top" secondItem="qyZ-Wx-Ndf" secondAttribute="bottom" constant="40" id="w2H-t1-Nxa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="09a-GJ-a30"/>
+                            <constraint firstItem="6qm-jA-ubz" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="4rz-hU-ys7"/>
+                            <constraint firstItem="sqh-6A-dif" firstAttribute="trailing" secondItem="6qm-jA-ubz" secondAttribute="trailing" id="J6U-bk-dDz"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="VWg-1R-sbx"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="Vuv-8S-j2b"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="bBf-Wc-FwK"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="gO8-zT-0U9"/>
+                            <constraint firstItem="sqh-6A-dif" firstAttribute="bottom" secondItem="6qm-jA-ubz" secondAttribute="bottom" id="jbc-6P-i5r"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="mGB-bJ-tas"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="ndF-Wz-Fqk"/>
+                            <constraint firstItem="6qm-jA-ubz" firstAttribute="top" secondItem="sqh-6A-dif" secondAttribute="top" id="ni2-zj-JhW"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="qNF-IL-bam"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sqh-6A-dif"/>
@@ -51,6 +89,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyStateView" destination="6qm-jA-ubz" id="8gC-Us-k8y"/>
                         <outlet property="mapButton" destination="sK1-Yv-PhK" id="f4g-iY-5aw"/>
                         <outlet property="mapView" destination="syq-pk-dDg" id="vrw-ij-2Zc"/>
                         <outlet property="tableView" destination="yh3-Rd-2gy" id="ajv-uA-dZW"/>
@@ -59,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FX7-Ib-Q45" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="-783"/>
+            <point key="canvasLocation" x="432.80000000000001" y="-783.05847076461771"/>
         </scene>
         <!--Ingredient Search View Controller-->
         <scene sceneID="yRN-aj-8No">
@@ -342,8 +381,9 @@
     </scenes>
     <resources>
         <image name="plus-simple-7" width="30" height="30"/>
+        <image name="spaceship" width="621" height="1104"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hlq-jU-mBU"/>
+        <segue reference="zlV-2Z-3bN"/>
     </inferredMetricsTieBreakers>
 </document>

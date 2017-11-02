@@ -108,10 +108,16 @@ class ProfileViewController: UIViewController {
     
     func updateLabels() {
         Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!, type: "shopping") { (shopping) in
-            self.totalShoppingLabel.text = "\(shopping.count)"
+            if let shopping = shopping {
+                self.totalShoppingLabel.text = "\(shopping.count)"
+            }
+            
         }
         Ingredient.fetchIngredientsForUser(name: (User.currentUser?.screenname)!, type: "ingredient") { (ingredient) in
-            self.totalIngredientsLabel.text = "\(ingredient.count)"
+            if let ingredient = ingredient {
+                self.totalIngredientsLabel.text = "\(ingredient.count)"
+            }
+            
         }
         Recipe.fetchFavoriteRecipesForUser(name: (User.currentUser?.screenname)!) { (recipes) in
             if let recipes = recipes {
