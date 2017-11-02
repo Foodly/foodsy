@@ -8,40 +8,33 @@ the App so you are ready to go. We also allow users to favorite recipes to make 
 ## User Stories
 
 The following is **required** functionality:
-- [ ] Fridge ingredient list view
-    - [ ] Add Ingredient view with ingredients to choose from
-- [ ] Shopping list
-    - [ ] Ingrediuent view wired in
-- [ ] Recipe search view
-    - [ ] Search filters
-        - [ ] Auto search on existing inventory
-        - [ ] Calories
-        - [ ] Cuisine
-        - [ ] Meal (like breakfast/lunch/dinner etc)
-- [ ] Map view for stores
-    - [ ] Search bar to search for stuff
-    - [ ] Pins should deep link to Google Maps
-- [ ] Add alerts on ingredients based on timeline
-- [ ] Favorite recipes view
-- [ ] User Profile
-    - [ ] Simplified preferences - Red/Yellow/Green
-        - Red: Meat heavy
-        - Yellow: balanced diet
-        - Green: Vegetarian
+- [X] Fridge ingredient list view
+    - [X] Add Ingredient view with ingredients to choose from
+- [X] Shopping list
+    - [X] Ingrediuent view wired in
+- [X] Recipe search view
+    - [X] Search filters
+        - [X] Auto search on existing inventory
+        - [X] Cuisine
+        - [X] Meal (like breakfast/lunch/dinner etc)
+- [X] Map view for stores
+    - [X] Search bar to search for stuff
+    - [X] Pins should deep link to Google Maps
+- [X] Add alerts on ingredients based on timeline
+- [X] Favorite recipes view
+- [X] User Profile
 
 The following are **stretch** features are implemented:
-- [ ] Click photo(or barcode) to add ingredient
-- [ ] Push Notifications for when you are near a grocery store to buy stuff
-- [ ] Notifications for when your food might be going bad
+- [X] Click photo(or barcode) to add ingredient
+- [X] Push Notifications for when you are near a grocery store to buy stuff
+- [X] Notifications for when your food might be going bad
 - [ ] Suggest recipes (w/ additional ingredients you may not have) in push notification
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='https://media.giphy.com/media/3ohBVc1syYeRBwc6aY/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
@@ -49,7 +42,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Crave]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
