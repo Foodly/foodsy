@@ -16,7 +16,7 @@ class IngredientsListViewController: UIViewController {
 
     @IBOutlet weak var emptyStateView1: UIView!
     @IBOutlet weak var emptyStateView: UIView!
-    @IBOutlet weak var mapButton: UIBarButtonItem!
+    @IBOutlet var mapButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var locationManager: CLLocationManager!
@@ -34,6 +34,9 @@ class IngredientsListViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         self.ingredients = [Ingredient]()
+        if self.vcIdentifier == "ingredient" {
+            self.navigationItem.leftBarButtonItem = nil
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
