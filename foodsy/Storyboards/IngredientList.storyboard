@@ -12,6 +12,9 @@
         <array key="Nunito-Bold.ttf">
             <string>Nunito-Bold</string>
         </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Ingredients List View Controller-->
@@ -33,14 +36,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="qyZ-Wx-Ndf">
-                                        <rect key="frame" x="137.5" y="106.5" width="250" height="350"/>
+                                        <rect key="frame" x="62.5" y="106.5" width="250" height="350"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3gu-MZ-s5Y"/>
                                             <constraint firstAttribute="height" constant="350" id="bcy-sr-2Ex"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you haven't added anything. Aliens, again?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-UP-mfK">
-                                        <rect key="frame" x="0.0" y="523.5" width="275" height="49.5"/>
+                                        <rect key="frame" x="50" y="523.5" width="275" height="49.5"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -60,14 +63,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astronaut" translatesAutoresizingMaskIntoConstraints="NO" id="LDq-jA-K2q">
-                                        <rect key="frame" x="137.5" y="81.5" width="250" height="400"/>
+                                        <rect key="frame" x="62.5" y="81.5" width="250" height="400"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="AVV-ta-XV5"/>
                                             <constraint firstAttribute="height" constant="400" id="rDP-2l-ujK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmm...looks like there is nothing       but empty space here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swI-ng-8bn">
-                                        <rect key="frame" x="0.0" y="523.5" width="275" height="49.5"/>
+                                        <rect key="frame" x="50" y="523.5" width="275" height="49.5"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -242,6 +245,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRd-9Y-Yca">
+                                <rect key="frame" x="88" y="444.5" width="200" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.47058823529999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="D9T-09-B80"/>
+                                    <constraint firstAttribute="width" constant="200" id="Fc1-QO-8dD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
+                                <state key="normal" title="Search on Amazon Fresh">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSearchAmazon:" destination="GQr-NL-8tE" eventType="touchUpInside" id="8IR-1x-oN7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -255,6 +273,8 @@
                             <constraint firstItem="zs0-th-Sux" firstAttribute="trailing" secondItem="77b-ab-ZJF" secondAttribute="trailing" constant="16" id="G6e-d3-ueY"/>
                             <constraint firstItem="qVH-w8-Ym4" firstAttribute="top" secondItem="Vfz-cp-Trz" secondAttribute="bottom" constant="24" id="MNS-2a-uZ6"/>
                             <constraint firstItem="Vfz-cp-Trz" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" constant="16" id="OQu-by-3uN"/>
+                            <constraint firstItem="9Xc-Ue-Zdv" firstAttribute="centerX" secondItem="CYO-E7-pws" secondAttribute="centerX" id="QLf-cy-GNI"/>
+                            <constraint firstItem="xRd-9Y-Yca" firstAttribute="centerX" secondItem="9Xc-Ue-Zdv" secondAttribute="centerX" id="axu-te-0Aj"/>
                             <constraint firstItem="Bxg-LL-49H" firstAttribute="centerX" secondItem="9Xc-Ue-Zdv" secondAttribute="centerX" id="bWP-bl-s9u"/>
                             <constraint firstItem="77b-ab-ZJF" firstAttribute="centerY" secondItem="Vfz-cp-Trz" secondAttribute="centerY" id="fpj-Ua-XxH"/>
                             <constraint firstItem="YVf-xQ-PqZ" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" constant="16" id="gLb-mg-I1j"/>
@@ -262,6 +282,7 @@
                             <constraint firstItem="9Xc-Ue-Zdv" firstAttribute="leading" secondItem="zs0-th-Sux" secondAttribute="leading" id="kYH-WV-J7p"/>
                             <constraint firstItem="zs0-th-Sux" firstAttribute="trailing" secondItem="ajf-8h-9k9" secondAttribute="trailing" constant="16" id="m1S-uW-fwd"/>
                             <constraint firstItem="Bxg-LL-49H" firstAttribute="centerY" secondItem="9Xc-Ue-Zdv" secondAttribute="centerY" id="o3g-fP-X9x"/>
+                            <constraint firstItem="xRd-9Y-Yca" firstAttribute="top" secondItem="LEh-oc-RLP" secondAttribute="bottom" constant="50" id="x7W-ky-e6T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zs0-th-Sux"/>
                     </view>
@@ -280,6 +301,7 @@
                         <outlet property="name" destination="77b-ab-ZJF" id="xzl-Vk-hAc"/>
                         <outlet property="quantity" destination="ajf-8h-9k9" id="edX-Fw-IlH"/>
                         <outlet property="remindIn" destination="LEh-oc-RLP" id="q8R-oa-kYx"/>
+                        <outlet property="searchAmazon" destination="xRd-9Y-Yca" id="1WG-CC-osU"/>
                         <segue destination="1C2-9M-jfg" kind="presentation" identifier="showPhotoDetail" id="iLp-MG-cre"/>
                     </connections>
                 </viewController>
