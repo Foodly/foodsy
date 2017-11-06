@@ -86,7 +86,7 @@ class Ingredient: PFObject, PFSubclassing {
         let query = PFQuery(className: Ingredient.parseClassName())
         query.whereKey("userName", equalTo: name)
         query.findObjectsInBackground { (results, error) in
-            if results!.count > 0 {
+            if results!.count >= 0 {
                 let ingredients = results as! [Ingredient]
                 success(ingredients)
             } else {
