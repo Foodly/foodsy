@@ -33,14 +33,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="qyZ-Wx-Ndf">
-                                        <rect key="frame" x="62.5" y="70" width="250" height="350"/>
+                                        <rect key="frame" x="137.5" y="106.5" width="250" height="350"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3gu-MZ-s5Y"/>
                                             <constraint firstAttribute="height" constant="350" id="bcy-sr-2Ex"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you haven't added anything. Aliens, again?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-UP-mfK">
-                                        <rect key="frame" x="50" y="460" width="275" height="42"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="275" height="49.5"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -48,12 +48,38 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1K0-UP-mfK" secondAttribute="bottom" constant="30" id="D7d-5d-Puz"/>
                                     <constraint firstItem="1K0-UP-mfK" firstAttribute="leading" secondItem="6qm-jA-ubz" secondAttribute="leading" constant="50" id="Ncz-MF-zpe"/>
                                     <constraint firstAttribute="trailing" secondItem="1K0-UP-mfK" secondAttribute="trailing" constant="50" id="NpX-7X-4WJ"/>
+                                    <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="centerY" secondItem="6qm-jA-ubz" secondAttribute="centerY" constant="-20" id="YpA-nI-1y4"/>
                                     <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="fOb-W2-Rem"/>
-                                    <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="top" secondItem="6qm-jA-ubz" secondAttribute="top" constant="70" id="g6s-Kf-2ic"/>
                                     <constraint firstItem="1K0-UP-mfK" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="pn7-3v-vqA"/>
-                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="top" secondItem="qyZ-Wx-Ndf" secondAttribute="bottom" constant="40" id="w2H-t1-Nxa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfi-Za-dzV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astronaut" translatesAutoresizingMaskIntoConstraints="NO" id="LDq-jA-K2q">
+                                        <rect key="frame" x="137.5" y="81.5" width="250" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="AVV-ta-XV5"/>
+                                            <constraint firstAttribute="height" constant="400" id="rDP-2l-ujK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmm...looks like there is nothing       but empty space here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swI-ng-8bn">
+                                        <rect key="frame" x="0.0" y="523.5" width="275" height="49.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                                        <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LDq-jA-K2q" firstAttribute="centerY" secondItem="Qfi-Za-dzV" secondAttribute="centerY" constant="-20" id="EK2-Ut-gLC"/>
+                                    <constraint firstItem="LDq-jA-K2q" firstAttribute="centerX" secondItem="Qfi-Za-dzV" secondAttribute="centerX" id="VFe-8d-ayA"/>
+                                    <constraint firstAttribute="bottom" secondItem="swI-ng-8bn" secondAttribute="bottom" constant="30" id="dUL-5l-5bX"/>
+                                    <constraint firstAttribute="trailing" secondItem="swI-ng-8bn" secondAttribute="trailing" constant="50" id="iEp-xT-IR0"/>
+                                    <constraint firstItem="swI-ng-8bn" firstAttribute="leading" secondItem="Qfi-Za-dzV" secondAttribute="leading" constant="50" id="y1A-sw-IgT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,16 +87,20 @@
                         <constraints>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="09a-GJ-a30"/>
                             <constraint firstItem="6qm-jA-ubz" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="4rz-hU-ys7"/>
+                            <constraint firstItem="Qfi-Za-dzV" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="CKj-hd-c7T"/>
                             <constraint firstItem="sqh-6A-dif" firstAttribute="trailing" secondItem="6qm-jA-ubz" secondAttribute="trailing" id="J6U-bk-dDz"/>
+                            <constraint firstItem="Qfi-Za-dzV" firstAttribute="top" secondItem="sqh-6A-dif" secondAttribute="top" id="NnQ-I1-XUL"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="VWg-1R-sbx"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="Vuv-8S-j2b"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="bottom" secondItem="sqh-6A-dif" secondAttribute="bottom" id="bBf-Wc-FwK"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="gO8-zT-0U9"/>
+                            <constraint firstItem="Qfi-Za-dzV" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="hgf-OI-HaC"/>
                             <constraint firstItem="sqh-6A-dif" firstAttribute="bottom" secondItem="6qm-jA-ubz" secondAttribute="bottom" id="jbc-6P-i5r"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="mGB-bJ-tas"/>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="ndF-Wz-Fqk"/>
                             <constraint firstItem="6qm-jA-ubz" firstAttribute="top" secondItem="sqh-6A-dif" secondAttribute="top" id="ni2-zj-JhW"/>
                             <constraint firstItem="yh3-Rd-2gy" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="qNF-IL-bam"/>
+                            <constraint firstItem="sqh-6A-dif" firstAttribute="bottom" secondItem="Qfi-Za-dzV" secondAttribute="bottom" id="vUU-lc-Plc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sqh-6A-dif"/>
                     </view>
@@ -88,6 +118,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emptyStateView" destination="6qm-jA-ubz" id="8gC-Us-k8y"/>
+                        <outlet property="emptyStateView1" destination="Qfi-Za-dzV" id="xM5-yY-M45"/>
                         <outlet property="mapButton" destination="sK1-Yv-PhK" id="f4g-iY-5aw"/>
                         <outlet property="mapView" destination="syq-pk-dDg" id="vrw-ij-2Zc"/>
                         <outlet property="tableView" destination="yh3-Rd-2gy" id="ajv-uA-dZW"/>
@@ -378,6 +409,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="astronaut" width="621" height="1104"/>
         <image name="plus-simple-7" width="30" height="30"/>
         <image name="spaceship" width="621" height="1104"/>
     </resources>

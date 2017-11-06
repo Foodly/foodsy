@@ -14,6 +14,7 @@ import MBProgressHUD
 
 class IngredientsListViewController: UIViewController {
 
+    @IBOutlet weak var emptyStateView1: UIView!
     @IBOutlet weak var emptyStateView: UIView!
     @IBOutlet weak var mapButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
@@ -37,6 +38,7 @@ class IngredientsListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         emptyStateView.isHidden = true
+        emptyStateView1.isHidden = true
         fetchIngredientsAndUpdateTable();
         setTitleBasedOnIdentifier()
     }
@@ -56,12 +58,20 @@ class IngredientsListViewController: UIViewController {
             if let ingredients = ingredients {
                 self.ingredients = ingredients
                 self.emptyStateView.isHidden = true;
+                self.emptyStateView1.isHidden = true;
                 MBProgressHUD.hide(for: self.tableView, animated: true)
                 self.tableView.reloadData()
                 
             } else {
                 MBProgressHUD.hide(for: self.tableView, animated: true)
-                self.emptyStateView.isHidden = false;
+                
+                if self.vcIdentifier == "ingredient" {
+                    self.emptyStateView.isHidden = false;
+                } else {
+                    self.emptyStateView1.isHidden = false;
+                }
+                
+                
             }
             
         }
@@ -89,6 +99,7 @@ class IngredientsListViewController: UIViewController {
     
     @IBAction func onMapViewToggle(_ sender: UIBarButtonItem) {
         emptyStateView.isHidden = true;
+        emptyStateView1.isHidden = true;
         if isMapViewShowing {
             mapButton.title = "Map"
             mapView.isHidden = true
@@ -230,7 +241,11 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                 self.ingredients.remove(at: indexPath.row)
                 
                 if (self.ingredients.count == 0) {
-                    self.emptyStateView.isHidden = false
+                    if self.vcIdentifier == "ingredient" {
+                        self.emptyStateView.isHidden = false;
+                    } else {
+                        self.emptyStateView1.isHidden = false;
+                    }
                 }
             })
             return [deleteAction]
@@ -246,7 +261,11 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                 self.ingredients.remove(at: indexPath.row)
                 
                 if (self.ingredients.count == 0) {
-                    self.emptyStateView.isHidden = false
+                    if self.vcIdentifier == "ingredient" {
+                        self.emptyStateView.isHidden = false;
+                    } else {
+                        self.emptyStateView1.isHidden = false;
+                    }
                 }
                 self.tableView.reloadData()
             })
