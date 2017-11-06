@@ -13,7 +13,7 @@ import Foundation
 class RecipeClient: NSObject {
     static let SharedInstance = RecipeClient()
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
-    
+    var cache = FileCache(ttl: 3600)
     func fetchRecipes(params: NSDictionary?, success: @escaping ([Recipe])->(), failure: @escaping (Error)->()) {
         let relativeUrl = baseUrl + "searchComplex?"
         var urlComponents = URLComponents(string : relativeUrl)!
@@ -34,7 +34,25 @@ class RecipeClient: NSObject {
         queryItems.append(URLQueryItem(name: "addRecipeInformation", value: "true"))
         urlComponents.queryItems = queryItems
         url = urlComponents.url
-        print(url)
+        let path = url.query!
+        if let data = cache.get(user: (User.currentUser)!, path: path) {
+            if let responseDictionary = try! JSONSerialization.jsonObject(
+                with: data, options: []) as? NSDictionary {
+                let recipesDictionary = responseDictionary["results"] as! [NSDictionary]
+                var recipes = [Recipe]()
+                for recipe in recipesDictionary {
+                    let analyzedInstructions = recipe["analyzedInstructions"] as? [NSDictionary]
+                    if let analyzedInstructions = analyzedInstructions {
+                        if analyzedInstructions.count > 0 {
+                            recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
+                        }
+                    }
+                    
+                    
+                }
+                success(recipes)
+            }
+        }
         
         var request = URLRequest(url: url!)
         request.setValue(APIToken.ProdToken?.api_key, forHTTPHeaderField: "X-Mashape-Key")
@@ -46,11 +64,9 @@ class RecipeClient: NSObject {
         )
         let task = session.dataTask(with: request) { (dataOrNil, response, error) in
             if let data = dataOrNil {
-                print(data)
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? NSDictionary {
-                    //print("response: \(responseDictionary)")
-                    
+                    _ = self.cache.put(user: (User.currentUser)!, path: path, contents: data)
                     let recipesDictionary = responseDictionary["results"] as! [NSDictionary]
                     var recipes = [Recipe]()
                     for recipe in recipesDictionary {
@@ -78,6 +94,14 @@ class RecipeClient: NSObject {
     func fetchRecipe(recipeId: Int, success: @escaping (Recipe)->(), failure: @escaping (Error)->()) {
         let relativeUrl = baseUrl + "\(recipeId)/information"
         let url = URL(string: relativeUrl)
+        let relativePath = url?.relativePath
+        if let data = cache.get(user: (User.currentUser)!, path: relativePath!) {
+            if let responseDictionary = try! JSONSerialization.jsonObject(
+                with: data, options: []) as? NSDictionary {
+                let recipe = Recipe(className: "Recipe", dictionary: responseDictionary as? [String : Any]);
+                success(recipe)
+            }
+        }
         
         var request = URLRequest(url: url!)
         request.setValue(APIToken.ProdToken?.api_key, forHTTPHeaderField: "X-Mashape-Key")
@@ -91,7 +115,7 @@ class RecipeClient: NSObject {
             if let data = dataOrNil {
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? NSDictionary {
-                    //print("response: \(responseDictionary)")
+                    _ = self.cache.put(user: (User.currentUser)!, path: relativePath!, contents: data)
                     let recipe = Recipe(className: "Recipe", dictionary: responseDictionary as? [String : Any]);
                     success(recipe)
                 }
