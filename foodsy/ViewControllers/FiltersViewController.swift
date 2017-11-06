@@ -8,19 +8,22 @@
 
 import UIKit
 
-@objc protocol FiltersViewControllerDelegate {
-    @objc optional func filtersViewController(filtersViewController: FiltersViewController, dietChoice: String, intoleranceChoices: [String], typeChoice: String, cuisineChoices:[String])
-}
-
 class FiltersViewController: UIViewController {
     
+    @IBOutlet weak var applyFilters: UIButton!
     @IBOutlet weak var tableView: FiltersTableView!
-    weak var delegate: FiltersViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        applyFilters.isHidden = true
+        
+        tableView.dietSelectState = Filters.sharedInstance.getDietState()
+        tableView.typeSelectState = Filters.sharedInstance.getTypeSelectState()
+        tableView.intolerancesSwitchStates = Filters.sharedInstance.getIntolerancesStates()
+        tableView.cuisineSwitchStates = Filters.sharedInstance.getCuisineStates()
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,39 +35,27 @@ class FiltersViewController: UIViewController {
         dismiss(animated: true, completion:nil)
     }
     
-    @IBAction func onSearchButton(_ sender: Any) {
-        dismiss(animated: true, completion:nil)
-        
-        var dietChoice: String!
-            
-        if tableView.dietSelectState > 0 {
-            dietChoice = DIET_FILTER_OPTIONS[tableView.dietSelectState].lowercased()
-        } else {
-            dietChoice = ""
-        }
+    @IBAction func onResetButton(_ sender: Any) {
+        applyFilters.isHidden = true
+        tableView.dietSelectState = 0
+        tableView.typeSelectState = 0
+        tableView.intolerancesSwitchStates = [Int:Bool]()
+        tableView.cuisineSwitchStates = [Int:Bool]()
+        Filters.sharedInstance.setFilters(dietState: tableView.dietSelectState, typeState: tableView.typeSelectState, intolerancesStates: tableView.intolerancesSwitchStates, cuisineStates: tableView.cuisineSwitchStates)
+        tableView.reloadData()
+    }
     
-        var intoleranceChoices = [String]()
-        for (row,isSelected) in tableView.intolerancesSwitchStates{
-            if isSelected {
-                intoleranceChoices.append(INTOLERANCES_FILTER_OPTIONS[row].lowercased())
-            }
-        }
-        
-        var typeChoice: String!
-        
-        if tableView.typeSelectState > 0 {
-            typeChoice = TYPE_FILTER_OPTIONS[tableView.typeSelectState].lowercased()
+    @IBAction func onApplyFilters(_ sender: Any) {
+        Filters.sharedInstance.setFilters(dietState: tableView.dietSelectState, typeState: tableView.typeSelectState, intolerancesStates: tableView.intolerancesSwitchStates, cuisineStates: tableView.cuisineSwitchStates)
+        applyFilters.isHidden = true
+    }
+    
+    func checkForFiltersChange() {
+        if Filters.sharedInstance.areAllDifferent(dietState: tableView.dietSelectState, typeState: tableView.typeSelectState, intolerancesStates: tableView.intolerancesSwitchStates, cuisineStates: tableView.cuisineSwitchStates) {
+            applyFilters.isHidden = false
         } else {
-            typeChoice = ""
+            applyFilters.isHidden = true
         }
-
-        var cuisineChoices = [String]()
-        for (row,isSelected) in tableView.cuisineSwitchStates{
-            if isSelected {
-                cuisineChoices.append(CUISINE_FILTER_OPTIONS[row].lowercased())
-            }
-        }
-        delegate?.filtersViewController!(filtersViewController: self, dietChoice: dietChoice, intoleranceChoices: intoleranceChoices, typeChoice: typeChoice, cuisineChoices: cuisineChoices)
     }
 }
 
@@ -85,6 +76,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 let value = tableView.getSwitchState(section: indexPath.section, row: indexPath.row)
                 tableView.setSwitchState(section: indexPath.section, row: indexPath.row, value: !value)
+                checkForFiltersChange()
                 tableView.reloadData()
             }
         }
@@ -200,6 +192,7 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.backgroundColor = UIColor.white
         let label = UILabel()
         label.text = tableView.filterSections[section]
+        label.addTextSpacing(spacing: 1.39)
         label.frame = CGRect(x:5, y: 5, width: 100, height: 35)
         headerView.addSubview(label)
         headerView.addSubview(bottomSeparatorView)
@@ -223,17 +216,14 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension FiltersViewController: SelectCellDelegate {
-    /*func switchCell(switchCell: FiltersSwitchCell, didChangeValue value: Bool) {
-        let indexPath = tableView.indexPath(for: switchCell)!
-        tableView.setSwitchState(section: indexPath.section, row: indexPath.row, value: value)
-    }*/
-    
     func selectCell(selectCell: FiltersSelectCell, isSelected value: Bool) {
         let indexPath = tableView.indexPath(for: selectCell)!
         if indexPath.section == FiltersTableView.SectionId.TYPE.rawValue {
             tableView.typeSelectState = indexPath.row
+            checkForFiltersChange()
         } else if indexPath.section == FiltersTableView.SectionId.DIET.rawValue {
             tableView.dietSelectState = indexPath.row
+            checkForFiltersChange()
         }
         tableView.sectionTapped(section: indexPath.section)
     }

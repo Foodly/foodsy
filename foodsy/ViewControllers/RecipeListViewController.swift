@@ -20,7 +20,7 @@ class RecipeListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "SEARCH", style: .plain, target: self, action: #selector(addTapped))
 
     }
 
@@ -38,22 +38,71 @@ class RecipeListViewController: UIViewController {
                 for ingredient in ingredients {
                     ingredientList.append(ingredient.name.lowercased())
                 }
-                self.searchParams["includeIngredients"] = ingredientList
-                
-            } else {
-                self.searchParams["includeIngredients"] = []
+                Filters.sharedInstance.setIngredients(ingredientsList: ingredientList)
             }
-            self.searchRecipes(params: self.searchParams as NSDictionary)
+            self.searchRecipes()
         }
         
     }
     
-    func searchRecipes(params: NSDictionary?) {
+    func getParams() -> NSDictionary {
+        var params = [String:[String]]()
+        var dietChoice: String!
+        let dietState = Filters.sharedInstance.getDietState()
+        if dietState > 0 {
+            dietChoice = DIET_FILTER_OPTIONS[dietState].lowercased()
+            params["diet"] = [dietChoice]
+        }
+
+        var intoleranceChoices = [String]()
+        let intolerancesStates = Filters.sharedInstance.getIntolerancesStates()
+        for (idx,isSelected) in intolerancesStates{
+            if isSelected {
+                intoleranceChoices.append(INTOLERANCES_FILTER_OPTIONS[idx].lowercased())
+            }
+        }
+
+        if intoleranceChoices.count > 0 {
+            params["intolerances"] = intoleranceChoices
+        }
+
+        var typeChoice: String!
+        let typeState = Filters.sharedInstance.getTypeSelectState()
+
+        if typeState > 0 {
+            typeChoice = TYPE_FILTER_OPTIONS[typeState].lowercased()
+            params["type"] = [typeChoice]
+        }
+
+        var cuisineChoices = [String]()
+        let cuisineStates = Filters.sharedInstance.getCuisineStates()
+        for (idx,isSelected) in cuisineStates{
+            if isSelected {
+                cuisineChoices.append(CUISINE_FILTER_OPTIONS[idx].lowercased())
+            }
+        }
+
+        if cuisineChoices.count > 0 {
+            params["cuisine"] = cuisineChoices
+        }
+        
+        let ingredientsList = Filters.sharedInstance.getIngredients()
+        
+        if ingredientsList.count > 0 {
+            params["includeIngredients"] = ingredientsList
+        }
+        
+        return params as NSDictionary
+    }
+    
+    
+    func searchRecipes() {
         MBProgressHUD.showAdded(to: self.tableView, animated: true)
+        let params = self.getParams()
         RecipeClient.SharedInstance.fetchRecipes(params: params, success: { (recipes) in
             self.tableView.recipes = recipes
             self.tableView.reloadData()
-            MBProgressHUD.hide(for: self.tableView, animated: true)
+            MBProgressHUD.hide(for: self.tableView, animated: false)
             Recipe.fetchFavoriteRecipesForUser(name: (User.currentUser?.screenname)!) { (recipes) in
                 if let recipes = recipes {
                     for recipe in recipes {
@@ -65,6 +114,7 @@ class RecipeListViewController: UIViewController {
             }
         }) { (error) in
             print(error)
+            //MBProgressHUD.hide(for: self.tableView, animated: true)
         }
     }
     
@@ -72,7 +122,6 @@ class RecipeListViewController: UIViewController {
         let filterStoryboard = UIStoryboard(name: "Filters", bundle: nil)
         let filtersNavigationController = filterStoryboard.instantiateViewController(withIdentifier: "FiltersNavigationController") as! UINavigationController
         let filtersViewController = filtersNavigationController.childViewControllers[0] as! FiltersViewController
-        filtersViewController.delegate = self
         self.present(filtersNavigationController, animated: true, completion: nil)
     }
     
@@ -92,7 +141,7 @@ class RecipeListViewController: UIViewController {
     }
     
     func setRecipeBtnImageState(recipeCell: RecipeCell, recipeID: Int) {
-        if tableView.recipeFavorites[recipeID] != nil {
+        if tableView.recipeFavorites[recipeID] != nil && tableView.recipeFavorites[recipeID]! {
             let image = UIImage(named: "heart-filled") as UIImage!
             recipeCell.favoriteBtn.setBackgroundImage(image, for: UIControlState.normal)
         } else {
@@ -139,7 +188,8 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         recipeDetailsViewController.recipe = selectedRecipe
         recipeDetailsViewController.navigationItem.leftBarButtonItem?.tintColor = .white
         let navController = UINavigationController(rootViewController: recipeDetailsViewController)
-        recipeDetailsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Recipes", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
+        recipeDetailsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< RECIPES", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
+        navController.navigationBar.isTranslucent = false
         
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "camera"), for: .normal)
@@ -151,30 +201,6 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func goBack(_ sender: UIBarButtonItem){
         self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension RecipeListViewController: FiltersViewControllerDelegate {
-    func filtersViewController(filtersViewController: FiltersViewController, dietChoice: String, intoleranceChoices: [String], typeChoice: String, cuisineChoices: [String]) {
-        var params = [String:[String]]()
-        
-        if dietChoice.count > 0 {
-           params["diet"] = [dietChoice]
-        }
-        
-        if intoleranceChoices.count > 0 {
-            params["intolerances"] = intoleranceChoices
-        }
-        
-        if typeChoice.count > 0 {
-            params["type"] = [typeChoice]
-        }
-        
-        if cuisineChoices.count > 0 {
-            params["cuisine"] = cuisineChoices
-        }
-
-        //searchRecipes(params:params as NSDictionary)
     }
 }
 

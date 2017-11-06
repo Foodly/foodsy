@@ -12,6 +12,7 @@ import Parse
 class Ingredient: PFObject, PFSubclassing {
     static var baseUrl = "https://spoonacular.com/cdn/ingredients_100x100/"
     static var baseHighUrl = "https://spoonacular.com/cdn/ingredients_500x500/"
+    @NSManaged var id: NSNumber!
     @NSManaged var name: String!
     @NSManaged var image: String!
     @NSManaged var userName: String!
@@ -71,6 +72,19 @@ class Ingredient: PFObject, PFSubclassing {
         let query = PFQuery(className: Ingredient.parseClassName())
         query.whereKey("userName", equalTo: name)
         query.whereKey("type", equalTo: type)
+        query.findObjectsInBackground { (results, error) in
+            if results!.count > 0 {
+                let ingredients = results as! [Ingredient]
+                success(ingredients)
+            } else {
+                success(nil)
+            }
+        }
+    }
+    
+    class func fetchAllIngredientsForUser(name: String, success: @escaping ([Ingredient]?)->()) {
+        let query = PFQuery(className: Ingredient.parseClassName())
+        query.whereKey("userName", equalTo: name)
         query.findObjectsInBackground { (results, error) in
             if results!.count > 0 {
                 let ingredients = results as! [Ingredient]

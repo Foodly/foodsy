@@ -14,6 +14,8 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
+    @IBOutlet weak var servingsTitleLabel: UILabel!
+    @IBOutlet weak var preptimeTitleLabel: UILabel!
     @IBOutlet weak var mealColor: UIView!
     @IBOutlet weak var infoImageView1: UIImageView!
     @IBOutlet weak var infoImageView: UIImageView!
@@ -44,30 +46,20 @@ class RecipeCell: UITableViewCell {
             } else {
                 mealColor.backgroundColor = Utils.getNeutralColor()
             }
-            var recipeIndicatorsCount = 0
-            if recipe.dairyFree == 1 {
-                recipeIndicatorsCount = recipeIndicatorsCount + 1
-                self.infoImageView.image = UIImage(named: "no-dairy")
-            }
-            if recipe.glutenFree == 1 {
-                if recipeIndicatorsCount == 1 {
-                    self.infoImageView1.image = UIImage(named: "no-gluten")
-                } else {
-                    self.infoImageView.image = UIImage(named: "no-gluten")
-                    self.infoImageView1.isHidden = true
-                }
-            }
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         favoriteBtn.addTarget(self, action: #selector(favoriteBtnClicked), for: UIControlEvents.touchDown)
-        cardView.layer.cornerRadius = cardView.frame.size.height/20
         layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        layer.shadowOpacity = 0.2
-        layer.shadowRadius = 1.0
+        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 2.0
+        
+        
+        servingsTitleLabel.addTextSpacing(spacing: 1.5)
+        preptimeTitleLabel.addTextSpacing(spacing: 1.5)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

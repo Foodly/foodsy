@@ -66,7 +66,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         recipeDetailsViewController.recipe = selectedRecipe
         recipeDetailsViewController.navigationItem.leftBarButtonItem?.tintColor = .white
         let navController = UINavigationController(rootViewController: recipeDetailsViewController)
-        navController.childViewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Recipes", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
+        navController.childViewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< RECIPES", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
         self.show(navController, sender: self)
     }
     
