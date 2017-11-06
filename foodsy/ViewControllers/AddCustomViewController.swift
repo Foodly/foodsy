@@ -24,6 +24,7 @@ class AddCustomViewController: UIViewController {
     @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var remindIn: UITextField!
     @IBOutlet weak var addIngredientItem: UIBarButtonItem!
+    @IBOutlet weak var searchAmazon: UIButton!
     @IBOutlet var imageTapRecognizer: UITapGestureRecognizer!
     var delegate: AddCustomViewControllerDelegate!
     var editDelegate: EditCustomViewControllerDelegate!
@@ -55,6 +56,9 @@ class AddCustomViewController: UIViewController {
             }) { (error) in
                 print("Error: \(error.localizedDescription)")
             }
+            searchAmazon.isHidden = false
+        } else {
+            searchAmazon.isHidden = true
         }
         ingredientImage.isUserInteractionEnabled = true
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
@@ -81,6 +85,15 @@ class AddCustomViewController: UIViewController {
         }
         self.present(vc, animated: true, completion: nil)
     }
+
+    @IBAction func onSearchAmazon(_ sender: UIButton) {
+        let escapedString = ingredient?.name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let urlString = "https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Damazonfresh&field-keywords=" + escapedString!
+        let url = URL(string: urlString)
+        
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    }
+    
     
     @IBAction func onTapIngredientImage(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "showPhotoDetail", sender: self)

@@ -16,7 +16,7 @@ class IngredientsListViewController: UIViewController {
 
     @IBOutlet weak var emptyStateView1: UIView!
     @IBOutlet weak var emptyStateView: UIView!
-    @IBOutlet weak var mapButton: UIBarButtonItem!
+    @IBOutlet var mapButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var locationManager: CLLocationManager!
@@ -34,6 +34,9 @@ class IngredientsListViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         self.ingredients = [Ingredient]()
+        if self.vcIdentifier == "ingredient" {
+            self.navigationItem.leftBarButtonItem = nil
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,20 +104,25 @@ class IngredientsListViewController: UIViewController {
         emptyStateView.isHidden = true;
         emptyStateView1.isHidden = true;
         if isMapViewShowing {
-            mapButton.title = "Map"
-            mapView.isHidden = true
-            isMapViewShowing = false
-            tableView.isHidden = false
-            self.searchBar.isHidden = true
-            navigationItem.titleView = nil
-            setTitleBasedOnIdentifier()
+            UIView.transition(with: self.view, duration: 1.0, options: .transitionFlipFromLeft, animations: {
+                self.mapButton.title = "Map"
+                self.mapView.isHidden = true
+                self.isMapViewShowing = false
+                self.tableView.isHidden = false
+                self.searchBar.isHidden = true
+                self.navigationItem.titleView = nil
+                self.setTitleBasedOnIdentifier()
+            }, completion: nil)            
         } else {
-            mapButton.title = "List"
-            navigationItem.titleView = self.searchBar
-            mapView.isHidden = false
-            isMapViewShowing = true
-            tableView.isHidden = true
-            self.searchBar.isHidden = false
+            UIView.transition(with: self.view, duration: 1.0, options: .transitionFlipFromLeft, animations: {
+                self.mapButton.title = "List"
+                self.navigationItem.titleView = self.searchBar
+                self.mapView.isHidden = false
+                self.isMapViewShowing = true
+                self.tableView.isHidden = true
+                self.searchBar.isHidden = false
+            }, completion: nil)
+
             let span = MKCoordinateSpanMake(0.3, 0.3)
             let region = MKCoordinateRegionMake(lastLocation, span)
             mapView.setRegion(region, animated: true)
@@ -253,9 +261,11 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
             let completedAction = SwipeAction(style: .default, title: "Done", handler: { (action, indexPath) in
                 if self.vcIdentifier == "shopping" {
                     ingredient.type = "ingredient"
+                    ingredient.reminderDays = 0
                     ingredient.saveInBackground()
                 } else {
                     ingredient.type = "shopping"
+                    ingredient.reminderDays = 0
                     ingredient.saveInBackground()
                 }
                 self.ingredients.remove(at: indexPath.row)
