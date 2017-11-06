@@ -43,9 +43,9 @@ class IngredientsListViewController: UIViewController {
     
     func setTitleBasedOnIdentifier() {
         if self.vcIdentifier == "ingredient" {
-            self.title = "Kitchen"
+            self.navigationItem.title = "Kitchen"
         } else {
-            self.title = "Cart"
+            self.navigationItem.title = "Cart"
         }
     }
     
