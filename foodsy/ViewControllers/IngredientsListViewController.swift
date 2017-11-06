@@ -261,9 +261,11 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
             let completedAction = SwipeAction(style: .default, title: "Done", handler: { (action, indexPath) in
                 if self.vcIdentifier == "shopping" {
                     ingredient.type = "ingredient"
+                    ingredient.reminderDays = 0
                     ingredient.saveInBackground()
                 } else {
                     ingredient.type = "shopping"
+                    ingredient.reminderDays = 0
                     ingredient.saveInBackground()
                 }
                 self.ingredients.remove(at: indexPath.row)

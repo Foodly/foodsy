@@ -39,15 +39,15 @@ class IngredientTableViewCell: SwipeTableViewCell {
                 quantityLabel.text = ingredient.quantity?.description
                 quantity.isHidden = false
             } else {
-                quantity.isHidden = true
-                quantityLabel.text = ""
+                quantity.isHidden = false
+                quantityLabel.text = "0"
             }
             if ingredient.reminderDays != nil {
                 reminderLabel.text = (ingredient.reminderDays?.description)! + " DAYS"
                 reminder.isHidden = false
             } else {
-                reminderLabel.text = ""
-                reminder.isHidden = true
+                reminderLabel.text = "0"
+                reminder.isHidden = false
             }
             
         }
