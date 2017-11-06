@@ -17,7 +17,6 @@ class RecipeInstructionCardCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        recipeView.layer.cornerRadius = recipeView.frame.width/64
         layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 2.0)

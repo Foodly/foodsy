@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().barTintColor = Utils.getPrimaryColor()
         UINavigationBar.appearance().tintColor = .white
-        let navigationTitleFont = UIFont(name: "Nunito", size: 20)!
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont]
+        let navigationTitleFont = UIFont(name: "Nunito-SemiBold", size: 17)!
+        let barButtonTitleFont = UIFont(name: "Nunito-SemiBold", size: 13)!
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: barButtonTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.kern: CGFloat(1.39)], for: .normal)
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "cravely"
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotifications()
             window?.rootViewController = MainDisplay.getMainTabbarController()
             window?.makeKeyAndVisible()
-            window?.tintColor = UIColor(red: 1, green: 0.47, blue: 0.262, alpha: 1.0)
+            window?.tintColor = Utils.getPrimaryColor()
             print("there is a current user")
         } else {
             print("no current user")

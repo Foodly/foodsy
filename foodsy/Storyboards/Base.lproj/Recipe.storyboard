@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xgp-Si-kfT">
-                                <rect key="frame" x="0.0" y="183.5" width="375" height="475.5"/>
+                                <rect key="frame" x="0.0" y="183.5" width="375" height="483.5"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="asB-cF-B25">
                                     <size key="itemSize" width="50" height="50"/>
@@ -48,7 +48,7 @@
                             <constraint firstItem="u9V-Mc-2q6" firstAttribute="top" secondItem="OXg-0B-Mna" secondAttribute="top" id="QkU-iZ-3WZ"/>
                             <constraint firstItem="Z68-7N-J9J" firstAttribute="trailing" secondItem="OXg-0B-Mna" secondAttribute="trailing" id="VFA-VN-8Sl"/>
                             <constraint firstItem="Z68-7N-J9J" firstAttribute="top" secondItem="OXg-0B-Mna" secondAttribute="top" id="ZaA-5l-E9f"/>
-                            <constraint firstItem="OXg-0B-Mna" firstAttribute="bottom" secondItem="xgp-Si-kfT" secondAttribute="bottom" constant="8" id="eZW-CQ-B63"/>
+                            <constraint firstItem="OXg-0B-Mna" firstAttribute="bottom" secondItem="xgp-Si-kfT" secondAttribute="bottom" id="eZW-CQ-B63"/>
                             <constraint firstItem="u9V-Mc-2q6" firstAttribute="bottom" secondItem="OXg-0B-Mna" secondAttribute="bottom" id="fiM-YG-6H3"/>
                             <constraint firstItem="OXg-0B-Mna" firstAttribute="trailing" secondItem="u9V-Mc-2q6" secondAttribute="trailing" id="ifM-Wi-eJd"/>
                             <constraint firstItem="u9V-Mc-2q6" firstAttribute="leading" secondItem="OXg-0B-Mna" secondAttribute="leading" id="vdO-kz-buu"/>

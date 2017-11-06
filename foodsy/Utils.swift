@@ -10,7 +10,7 @@ import UIKit
 
 class Utils: NSObject {
     static func getMeatColor() -> UIColor {
-        return UIColor(red: 187.0/255.0, green: 63.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+        return UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 1.0)
     }
     static func getVegetarianColor()  -> UIColor {
         return UIColor(red: 169.0/255.0, green: 216.0/255.0, blue: 112.0/255.0, alpha: 1.0)
@@ -25,6 +25,27 @@ class Utils: NSObject {
         return UIColor(red: 230.0/255.0, green: 232.0/255.0, blue: 230.0/255.0, alpha: 1.0)
     }
     static func getPrimaryColor() -> UIColor {
-        return UIColor(red: 255.0/255.0, green: 131.0/255.0, blue: 68.0/255.0, alpha: 1.0)
+        return UIColor(red: 255.0/255.0, green: 120.0/255.0, blue: 67.0/255.0, alpha: 1.0)
+    }
+    static func getMissingIngredientColor() -> UIColor {
+        return UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 1.0)
+    }
+}
+
+extension UILabel {
+    func addTextSpacing(spacing: CGFloat) {
+        if let labelText = text, labelText.characters.count > 0 {
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(NSAttributedStringKey.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedText = attributedString
+        }
+    }
+}
+
+extension UIButton{
+    func addTextSpacing(spacing: CGFloat){
+        let attributedString = NSMutableAttributedString(string: (self.titleLabel?.text!)!)
+        attributedString.addAttribute(NSAttributedStringKey.kern, value: spacing, range: NSRange(location: 0, length: (self.titleLabel?.text!.characters.count)!))
+        self.setAttributedTitle(attributedString, for: .normal)
     }
 }

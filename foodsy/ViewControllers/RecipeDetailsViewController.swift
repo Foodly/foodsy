@@ -11,7 +11,8 @@ import UIKit
 class RecipeDetailsViewController: UIViewController {
     var recipeID:Int?
     var recipe: Recipe?
-    var ingredients: [String]?
+    var ingredients: [Ingredient]?
+    var currentIngredients: [Ingredient]?
     var instructions: [String]?
     
     @IBOutlet var containerView: UIView!
@@ -27,7 +28,8 @@ class RecipeDetailsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        containerView.backgroundColor = UIColor(red:0.90, green:0.91, blue:0.90, alpha:1.0)
+        containerView.backgroundColor = .white
+        self.curtainView.backgroundColor = Utils.getPrimaryColor()
         self.curtainView.alpha = 1.0
         let recipeCellNib = UINib(nibName: "RecipeMainIngredientsCardCell", bundle: nil)
         self.collectionView.register(recipeCellNib, forCellWithReuseIdentifier: "RecipeMainIngredientsCardCell")
@@ -42,11 +44,19 @@ class RecipeDetailsViewController: UIViewController {
         
         RecipeClient.SharedInstance.fetchRecipe(recipeId: recipeID!, success: { (recipe: Recipe) in
             self.ingredients = recipe.getIngredients()
-            self.collectionView.reloadData()
             
-            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                self.curtainView.alpha = 0.0
-            })
+            Ingredient.fetchAllIngredientsForUser(name: (User.currentUser?.screenname)!) { (ingredients) in
+                if let ingredients = ingredients {
+                    self.currentIngredients = ingredients
+                }
+                self.collectionView.reloadData()
+                UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                    self.curtainView.alpha = 0.0
+                })
+            }
+            
+            
+            
         }) { (error) in
             print(error)
         }
@@ -87,6 +97,9 @@ extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionV
             cell.recipe = recipe
             if let ingredients = ingredients {
                 cell.ingredients = ingredients
+            }
+            if let currentIngredients = currentIngredients {
+                cell.showDiffBullets(currentIngredients: currentIngredients)
             }
             return cell
         } else if indexPath.section > 0 {

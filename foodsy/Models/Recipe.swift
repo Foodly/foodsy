@@ -36,16 +36,21 @@ class Recipe: PFObject, PFSubclassing {
         self.deleteInBackground()
     }
     
-    func getIngredients() -> [String] {
-        var ingredients = [String]()
+    func getIngredients() -> [Ingredient] {
+        var ingredients = [Ingredient]()
         let instructions = self.extendedIngredients as! [NSDictionary]
         
         for step in instructions {
             let original = step["originalString"] as! String
-            ingredients.append(original)
+            let ingredientId = step["id"] as! NSNumber
+            let ingredient = Ingredient()
+            ingredient.id = ingredientId
+            ingredient.name = original
+            ingredients.append(ingredient)
         }
         return ingredients
     }
+    
     
     func getInstructions() -> [String] {
         var instructions = [String]()

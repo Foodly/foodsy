@@ -8,11 +8,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Filters View Controller-->
         <scene sceneID="ag6-m8-OAz">
             <objects>
-                <viewController id="8XQ-hq-nXc" customClass="FiltersViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersViewController" id="8XQ-hq-nXc" customClass="FiltersViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jGD-ma-ebO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,53 +28,71 @@
                                 <color key="separatorColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uab-Vh-myf">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.47058823529411764" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iTU-R9-eo6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
+                                <state key="normal" title="Apply Filters">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onApplyFilters:" destination="8XQ-hq-nXc" eventType="touchUpInside" id="oCU-mv-ZCt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HY6-rP-K8n" firstAttribute="bottom" secondItem="OOe-AM-3r2" secondAttribute="bottom" id="5ja-tW-F0Z"/>
+                            <constraint firstItem="uab-Vh-myf" firstAttribute="leading" secondItem="HY6-rP-K8n" secondAttribute="leading" id="Eeb-rl-rS2"/>
                             <constraint firstItem="OOe-AM-3r2" firstAttribute="leading" secondItem="HY6-rP-K8n" secondAttribute="leading" id="bpK-Ee-gGE"/>
+                            <constraint firstAttribute="bottom" secondItem="uab-Vh-myf" secondAttribute="bottom" id="bxZ-d6-tjk"/>
                             <constraint firstItem="OOe-AM-3r2" firstAttribute="top" secondItem="HY6-rP-K8n" secondAttribute="top" id="qtL-Vj-cu4"/>
                             <constraint firstItem="HY6-rP-K8n" firstAttribute="trailing" secondItem="OOe-AM-3r2" secondAttribute="trailing" id="rK0-Nc-M7I"/>
+                            <constraint firstItem="uab-Vh-myf" firstAttribute="trailing" secondItem="HY6-rP-K8n" secondAttribute="trailing" id="w2z-xi-SEx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HY6-rP-K8n"/>
                     </view>
                     <navigationItem key="navigationItem" id="Q7b-v2-FMG">
-                        <barButtonItem key="leftBarButtonItem" title="Search" id="i0K-Dy-2vc">
+                        <barButtonItem key="leftBarButtonItem" title="DISMISS" id="i0K-Dy-2vc">
                             <connections>
-                                <action selector="onSearchButton:" destination="8XQ-hq-nXc" id="GYT-yt-rSp"/>
+                                <action selector="onCancelButton:" destination="8XQ-hq-nXc" id="cOF-i1-qQH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="l2P-sr-6zb">
+                        <barButtonItem key="rightBarButtonItem" title="RESET" id="l2P-sr-6zb">
                             <connections>
-                                <action selector="onCancelButton:" destination="8XQ-hq-nXc" id="7I3-hc-EsT"/>
+                                <action selector="onResetButton:" destination="8XQ-hq-nXc" id="3oc-3Z-fgU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="applyFilters" destination="uab-Vh-myf" id="7xp-uJ-f9f"/>
                         <outlet property="tableView" destination="OOe-AM-3r2" id="3Xn-tU-L3o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBd-1k-d5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226.40000000000001" y="-381.85907046476763"/>
+            <point key="canvasLocation" x="112.8" y="-381.85907046476763"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="QLd-Zd-Syo">
+        <scene sceneID="Lt0-QI-nbS">
             <objects>
-                <navigationController storyboardIdentifier="FiltersNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Rqw-3C-1CY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FiltersNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="QGm-Gy-eV4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nEG-MD-Ex6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GXd-o0-l1L">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8XQ-hq-nXc" kind="relationship" relationship="rootViewController" id="S8n-sz-ozi"/>
+                        <segue destination="8XQ-hq-nXc" kind="relationship" relationship="rootViewController" id="czz-Av-T7F"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HwH-S6-zXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQr-sJ-XxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-878" y="-382"/>
+            <point key="canvasLocation" x="-583" y="-382"/>
         </scene>
     </scenes>
 </document>

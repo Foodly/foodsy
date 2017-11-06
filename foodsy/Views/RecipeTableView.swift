@@ -13,7 +13,7 @@ class RecipeTableView: UITableView {
     var recipes: [Recipe]?
     var recipeFavorites = [Int: Bool]()
     override func awakeFromNib() {
-        self.estimatedRowHeight = 100
+        self.estimatedRowHeight = 134
         self.rowHeight = UITableViewAutomaticDimension
         
         let recipeCellNib = UINib(nibName: "RecipeCell", bundle: nil)

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class RecipeMainIngredientsCardCell: UICollectionViewCell {
 
+    @IBOutlet weak var addMissingIngredientsBtn: UIButton!
     @IBOutlet weak var recipeView: UIView!
     @IBOutlet weak var infoImageView: UIImageView!
     @IBOutlet weak var infoImageView1: UIImageView!
@@ -37,6 +39,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
     @IBOutlet weak var servingsTitleLabel: UILabel!
     var bulletImageViews:[UIImageView]!
     var ingredientLabels:[UILabel]!
+    var missingIngredients = [NSNumber]()
     
     var recipe: Recipe! {
         didSet {
@@ -60,12 +63,12 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         }
     }
     
-    var ingredients: [String]! {
+    var ingredients: [Ingredient]! {
         didSet {
             var i:Int = 0
             
             while i < ingredientLabels.count && i < ingredients.count {
-                ingredientLabels[i].text = ingredients[i]
+                ingredientLabels[i].text = ingredients[i].name
                 i = i + 1
             }
         }
@@ -73,7 +76,11 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        preptimeTitleLabel.addTextSpacing(spacing: 1.15)
+        servingsTitleLabel.addTextSpacing(spacing: 1.15)
+        ingredientsTitleLabel.addTextSpacing(spacing: 1.15)
         
+        layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
         layer.shadowOpacity = 0.3
@@ -113,10 +120,58 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         ingredientLabels.append(ingredientsLabel4)
         ingredientLabels.append(ingredientsLabel5)
         
+        addMissingIngredientsBtn.addTarget(self, action: #selector(addMissingIngredients(_:)), for: .touchUpInside)
+        addMissingIngredientsBtn.backgroundColor = Utils.getPrimaryColor()
+        addMissingIngredientsBtn.isHidden = true
     }
     
     func changeFonts() {
         titleLabel?.font = UIFont(name: "Nunito-Bold", size: 20.0)
+    }
+    
+    func setAllBulletsAsAdded() {
+        for bullet in bulletImageViews {
+            bullet.backgroundColor = Utils.getPrimaryColor()
+        }
+    }
+    
+    func showDiffBullets(currentIngredients: [Ingredient]) {
+        var i:Int = 0
+        var currentIngredientsIds = [NSNumber: Bool]()
+        
+        for ingredient in currentIngredients {
+            if ingredient.id != nil {
+                currentIngredientsIds[ingredient.id] = true
+            }
+        }
+        
+        var showMissingIngredientsButton = false
+        while i < ingredientLabels.count {
+            let listedIngredientId = ingredients[i].id
+            if (currentIngredientsIds[listedIngredientId!] != nil) && (currentIngredientsIds[listedIngredientId!] == true)  {
+                self.bulletImageViews[i].backgroundColor = Utils.getPrimaryColor()
+            } else {
+                showMissingIngredientsButton = true
+                self.bulletImageViews[i].backgroundColor = Utils.getMissingIngredientColor()
+                self.missingIngredients.append(listedIngredientId!)
+            }
+            i = i + 1
+        }
+        
+        if showMissingIngredientsButton {
+            addMissingIngredientsBtn.isHidden = false
+        }
+    }
+    
+    @objc func addMissingIngredients(_ sender: UIButton) {
+        let hud = MBProgressHUD.showAdded(to: self, animated: true)
+        hud.label.text = "Adding missing ingredients..."
+        IngredientClient.SharedInstance.fetchIngredientByIdInParallel(ingredientIds: self.missingIngredients, success: {
+            self.setAllBulletsAsAdded()
+            hud.hide(animated: false)
+        }) { (error) in
+            print(error)
+        }
     }
 
 }

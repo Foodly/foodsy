@@ -228,6 +228,10 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                 // handle action by updating model with deletion
                 ingredient.deleteInBackground()
                 self.ingredients.remove(at: indexPath.row)
+                
+                if (self.ingredients.count == 0) {
+                    self.emptyStateView.isHidden = false
+                }
             })
             return [deleteAction]
         } else if orientation == .left {
@@ -240,6 +244,10 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                     ingredient.saveInBackground()
                 }
                 self.ingredients.remove(at: indexPath.row)
+                
+                if (self.ingredients.count == 0) {
+                    self.emptyStateView.isHidden = false
+                }
                 self.tableView.reloadData()
             })
             completedAction.backgroundColor = UIColor(red: 0/255, green: 178/255, blue: 29/255, alpha: 1.0)
