@@ -146,6 +146,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         }
         
         var showMissingIngredientsButton = false
+        missingIngredients = [NSNumber]()
         while i < ingredientLabels.count {
             let listedIngredientId = ingredients[i].id
             if (currentIngredientsIds[listedIngredientId!] != nil) && (currentIngredientsIds[listedIngredientId!] == true)  {

@@ -10,9 +10,21 @@ import Foundation
 class IngredientClient: NSObject {
     static let SharedInstance = IngredientClient()
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/"
-
+    var cache = FileCache(ttl: 3600)
     func fetchIngredients(name: String, success: @escaping ([Ingredient])->(), failure: @escaping (Error)->()) {
-        let url = URL(string: baseUrl + "autocomplete?number=30&metaInformation=true&query=\(name)")
+        let url = URL(string: baseUrl + "autocomplete?number=15&metaInformation=true&query=\(name)")
+        let path = url?.query
+        if let data = cache.get(user: (User.currentUser)!, path: path!) {
+            if let responseDictionary = try! JSONSerialization.jsonObject(
+                with: data, options: []) as? [NSDictionary] {
+                NSLog("response: \(responseDictionary)")
+                var ingredients = [Ingredient]()
+                for ingredient in responseDictionary {
+                    ingredients.append(Ingredient(className: "Ingredient", dictionary: ingredient as? [String : Any]))
+                }
+                success(ingredients)
+            }
+        }
         var request = URLRequest(url: url!)
         request.setValue(APIToken.ProdToken?.api_key, forHTTPHeaderField: "X-Mashape-Key")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -21,8 +33,10 @@ class IngredientClient: NSObject {
             delegate: nil,
             delegateQueue: OperationQueue.main
         )
+        
         let task = session.dataTask(with: request) { (dataOrNil, response, error) in
             if let data = dataOrNil {
+                _ = self.cache.put(user: (User.currentUser)!, path: path!, contents: data)
                 if let responseDictionary = try! JSONSerialization.jsonObject(
                     with: data, options: []) as? [NSDictionary] {
                     NSLog("response: \(responseDictionary)")
