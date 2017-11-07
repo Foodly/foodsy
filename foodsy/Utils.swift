@@ -30,6 +30,15 @@ class Utils: NSObject {
     static func getMissingIngredientColor() -> UIColor {
         return UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 1.0)
     }
+    static func getDisabledButtonColor() -> UIColor {
+        return UIColor(red: 238.0/255.0, green: 238.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+    }
+    static func getDisabledButtonTextColor() -> UIColor {
+        return UIColor(red: 195.0/255.0, green: 196.0/255.0, blue: 197.0/255.0, alpha: 1.0)
+    }
+    static func getTransparentWhiteColor() -> UIColor {
+        return UIColor(red: 2555.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.0)
+    }
 }
 
 extension UILabel {
@@ -61,5 +70,4 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
-    
 }

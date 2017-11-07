@@ -22,17 +22,19 @@ class ProfileViewController: UIViewController {
     var selfRecipeImagesCollection: [SelfRecipeImage]?
     var favoriteRecipes: [Recipe]?
     var showCollections = true
+    let dateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = User.currentUser
         nameLabel.text = user?.name
-        profileImageView.layer.cornerRadius = profileImageView.frame.width/2
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
         profileImageView.setImageWith((user?.profileUrl)!)
         
-        collectionsBtn.layer.cornerRadius = 10;
-        favoritesBtn.layer.cornerRadius = 10;
+        collectionsBtn.layer.cornerRadius = 5;
+        favoritesBtn.layer.cornerRadius = 5;
         
         collectionsBtn.tag = 0
         favoritesBtn.tag = 1
@@ -57,6 +59,12 @@ class ProfileViewController: UIViewController {
             self.selfRecipeImagesCollection = selfRecipes
             self.tableView.reloadData()
         }
+        collectionsBtn.titleLabel?.addTextSpacing(spacing: 1.2)
+        favoritesBtn.titleLabel?.addTextSpacing(spacing: 1.2)
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,11 +106,18 @@ class ProfileViewController: UIViewController {
     
     func updateBtnBackgroundColor() {
         if showCollections {
-            collectionsBtn.backgroundColor = Utils.getSecondaryColor()
-            favoritesBtn.backgroundColor = .white
+            collectionsBtn.backgroundColor = Utils.getPrimaryColor()
+            collectionsBtn.setTitleColor(.white, for: .normal)
+            collectionsBtn.setTitleColor(.white, for: .selected)
+            favoritesBtn.backgroundColor = Utils.getDisabledButtonColor()
+            favoritesBtn.setTitleColor(Utils.getDisabledButtonTextColor(), for: .normal)
         } else {
-            favoritesBtn.backgroundColor = Utils.getSecondaryColor()
-            collectionsBtn.backgroundColor = .white
+            favoritesBtn.backgroundColor = Utils.getPrimaryColor()
+            favoritesBtn.setTitleColor(.white, for: .normal)
+            favoritesBtn.setTitleColor(.white, for: .selected)
+            collectionsBtn.backgroundColor =  Utils.getDisabledButtonColor()
+            collectionsBtn.titleLabel?.textColor = Utils.getDisabledButtonTextColor()
+            collectionsBtn.setTitleColor(Utils.getDisabledButtonTextColor(), for: .normal)
         }
     }
     
@@ -152,6 +167,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     let selfRecipeImage = selfRecipeImagesCollection?[indexPath.row]
                     cell.recipeTitleLabel.text = selfRecipeImage?.title
+                    
+                    
+                    
+                    let date = Date(timeIntervalSince1970: TimeInterval(truncating: (selfRecipeImage?.date)!))
+                    
+                    // US English Locale (en_US)
+                    let dateString = dateFormatter.string(from: date) // Jan 2, 2001
+                    cell.createdLabel.text = "BEAUTIFULLY CREATED ON \(dateString.uppercased())"
+                    cell.createdLabel.addTextSpacing(spacing: 1.2)
                     selfRecipeImage?.getImage(index: 0, success: { (image) in
                         if let image = image {
                             cell.recipeImageView.image = image
@@ -176,6 +200,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                         print("error")
                     })
                     
+                    let backgroundView = UIView()
+                    backgroundView.backgroundColor = Utils.getTransparentWhiteColor()
+                    cell.selectedBackgroundView = backgroundView
                     return cell
                 }
             }
@@ -188,6 +215,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 let image = UIImage(named: "heart-filled") as UIImage!
                 cell.favoriteBtn.setBackgroundImage(image, for: UIControlState.normal)
                 cell.delegate = self;
+                
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = Utils.getTransparentWhiteColor()
+                cell.selectedBackgroundView = backgroundView
                 return cell
             }
         }
@@ -196,6 +227,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !showCollections {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SelfRecipeCell", for: indexPath) as! SelfRecipeImageTableViewCell
             let selectedRecipe = favoriteRecipes?[indexPath.row]
             let storyboard = UIStoryboard(name: "Recipe", bundle: nil)
             let recipeDetailsViewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
@@ -204,6 +236,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let navController = UINavigationController(rootViewController: recipeDetailsViewController)
             navController.childViewControllers[0].navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< RECIPES", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
             navController.navigationBar.isTranslucent = false
+            tableView.deselectRow(at: indexPath, animated: true)
             self.show(navController, sender: self)
         }
         
@@ -221,6 +254,8 @@ extension ProfileViewController: FavoriteCellDelegate {
             let recipe = favoriteRecipes![indexPath.row]
             recipe.unfavoriteForUser()
             favoriteRecipes?.remove(at: indexPath.row)
+            let favoritesCount = (favoriteRecipes?.count)!
+            totalFavoritesLabel.text = "\(favoritesCount)"
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
         }
         
