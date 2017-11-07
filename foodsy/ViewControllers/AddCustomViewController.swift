@@ -34,6 +34,7 @@ class AddCustomViewController: UIViewController {
     var index: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
+        addIngredientItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.gray], for: UIControlState.disabled)
         footerView.backgroundColor = Utils.getSecondaryColor()
         searchAmazon.backgroundColor = Utils.getPrimaryColor()
         if let ingredient = self.ingredient {
@@ -63,6 +64,7 @@ class AddCustomViewController: UIViewController {
         } else {
             ingredientImage.backgroundColor = Utils.getSecondaryColor()
             searchAmazon.isHidden = true
+            addIngredientItem.isEnabled = false
         }
         ingredientImage.isUserInteractionEnabled = true
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
