@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo View Controller-->
+        <scene sceneID="NHT-EJ-MXz">
+            <objects>
+                <viewController id="gb9-hA-dPK" customClass="PhotoViewController" customModule="foodsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fjj-m9-DH5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSZ-lZ-UZn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WSZ-lZ-UZn" firstAttribute="leading" secondItem="j8O-cr-RVp" secondAttribute="leading" id="MbT-DA-YEk"/>
+                            <constraint firstItem="WSZ-lZ-UZn" firstAttribute="bottom" secondItem="j8O-cr-RVp" secondAttribute="bottom" id="Rb3-D5-VBr"/>
+                            <constraint firstItem="WSZ-lZ-UZn" firstAttribute="top" secondItem="j8O-cr-RVp" secondAttribute="top" id="bR1-MK-8Gl"/>
+                            <constraint firstItem="WSZ-lZ-UZn" firstAttribute="trailing" secondItem="j8O-cr-RVp" secondAttribute="trailing" id="uVk-Ct-AJ5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j8O-cr-RVp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LxC-GR-rJJ">
+                        <barButtonItem key="leftBarButtonItem" title="CLOSE" id="AlX-lp-4qJ">
+                            <connections>
+                                <action selector="onClose:" destination="gb9-hA-dPK" id="xBA-gq-trR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="SHARE" id="w5d-7J-Soj">
+                            <connections>
+                                <action selector="onShare:" destination="gb9-hA-dPK" id="Bd0-a1-83A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recipeImageView" destination="WSZ-lZ-UZn" id="wVo-W8-vcB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mm-az-NP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496.80000000000001" y="79.610194902548727"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WoW-1R-p0e">
+            <objects>
+                <navigationController storyboardIdentifier="PhotoViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="UfL-a8-KDw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OLA-co-tJp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gb9-hA-dPK" kind="relationship" relationship="rootViewController" id="UeM-1D-miM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCR-AY-BoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247" y="80"/>
+        </scene>
+    </scenes>
+</document>
