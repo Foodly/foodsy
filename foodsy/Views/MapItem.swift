@@ -10,11 +10,19 @@ import UIKit
 import MapKit
 
 class MapItem: MKAnnotationView {
-
-    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var businessImage: UIImageView!
+    @IBOutlet weak var businessName: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var ratingImage: UIImageView!
+    
     var business: Business! {
         didSet {
-            placeLabel.text = business.name
+            businessImage.setImageWith(business.imageURL!)
+            businessName.text = business.name
+            distanceLabel.text = business.distance
+            addressLabel.text = business.address
+            ratingImage.setImageWith(business.ratingImageURL!)
         }
     }
     /*
@@ -25,6 +33,5 @@ class MapItem: MKAnnotationView {
     }
     */
 
-    @IBAction func onScheduleGeoReminder(_ sender: UIButton) {
-    }
+    
 }
