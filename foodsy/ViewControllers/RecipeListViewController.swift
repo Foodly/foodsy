@@ -191,18 +191,18 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         recipeDetailsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< RECIPES", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
         navController.navigationBar.isTranslucent = false
         
-        var buttons = [UIBarButtonItem]()
+        //var buttons = [UIBarButtonItem]()
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "camera"), for: .normal)
         button.sizeToFit()
         button.addTarget(recipeDetailsViewController, action: #selector(recipeDetailsViewController.onAddNewPhoto(_:)), for: .touchUpInside)
-        buttons.append(UIBarButtonItem(customView: button))
-        let shareButton = UIButton(type: .system)
+        navController.childViewControllers[0].navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        /*let shareButton = UIButton(type: .system)
         shareButton.setImage(UIImage(named: "share-arrow"), for: .normal)
         shareButton.sizeToFit()
         shareButton.addTarget(recipeDetailsViewController, action: #selector(recipeDetailsViewController.onShareRecipe(_:)), for: .touchUpInside)
         buttons.append(UIBarButtonItem(customView: shareButton))
-        navController.childViewControllers[0].navigationItem.rightBarButtonItems = buttons
+        navController.childViewControllers[0].navigationItem.rightBarButtonItems = buttons*/
 
         self.show(navController, sender: self)
     }

@@ -66,7 +66,7 @@ class RecipeDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func onShareRecipe(_ sender: UIBarButtonItem) {
+    @objc func onShareRecipe(_ sender: UIButton) {
         let textToShare = "Discovered on Crave"
         
         if let myWebsite = NSURL(string: (recipe?.sourceUrl)!) {
@@ -112,6 +112,7 @@ extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionV
             if let currentIngredients = currentIngredients {
                 cell.showDiffBullets(currentIngredients: currentIngredients)
             }
+            cell.shareBtn.addTarget(self, action: #selector(onShareRecipe(_:)), for: .touchUpInside)
             return cell
         } else if indexPath.section > 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeInstructionCardCell", for: indexPath) as! RecipeInstructionCardCell

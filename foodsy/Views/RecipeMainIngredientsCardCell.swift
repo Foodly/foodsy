@@ -11,10 +11,9 @@ import MBProgressHUD
 
 class RecipeMainIngredientsCardCell: UICollectionViewCell {
 
+    @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var addMissingIngredientsBtn: UIButton!
     @IBOutlet weak var recipeView: UIView!
-    @IBOutlet weak var infoImageView: UIImageView!
-    @IBOutlet weak var infoImageView1: UIImageView!
     @IBOutlet weak var favoriteBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var preptimeLabel: UILabel!
@@ -47,7 +46,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
             servingsLabel.text = "\(recipe.servings!) servings"
             preptimeLabel.text = "\(recipe.readyInMinutes!) min"
             
-            var recipeIndicatorsCount = 0
+            /*var recipeIndicatorsCount = 0
             if recipe.dairyFree == 1 {
                 recipeIndicatorsCount = recipeIndicatorsCount + 1
                 infoImageView.image = UIImage(named: "no-dairy")
@@ -59,7 +58,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
                     infoImageView.image = UIImage(named: "no-gluten")
                     infoImageView1.isHidden = true
                 }
-            }
+            }*/
         }
     }
     
@@ -73,8 +72,12 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
             }
             
             if i < 6 {
-                ingredientLabels[i].isHidden = true
-                bulletImageViews[i].isHidden = true
+                while i < 6 {
+                    ingredientLabels[i].isHidden = true
+                    bulletImageViews[i].isHidden = true
+                    i = i + 1
+                }
+                
             }
         }
     }
@@ -85,11 +88,8 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         servingsTitleLabel.addTextSpacing(spacing: 1.15)
         ingredientsTitleLabel.addTextSpacing(spacing: 1.15)
         
-        layer.masksToBounds = true
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
-        layer.shadowOpacity = 0.3
-        layer.shadowRadius = 2.0
+        recipeView.addShadow()
+        recipeView.addCornerRadius(radius: 4.0)
         
         bulletImageView.layer.cornerRadius = bulletImageView.frame.width/2
         bulletImageView.clipsToBounds = true
@@ -138,6 +138,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         for bullet in bulletImageViews {
             bullet.backgroundColor = Utils.getPrimaryColor()
         }
+        addMissingIngredientsBtn.isHidden = true
     }
     
     func showDiffBullets(currentIngredients: [Ingredient]) {

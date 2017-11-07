@@ -83,4 +83,8 @@ extension UIView {
         self.layer.shadowOpacity = 0.3
         self.layer.shadowRadius = 2.0
     }
+    
+    func addCornerRadius(radius: CGFloat) {
+        self.layer.cornerRadius = radius
+    }
 }
