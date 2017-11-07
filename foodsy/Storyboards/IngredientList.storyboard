@@ -36,14 +36,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="qyZ-Wx-Ndf">
-                                        <rect key="frame" x="137.5" y="106.5" width="250" height="350"/>
+                                        <rect key="frame" x="62.5" y="106.5" width="250" height="350"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3gu-MZ-s5Y"/>
                                             <constraint firstAttribute="height" constant="350" id="bcy-sr-2Ex"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you haven't added anything. Aliens, again?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-UP-mfK">
-                                        <rect key="frame" x="0.0" y="531" width="275" height="42"/>
+                                        <rect key="frame" x="50" y="531" width="275" height="42"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -63,14 +63,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astronaut" translatesAutoresizingMaskIntoConstraints="NO" id="LDq-jA-K2q">
-                                        <rect key="frame" x="137.5" y="81.5" width="250" height="400"/>
+                                        <rect key="frame" x="62.5" y="81.5" width="250" height="400"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="AVV-ta-XV5"/>
                                             <constraint firstAttribute="height" constant="400" id="rDP-2l-ujK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmm...looks like there is nothing       but empty space here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swI-ng-8bn">
-                                        <rect key="frame" x="0.0" y="531" width="275" height="42"/>
+                                        <rect key="frame" x="50" y="531" width="275" height="42"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -85,10 +85,28 @@
                                     <constraint firstItem="swI-ng-8bn" firstAttribute="leading" secondItem="Qfi-Za-dzV" secondAttribute="leading" constant="50" id="y1A-sw-IgT"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU7-9w-QPO">
+                                <rect key="frame" x="87.5" y="612" width="200" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.47058823529999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="KUb-QN-txY"/>
+                                    <constraint firstAttribute="width" constant="200" id="SRU-hi-zHm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
+                                <state key="normal" title="Open in Google Maps">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onOpenMaps:" destination="KYl-jr-wt7" eventType="touchUpInside" id="BuP-ZF-3vj"/>
+                                    <action selector="onSearchAmazon:" destination="GQr-NL-8tE" eventType="touchUpInside" id="2UY-xQ-C1y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="syq-pk-dDg" firstAttribute="top" secondItem="sN0-Ne-FTe" secondAttribute="top" id="09a-GJ-a30"/>
+                            <constraint firstItem="sqh-6A-dif" firstAttribute="bottom" secondItem="fU7-9w-QPO" secondAttribute="bottom" constant="16" id="16E-bg-FWX"/>
+                            <constraint firstItem="fU7-9w-QPO" firstAttribute="centerX" secondItem="syq-pk-dDg" secondAttribute="centerX" id="3vz-0f-dOe"/>
                             <constraint firstItem="6qm-jA-ubz" firstAttribute="leading" secondItem="sqh-6A-dif" secondAttribute="leading" id="4rz-hU-ys7"/>
                             <constraint firstItem="Qfi-Za-dzV" firstAttribute="trailing" secondItem="sqh-6A-dif" secondAttribute="trailing" id="CKj-hd-c7T"/>
                             <constraint firstItem="sqh-6A-dif" firstAttribute="trailing" secondItem="6qm-jA-ubz" secondAttribute="trailing" id="J6U-bk-dDz"/>
@@ -124,6 +142,7 @@
                         <outlet property="emptyStateView1" destination="Qfi-Za-dzV" id="xM5-yY-M45"/>
                         <outlet property="mapButton" destination="sK1-Yv-PhK" id="RBW-bZ-8eW"/>
                         <outlet property="mapView" destination="syq-pk-dDg" id="vrw-ij-2Zc"/>
+                        <outlet property="openMapsButton" destination="fU7-9w-QPO" id="cwj-iJ-Kam"/>
                         <outlet property="tableView" destination="yh3-Rd-2gy" id="ajv-uA-dZW"/>
                         <segue destination="GQr-NL-8tE" kind="push" identifier="showIngredientDetails" id="zlV-2Z-3bN"/>
                     </connections>
@@ -436,6 +455,6 @@
         <image name="spaceship" width="621" height="1104"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hlq-jU-mBU"/>
+        <segue reference="zlV-2Z-3bN"/>
     </inferredMetricsTieBreakers>
 </document>
