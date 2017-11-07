@@ -15,6 +15,7 @@ class RecipeDetailsViewController: UIViewController {
     var ingredients: [Ingredient]?
     var currentIngredients: [Ingredient]?
     var instructions: [String]?
+    var showFavoritesBtn = false
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var curtainView: UIView!
@@ -42,6 +43,13 @@ class RecipeDetailsViewController: UIViewController {
         instructions = recipe?.getInstructions()
         recipeID = recipe?.id as? Int
         
+        Recipe.fetchFavoriteRecipeForUserById(name: (User.currentUser?.screenname)!, id: (recipe?.id)!) { (favoriteRecipe) in
+            if favoriteRecipe != nil {
+                self.showFavoritesBtn = true
+            } else {
+                self.showFavoritesBtn = false
+            }
+        }
         
         RecipeClient.SharedInstance.fetchRecipe(recipeId: recipeID!, success: { (recipe: Recipe) in
             self.ingredients = recipe.getIngredients()
@@ -113,6 +121,10 @@ extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionV
             if let currentIngredients = currentIngredients {
                 cell.showDiffBullets(currentIngredients: currentIngredients)
             }
+            if showFavoritesBtn {
+                let image = UIImage(named: "heart-filled") as UIImage!
+                cell.favoriteBtn.setBackgroundImage(image, for: UIControlState.normal)
+            }
             cell.shareBtn.addTarget(self, action: #selector(onShareRecipe(_:)), for: .touchUpInside)
             return cell
         } else if indexPath.section > 0 {
@@ -120,6 +132,11 @@ extension RecipeDetailsViewController: UICollectionViewDataSource, UICollectionV
             cell.titleLabel.text = recipe?.title
             cell.stepLabel.text = "Step \(indexPath.section)"
             cell.instructionLabel.text = instructions?[indexPath.section-1]
+            
+            if showFavoritesBtn {
+                let image = UIImage(named: "heart-filled") as UIImage!
+                cell.favoriteBtn.setBackgroundImage(image, for: UIControlState.normal)
+            }
             return cell
             
         }

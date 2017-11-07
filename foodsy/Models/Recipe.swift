@@ -79,4 +79,18 @@ class Recipe: PFObject, PFSubclassing {
         }
     }
     
+    class func fetchFavoriteRecipeForUserById(name: String, id: NSNumber, success: @escaping (Recipe?)->()) {
+        let query = PFQuery(className: Recipe.parseClassName())
+        query.whereKey("userName", equalTo: name)
+        query.whereKey("id", equalTo: id)
+        query.findObjectsInBackground { (results, error) in
+            if results!.count > 0 {
+                let recipe = results![0] as! Recipe
+                success(recipe)
+            } else {
+                success(nil)
+            }
+        }
+    }
+    
 }

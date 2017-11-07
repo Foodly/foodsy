@@ -11,6 +11,7 @@ import UIKit
 class RecipeInstructionCardCell: UICollectionViewCell {
 
 
+    @IBOutlet weak var favoriteBtn: UIButton!
     @IBOutlet weak var recipeView: UIView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var stepLabel: UILabel!
