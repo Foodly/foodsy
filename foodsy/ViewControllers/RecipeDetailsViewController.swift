@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTGSnackbar
 
 class RecipeDetailsViewController: UIViewController {
     var recipeID:Int?
@@ -156,5 +157,7 @@ extension RecipeDetailsViewController: UIImagePickerControllerDelegate, UINaviga
         }
         
         dismiss(animated: true, completion: nil)
+        let snackbar = TTGSnackbar(message: "Photo Added to your collection", duration: .middle)
+        snackbar.show()
     }
 }
