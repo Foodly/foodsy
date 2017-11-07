@@ -18,7 +18,9 @@ class MapItem: MKAnnotationView {
     
     var business: Business! {
         didSet {
-            businessImage.setImageWith(business.imageURL!)
+            if let imageUrl = business.imageURL {
+                businessImage.setImageWith(imageUrl)
+            }
             businessName.text = business.name
             distanceLabel.text = business.distance
             addressLabel.text = business.address

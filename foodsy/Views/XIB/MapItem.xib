@@ -8,6 +8,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,8 +24,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Safeway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aT-z0-ODF">
-                    <rect key="frame" x="88" y="10" width="51" height="14.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <rect key="frame" x="88" y="10" width="52" height="18"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -29,25 +37,25 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0.07 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pJ-82-Psh">
-                    <rect key="frame" x="248.5" y="10" width="41.5" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="249.5" y="10" width="40.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                     <color key="textColor" red="0.47222001899999999" green="0.47222001899999999" blue="0.47222001899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="88 Division St, Mission Bay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhn-9Z-LT0">
-                    <rect key="frame" x="88" y="32.5" width="153" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="88" y="36" width="145.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwU-ET-ZQk">
-                    <rect key="frame" x="274" y="32" width="16" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="275.5" y="36.5" width="14.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                     <color key="textColor" red="0.47222001899999999" green="0.47222001899999999" blue="0.47222001899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="scq-OX-O9u">
-                    <rect key="frame" x="88" y="55" width="83" height="15"/>
+                    <rect key="frame" x="88" y="60.5" width="83" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="JEI-f2-sSK"/>
                         <constraint firstAttribute="width" constant="83" id="aah-8i-zuu"/>
