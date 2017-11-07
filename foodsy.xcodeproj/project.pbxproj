@@ -36,6 +36,8 @@
 		822126EB1FAA928700A39652 /* MainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822126EA1FAA928700A39652 /* MainDisplay.swift */; };
 		827767F91FB237B700B927F9 /* PhotoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827767F71FB237B700B927F9 /* PhotoView.storyboard */; };
 		827767FB1FB237D700B927F9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827767FA1FB237D700B927F9 /* PhotoViewController.swift */; };
+		827767FD1FB24D2F00B927F9 /* crave_open_color.png in Resources */ = {isa = PBXBuildFile; fileRef = 827767FC1FB24D2F00B927F9 /* crave_open_color.png */; };
+		827768011FB2521E00B927F9 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 827768001FB2521E00B927F9 /* AppIcon.appiconset */; };
 		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
 		82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* LoginViewController.swift */; };
 		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
@@ -134,6 +136,8 @@
 		822126EA1FAA928700A39652 /* MainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDisplay.swift; sourceTree = "<group>"; };
 		827767F81FB237B700B927F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PhotoView.storyboard; sourceTree = "<group>"; };
 		827767FA1FB237D700B927F9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		827767FC1FB24D2F00B927F9 /* crave_open_color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crave_open_color.png; sourceTree = "<group>"; };
+		827768001FB2521E00B927F9 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82893BCF1F8CB505000193A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -333,11 +337,13 @@
 				82B109651FA641F10097C6E2 /* Nunito-Light.ttf */,
 				82B109631FA641E80097C6E2 /* Nunito-SemiBold.ttf */,
 				82B1095D1FA23FEE0097C6E2 /* Nunito-Bold.ttf */,
+				827767FC1FB24D2F00B927F9 /* crave_open_color.png */,
 				82B1095F1FA23FF70097C6E2 /* Nunito-Regular.ttf */,
 				6832DCC61F9030D00044ADCC /* API */,
 				82893BCD1F8CB505000193A5 /* AppDelegate.swift */,
 				829C44FF1F90B3E6001B3439 /* Storyboards */,
 				82893BD71F8CB505000193A5 /* Assets.xcassets */,
+				827768001FB2521E00B927F9 /* AppIcon.appiconset */,
 				821FB4561F8CB99100722263 /* Models */,
 				82893BDC1F8CB505000193A5 /* Info.plist */,
 				821FB4581F8CB9AF00722263 /* Views */,
@@ -535,6 +541,7 @@
 				68243AFE1F943FF70016F9F8 /* IngredientTableViewCell.xib in Resources */,
 				827767F91FB237B700B927F9 /* PhotoView.storyboard in Resources */,
 				829C44FE1F90A940001B3439 /* ProfileSetupView.xib in Resources */,
+				827768011FB2521E00B927F9 /* AppIcon.appiconset in Resources */,
 				829C45211F929017001B3439 /* FiltersCollapsedCell.xib in Resources */,
 				829C45151F928F42001B3439 /* FiltersSwitchCell.xib in Resources */,
 				82893BDB1F8CB505000193A5 /* LaunchScreen.storyboard in Resources */,
@@ -552,6 +559,7 @@
 				82B109661FA641F20097C6E2 /* Nunito-Light.ttf in Resources */,
 				82B109641FA641E80097C6E2 /* Nunito-SemiBold.ttf in Resources */,
 				82893BD31F8CB505000193A5 /* Main.storyboard in Resources */,
+				827767FD1FB24D2F00B927F9 /* crave_open_color.png in Resources */,
 				687770D61FA6CC06000B0D72 /* MapItem.xib in Resources */,
 				6864E9991F9B02AC00C9A5D4 /* AddCustomTableViewCell.xib in Resources */,
 				82B109601FA23FF80097C6E2 /* Nunito-Regular.ttf in Resources */,

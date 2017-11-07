@@ -13,7 +13,7 @@ import Foundation
 class RecipeClient: NSObject {
     static let SharedInstance = RecipeClient()
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"
-    var cache = FileCache(ttl: 3600)
+    var cache = FileCache(ttl: 10800)
     func fetchRecipes(params: NSDictionary?, success: @escaping ([Recipe])->(), failure: @escaping (Error)->()) {
         let relativeUrl = baseUrl + "searchComplex?"
         var urlComponents = URLComponents(string : relativeUrl)!

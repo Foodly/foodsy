@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="RHk-ul-foT">
@@ -17,17 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crave_fridge" translatesAutoresizingMaskIntoConstraints="NO" id="WQR-Am-NK3">
-                                <rect key="frame" x="49" y="106" width="276" height="455"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="455" id="Kd7-K7-4RV"/>
-                                    <constraint firstAttribute="width" constant="276" id="kcJ-zd-cTp"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crave_white" translatesAutoresizingMaskIntoConstraints="NO" id="SXB-ZA-COF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84N-6z-YBB">
-                                <rect key="frame" x="126" y="577" width="122" height="30"/>
+                                <rect key="frame" x="87" y="567" width="200" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.44705882349999998" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="UsY-8w-ejm"/>
+                                    <constraint firstAttribute="width" constant="200" id="zSQ-fn-pMs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="17"/>
                                 <state key="normal" title="Login with Twitter">
-                                    <color key="titleColor" red="1" green="0.51372549020000002" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onLoginButton:" destination="AhI-Fd-Tzo" eventType="touchUpInside" id="gQa-g9-1Q6"/>
@@ -36,10 +43,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WQR-Am-NK3" firstAttribute="centerX" secondItem="vB9-PA-nTb" secondAttribute="centerX" id="Mia-uS-fEY"/>
                             <constraint firstItem="84N-6z-YBB" firstAttribute="centerX" secondItem="vB9-PA-nTb" secondAttribute="centerX" id="Qbf-We-oVR"/>
-                            <constraint firstItem="84N-6z-YBB" firstAttribute="top" secondItem="WQR-Am-NK3" secondAttribute="bottom" constant="16" id="isR-Ln-nDV"/>
-                            <constraint firstItem="WQR-Am-NK3" firstAttribute="centerY" secondItem="vB9-PA-nTb" secondAttribute="centerY" id="j0l-5d-8xj"/>
+                            <constraint firstItem="SXB-ZA-COF" firstAttribute="trailing" secondItem="kR7-3g-m4K" secondAttribute="trailing" id="RW6-qy-wH9"/>
+                            <constraint firstItem="kR7-3g-m4K" firstAttribute="bottom" secondItem="84N-6z-YBB" secondAttribute="bottom" constant="60" id="dOO-4k-Ltz"/>
+                            <constraint firstItem="SXB-ZA-COF" firstAttribute="leading" secondItem="kR7-3g-m4K" secondAttribute="leading" id="oHE-05-geT"/>
+                            <constraint firstItem="SXB-ZA-COF" firstAttribute="top" secondItem="vB9-PA-nTb" secondAttribute="top" id="qZ8-tV-bGC"/>
+                            <constraint firstItem="SXB-ZA-COF" firstAttribute="bottom" secondItem="kR7-3g-m4K" secondAttribute="bottom" id="wxk-D7-ayG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kR7-3g-m4K"/>
                     </view>
@@ -50,6 +59,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="crave_fridge" width="621" height="1104"/>
+        <image name="crave_white" width="621" height="1104"/>
     </resources>
 </document>

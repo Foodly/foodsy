@@ -10,7 +10,7 @@ import Foundation
 class IngredientClient: NSObject {
     static let SharedInstance = IngredientClient()
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/"
-    var cache = FileCache(ttl: 3600)
+    var cache = FileCache(ttl: 10800)
     func fetchIngredients(name: String, success: @escaping ([Ingredient])->(), failure: @escaping (Error)->()) {
         let url = URL(string: baseUrl + "autocomplete?number=15&metaInformation=true&query=\(name)")
         let path = url?.query
