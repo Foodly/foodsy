@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import TTGSnackbar
 
 class RecipeListViewController: UIViewController {
 
@@ -135,7 +136,13 @@ class RecipeListViewController: UIViewController {
         
         if tableView.recipeFavorites[recipeID]! {
             recipe.favoriteForUser()
+            let snackbar = TTGSnackbar(message: "Recipe moved to Favorites", duration: .middle)
+            snackbar.bottomMargin = 45.0
+            snackbar.show()
         } else {
+            let snackbar = TTGSnackbar(message: "Recipe removed from Favorites", duration: .middle)
+            snackbar.bottomMargin = 45.0
+            snackbar.show()
             recipe.unfavoriteForUser()
         }
     }
