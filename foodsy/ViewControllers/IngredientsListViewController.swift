@@ -41,7 +41,7 @@ class IngredientsListViewController: UIViewController {
         if self.vcIdentifier == "ingredient" {
             self.navigationItem.leftBarButtonItem = nil
         }
-        tableView.rowHeight = 110
+        tableView.estimatedRowHeight = 70
     }
     
     override func viewDidAppear(_ animated: Bool) {

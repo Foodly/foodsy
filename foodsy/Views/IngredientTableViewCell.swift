@@ -15,6 +15,7 @@ import SwipeCellKit
 
 class IngredientTableViewCell: SwipeTableViewCell {
 
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var ingredientImage: UIImageView!
     @IBOutlet weak var ingredientName: UILabel!
     @IBOutlet weak var addButton: UIImageView!
@@ -58,11 +59,9 @@ class IngredientTableViewCell: SwipeTableViewCell {
         let addIngredientRecognizer = UITapGestureRecognizer(target: self, action: #selector(onAddIngredient(tapGestureRecognizer:)))
         addButton.isUserInteractionEnabled = true
         addButton.addGestureRecognizer(addIngredientRecognizer)
-        layer.masksToBounds = true
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
-        layer.shadowOpacity = 0.3
-        layer.shadowRadius = 2.0
+        cardView.addShadow()
+        quantity.addTextSpacing(spacing: 1.5)
+        reminder.addTextSpacing(spacing: 1.5)
     }
     
     @objc func onAddIngredient(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -75,4 +74,13 @@ class IngredientTableViewCell: SwipeTableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension UIView {
+    func addShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 2.0
+    }
 }
