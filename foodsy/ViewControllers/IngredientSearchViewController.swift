@@ -32,7 +32,7 @@ class IngredientSearchViewController: UIViewController {
         ingredientsTable.delegate = self
         ingredientsTable.dataSource = self
         ingredientsTable.rowHeight = UITableViewAutomaticDimension
-        ingredientsTable.rowHeight = 110
+        ingredientsTable.estimatedRowHeight = 70
     }
 
     override func didReceiveMemoryWarning() {
