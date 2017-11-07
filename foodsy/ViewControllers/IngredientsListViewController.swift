@@ -20,6 +20,7 @@ class IngredientsListViewController: UIViewController {
     @IBOutlet var mapButton: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var openMapsButton: UIButton!
     var locationManager: CLLocationManager!
     var ingredients: [Ingredient]!
     var selectedIngredient: Ingredient!
@@ -28,6 +29,8 @@ class IngredientsListViewController: UIViewController {
     var lastLocation : CLLocationCoordinate2D!
     var vcIdentifier: String!
     var selectedIndex: Int!
+    var selectedBusiness: Business?
+    var businesses: [Business]!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -73,14 +76,25 @@ class IngredientsListViewController: UIViewController {
                 } else {
                     self.emptyStateView1.isHidden = false;
                 }
-                
-                
             }
             
         }
     }
+    @IBAction func onOpenMaps(_ sender: UIButton) {
+        var baseUrl = "https://www.google.com/maps/search/?api=1&query="
+        let querystring = (selectedBusiness?.latitude?.description)! + "," + (selectedBusiness?.longitude?.description)!
+        let urlString = baseUrl + querystring
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.open(URL(string:
+                "comgooglemaps://?center=" + querystring + "&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+        } else {
+            print("Can't use comgooglemaps://");
+            UIApplication.shared.open(URL(string: baseUrl + urlString)!, options: [:], completionHandler: nil)
+        }
+    }
     
     func setUpViews() {
+        openMapsButton.isHidden = true
         mapView.isHidden = true
         mapView.delegate = self
         tableView.delegate = self
@@ -91,8 +105,14 @@ class IngredientsListViewController: UIViewController {
         self.searchBar = UISearchBar()
         self.searchBar.sizeToFit()
         self.searchBar.delegate = self
-        self.searchBar.placeholder = "Search"
+        self.searchBar.placeholder = "Search for stores"
         self.searchBar.isHidden = true
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(tapGestureRecognizer:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(tapGestureRecognizer: UITapGestureRecognizer) {
+        self.searchBar.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,6 +131,7 @@ class IngredientsListViewController: UIViewController {
                 self.tableView.isHidden = false
                 self.searchBar.isHidden = true
                 self.navigationItem.titleView = nil
+                self.openMapsButton.isHidden = true
                 self.setTitleBasedOnIdentifier()
             }, completion: nil)            
         } else {
@@ -143,8 +164,8 @@ class IngredientsListViewController: UIViewController {
         }
     }
     
-    func addAnnotationsForBusiness(businesses: [Business]!) -> Void {
-        for business in businesses {
+    func addAnnotationsForBusiness() -> Void {
+        for business in self.businesses {
             let coordinate = CLLocationCoordinate2DMake(business.latitude!, business.longitude!)
             self.addAnnotationAtCoordinate(coordinate: coordinate, business: business)
         }
@@ -159,8 +180,15 @@ class IngredientsListViewController: UIViewController {
 
 extension IngredientsListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.businesses = []
+            return
+        }
         Business.searchWithTerm(term: searchText, location: lastLocation, sort: nil, deals: nil, distance: nil, offset: nil) { (businesses, error) in
-            self.addAnnotationsForBusiness(businesses: businesses)
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.businesses = businesses
+            self.addAnnotationsForBusiness()
         }
     }
 }
@@ -171,11 +199,16 @@ extension IngredientsListViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            return
+        }
         let views = Bundle.main.loadNibNamed("MapItem", owner: nil, options: nil)
         let annotationView = views?[0] as! MapItem
         annotationView.center = CGPoint(x: view.bounds.size.width, y: -annotationView.bounds.size.height)
         let annotation = view.annotation as! Annotation
         annotationView.business = annotation.business
+        selectedBusiness = annotation.business
+        openMapsButton.isHidden = false
         annotationView.canShowCallout = false
         view.addSubview(annotationView)
     }
@@ -186,6 +219,8 @@ extension IngredientsListViewController: MKMapViewDelegate {
                 obj.removeFromSuperview()
             }
         }
+        selectedBusiness = nil
+        openMapsButton.isHidden = true
     }
 }
 
