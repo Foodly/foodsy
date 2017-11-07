@@ -92,8 +92,8 @@ class IngredientsListViewController: UIViewController {
         let querystring = (selectedBusiness?.latitude?.description)! + "," + (selectedBusiness?.longitude?.description)!
         let urlString = baseUrl + querystring
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-            UIApplication.shared.open(URL(string:
-                "comgooglemaps://?q=" + querystring + "&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+            let url = "comgooglemaps://?saddr=&daddr=" + querystring + "&directionsmode=driving"
+            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
         } else {
             print("Can't use comgooglemaps://");
             UIApplication.shared.open(URL(string: baseUrl + urlString)!, options: [:], completionHandler: nil)
