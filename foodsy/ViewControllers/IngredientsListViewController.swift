@@ -108,7 +108,7 @@ class IngredientsListViewController: UIViewController {
         self.searchBar.placeholder = "Search for stores"
         self.searchBar.isHidden = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(tapGestureRecognizer:)))
-        view.addGestureRecognizer(tap)
+        mapView.addGestureRecognizer(tap)
     }
     
     @objc func dismissKeyboard(tapGestureRecognizer: UITapGestureRecognizer) {
