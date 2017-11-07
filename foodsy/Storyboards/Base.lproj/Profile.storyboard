@@ -189,7 +189,7 @@
     </scenes>
     <resources>
         <image name="heart-filled" width="30" height="30"/>
-        <image name="ingredient-list" width="32" height="32"/>
-        <image name="shopping-cart" width="32" height="32"/>
+        <image name="ingredient-list" width="30" height="30"/>
+        <image name="shopping-cart" width="30" height="30"/>
     </resources>
 </document>

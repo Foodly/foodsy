@@ -48,31 +48,31 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUANTITY:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3i-9r-tmS">
-                                <rect key="frame" x="100" y="47" width="51" height="14"/>
+                                <rect key="frame" x="100" y="45.5" width="51" height="12"/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="10"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMIND ME IN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBA-bv-tbL">
-                                <rect key="frame" x="201" y="47.5" width="69.5" height="14"/>
+                                <rect key="frame" x="201" y="46" width="71.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="10"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqV-2S-F9k">
-                                <rect key="frame" x="100" y="19" width="40" height="22"/>
+                                <rect key="frame" x="100" y="20.5" width="40" height="19"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4z-Aw-4CI">
-                                <rect key="frame" x="159" y="47" width="6" height="14"/>
+                                <rect key="frame" x="159" y="45.5" width="6" height="12"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="10"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-PE-TgC">
-                                <rect key="frame" x="278.5" y="47" width="34" height="14"/>
+                                <rect key="frame" x="280.5" y="45.5" width="34" height="12"/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="10"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

@@ -20,11 +20,6 @@ class IngredientSearchViewController: UIViewController {
     weak var delegate: IngredientSearchViewControllerDelegate!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchBar = UISearchBar()
-        self.searchBar.sizeToFit()
-        self.searchBar.delegate = self
-        self.searchBar.placeholder = "Search"
-        navigationItem.titleView = self.searchBar
         let cellNib = UINib(nibName: "IngredientTableViewCell", bundle: nil)
         let customNib = UINib(nibName: "AddCustomTableViewCell", bundle: nil)
         ingredientsTable.register(cellNib, forCellReuseIdentifier: "IngredientCellSearch")
@@ -33,7 +28,22 @@ class IngredientSearchViewController: UIViewController {
         ingredientsTable.dataSource = self
         ingredientsTable.rowHeight = UITableViewAutomaticDimension
         ingredientsTable.estimatedRowHeight = 70
+        self.navigationController?.view.backgroundColor = Utils.getPrimaryColor()
+        self.searchBar = UISearchBar()
+        self.searchBar.sizeToFit()
+        self.searchBar.delegate = self
+        self.searchBar.placeholder = "Search"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.titleView = self.searchBar
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"BACK", style:.plain, target:nil, action:nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.titleView = nil
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,6 +72,13 @@ extension IngredientSearchViewController: IngredientTableViewCellDelegate {
 }
 
 extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1

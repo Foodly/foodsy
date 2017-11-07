@@ -10,8 +10,10 @@ import UIKit
 
 class AddCustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cardView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        cardView.addShadow()
         // Initialization code
     }
 

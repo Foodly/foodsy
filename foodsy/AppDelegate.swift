@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let barButtonTitleFont = UIFont(name: "Nunito-SemiBold", size: 13)!
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: navigationTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white]
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: barButtonTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.kern: CGFloat(1.39)], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: barButtonTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.kern: CGFloat(1.39)], for: .disabled)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: barButtonTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.kern: CGFloat(1.39)], for: .focused)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: barButtonTitleFont, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.kern: CGFloat(1.39)], for: .highlighted)
+        UINavigationBar.appearance().isTranslucent = false
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "cravely"
