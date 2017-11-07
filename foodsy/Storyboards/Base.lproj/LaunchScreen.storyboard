@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crave_open_color.png" translatesAutoresizingMaskIntoConstraints="NO" id="H5l-rM-4WW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="H5l-rM-4WW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="DC6-OH-Tjy"/>
+                            <constraint firstItem="H5l-rM-4WW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HyJ-sR-pm5"/>
+                            <constraint firstItem="H5l-rM-4WW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VcQ-DA-KRI"/>
+                            <constraint firstAttribute="trailing" secondItem="H5l-rM-4WW" secondAttribute="trailing" id="WYj-tF-X7P"/>
+                            <constraint firstItem="H5l-rM-4WW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="bC0-i7-ezj"/>
+                            <constraint firstItem="H5l-rM-4WW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="brb-A5-EiX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="crave_open_color.png" width="1242" height="2208"/>
+    </resources>
 </document>

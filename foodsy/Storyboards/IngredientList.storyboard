@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you haven't added anything. Aliens, again?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-UP-mfK">
-                                        <rect key="frame" x="50" y="531" width="275" height="42"/>
+                                        <rect key="frame" x="50" y="486.5" width="275" height="42"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -51,12 +51,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="1K0-UP-mfK" secondAttribute="bottom" constant="30" id="D7d-5d-Puz"/>
                                     <constraint firstItem="1K0-UP-mfK" firstAttribute="leading" secondItem="6qm-jA-ubz" secondAttribute="leading" constant="50" id="Ncz-MF-zpe"/>
                                     <constraint firstAttribute="trailing" secondItem="1K0-UP-mfK" secondAttribute="trailing" constant="50" id="NpX-7X-4WJ"/>
                                     <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="centerY" secondItem="6qm-jA-ubz" secondAttribute="centerY" constant="-20" id="YpA-nI-1y4"/>
                                     <constraint firstItem="qyZ-Wx-Ndf" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="fOb-W2-Rem"/>
                                     <constraint firstItem="1K0-UP-mfK" firstAttribute="centerX" secondItem="6qm-jA-ubz" secondAttribute="centerX" id="pn7-3v-vqA"/>
+                                    <constraint firstItem="1K0-UP-mfK" firstAttribute="top" secondItem="qyZ-Wx-Ndf" secondAttribute="bottom" constant="30" id="sVi-iO-yJe"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfi-Za-dzV">
@@ -70,7 +70,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmm...looks like there is nothing       but empty space here." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swI-ng-8bn">
-                                        <rect key="frame" x="50" y="531" width="275" height="42"/>
+                                        <rect key="frame" x="50" y="491.5" width="275" height="42"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.24313725489999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -78,9 +78,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="swI-ng-8bn" firstAttribute="top" secondItem="LDq-jA-K2q" secondAttribute="bottom" constant="10" id="96P-4W-iKp"/>
                                     <constraint firstItem="LDq-jA-K2q" firstAttribute="centerY" secondItem="Qfi-Za-dzV" secondAttribute="centerY" constant="-20" id="EK2-Ut-gLC"/>
                                     <constraint firstItem="LDq-jA-K2q" firstAttribute="centerX" secondItem="Qfi-Za-dzV" secondAttribute="centerX" id="VFe-8d-ayA"/>
-                                    <constraint firstAttribute="bottom" secondItem="swI-ng-8bn" secondAttribute="bottom" constant="30" id="dUL-5l-5bX"/>
                                     <constraint firstAttribute="trailing" secondItem="swI-ng-8bn" secondAttribute="trailing" constant="50" id="iEp-xT-IR0"/>
                                     <constraint firstItem="swI-ng-8bn" firstAttribute="leading" secondItem="Qfi-Za-dzV" secondAttribute="leading" constant="50" id="y1A-sw-IgT"/>
                                 </constraints>
@@ -221,19 +221,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME OF INGREDIENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfz-cp-Trz">
-                                <rect key="frame" x="16" y="275" width="138.5" height="15.5"/>
+                                <rect key="frame" x="16" y="275.5" width="138.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUANTITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-w8-Ym4">
-                                <rect key="frame" x="16" y="313" width="64" height="15.5"/>
+                                <rect key="frame" x="16" y="313.5" width="64" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REMIND ME IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVf-xQ-PqZ">
-                                <rect key="frame" x="16" y="351" width="89" height="15.5"/>
+                                <rect key="frame" x="16" y="351.5" width="89" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="13"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.24313725490196078" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -499,6 +499,6 @@
         <image name="spaceship" width="621" height="1104"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hlq-jU-mBU"/>
+        <segue reference="zlV-2Z-3bN"/>
     </inferredMetricsTieBreakers>
 </document>
