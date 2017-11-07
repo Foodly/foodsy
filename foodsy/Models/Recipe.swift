@@ -21,6 +21,7 @@ class Recipe: PFObject, PFSubclassing {
     @NSManaged var dairyFree: NSNumber!
     @NSManaged var glutenFree: NSNumber!
     @NSManaged var vegetarian: NSNumber!
+    @NSManaged var sourceUrl: String!
     
     class func parseClassName() -> String {
         return "Recipe"
