@@ -171,6 +171,9 @@ extension IngredientsListViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            return
+        }
         let views = Bundle.main.loadNibNamed("MapItem", owner: nil, options: nil)
         let annotationView = views?[0] as! MapItem
         annotationView.center = CGPoint(x: view.bounds.size.width, y: -annotationView.bounds.size.height)
