@@ -81,12 +81,12 @@ class IngredientsListViewController: UIViewController {
         }
     }
     @IBAction func onOpenMaps(_ sender: UIButton) {
-        var baseUrl = "https://www.google.com/maps/search/?api=1&query="
+        let baseUrl = "https://www.google.com/maps/search/?api=1&query="
         let querystring = (selectedBusiness?.latitude?.description)! + "," + (selectedBusiness?.longitude?.description)!
         let urlString = baseUrl + querystring
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             UIApplication.shared.open(URL(string:
-                "comgooglemaps://?center=" + querystring + "&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+                "comgooglemaps://?q=" + querystring + "&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
         } else {
             print("Can't use comgooglemaps://");
             UIApplication.shared.open(URL(string: baseUrl + urlString)!, options: [:], completionHandler: nil)
@@ -108,7 +108,7 @@ class IngredientsListViewController: UIViewController {
         self.searchBar.placeholder = "Search for stores"
         self.searchBar.isHidden = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(tapGestureRecognizer:)))
-        view.addGestureRecognizer(tap)
+        mapView.addGestureRecognizer(tap)
     }
     
     @objc func dismissKeyboard(tapGestureRecognizer: UITapGestureRecognizer) {
