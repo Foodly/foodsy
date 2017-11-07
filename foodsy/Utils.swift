@@ -10,7 +10,7 @@ import UIKit
 
 class Utils: NSObject {
     static func getMeatColor() -> UIColor {
-        return UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 1.0)
+        return UIColor(red: 178.0/255.0, green: 59.0/255.0, blue: 32.0/255.0, alpha: 1.0)
     }
     static func getVegetarianColor()  -> UIColor {
         return UIColor(red: 169.0/255.0, green: 216.0/255.0, blue: 112.0/255.0, alpha: 1.0)
