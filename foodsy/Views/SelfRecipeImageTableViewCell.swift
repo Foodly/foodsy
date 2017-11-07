@@ -10,6 +10,7 @@ import UIKit
 
 class SelfRecipeImageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var createdLabel: UILabel!
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeImageView1: UIImageView!

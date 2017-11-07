@@ -71,6 +71,11 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
                 ingredientLabels[i].text = ingredients[i].name
                 i = i + 1
             }
+            
+            if i < 6 {
+                ingredientLabels[i].isHidden = true
+                bulletImageViews[i].isHidden = true
+            }
         }
     }
     
@@ -147,7 +152,7 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
         
         var showMissingIngredientsButton = false
         missingIngredients = [NSNumber]()
-        while i < ingredientLabels.count {
+        while i < ingredientLabels.count && i < ingredients.count {
             let listedIngredientId = ingredients[i].id
             if (currentIngredientsIds[listedIngredientId!] != nil) && (currentIngredientsIds[listedIngredientId!] == true)  {
                 self.bulletImageViews[i].backgroundColor = Utils.getPrimaryColor()

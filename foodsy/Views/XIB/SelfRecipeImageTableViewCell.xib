@@ -12,69 +12,83 @@
         <array key="Nunito-Bold.ttf">
             <string>Nunito-Bold</string>
         </array>
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelfRecipeCell" rowHeight="173" id="KGk-i7-Jjw" customClass="SelfRecipeImageTableViewCell" customModule="foodsy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="326" height="173"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelfRecipeCell" rowHeight="195" id="KGk-i7-Jjw" customClass="SelfRecipeImageTableViewCell" customModule="foodsy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="326" height="172.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="194.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZE-f6-CEb">
-                        <rect key="frame" x="226" y="8" width="100" height="100"/>
+                        <rect key="frame" x="265" y="0.0" width="110" height="110"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="7wN-V1-vsy"/>
-                            <constraint firstAttribute="width" constant="100" id="WCi-CR-G34"/>
+                            <constraint firstAttribute="height" constant="110" id="7wN-V1-vsy"/>
+                            <constraint firstAttribute="width" constant="110" id="WCi-CR-G34"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJ5-9Q-yc4">
-                        <rect key="frame" x="0.0" y="8" width="100" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="ARg-eb-233"/>
-                            <constraint firstAttribute="width" constant="100" id="MYY-KY-9Js"/>
+                            <constraint firstAttribute="height" constant="110" id="ARg-eb-233"/>
+                            <constraint firstAttribute="width" constant="110" id="MYY-KY-9Js"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-MH-jng">
-                        <rect key="frame" x="0.0" y="124" width="42.5" height="32.5"/>
-                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-MH-jng">
+                        <rect key="frame" x="0.0" y="118" width="375" height="35.5"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-ql-TZi">
-                        <rect key="frame" x="113" y="8" width="100" height="100"/>
+                        <rect key="frame" x="133" y="0.0" width="110" height="110"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="0kO-iq-8Dg"/>
-                            <constraint firstAttribute="height" constant="100" id="V5W-iV-f4Q"/>
+                            <constraint firstAttribute="width" constant="110" id="0kO-iq-8Dg"/>
+                            <constraint firstAttribute="height" constant="110" id="V5W-iV-f4Q"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-YE-lzd">
+                        <rect key="frame" x="0.0" y="155.5" width="375" height="14"/>
+                        <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="tIs-YE-lzd" secondAttribute="trailing" id="34N-G3-Fei"/>
                     <constraint firstItem="cB9-ql-TZi" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="7at-Kl-TGk"/>
-                    <constraint firstItem="JCp-MH-jng" firstAttribute="top" secondItem="iJ5-9Q-yc4" secondAttribute="bottom" constant="16" id="7tD-tl-2Qf"/>
+                    <constraint firstItem="JCp-MH-jng" firstAttribute="top" secondItem="iJ5-9Q-yc4" secondAttribute="bottom" constant="8" id="7tD-tl-2Qf"/>
                     <constraint firstItem="JCp-MH-jng" firstAttribute="leading" secondItem="iJ5-9Q-yc4" secondAttribute="leading" id="Bsh-Qh-Bpx"/>
-                    <constraint firstAttribute="bottom" secondItem="JCp-MH-jng" secondAttribute="bottom" constant="16" id="NzZ-GX-g6t"/>
-                    <constraint firstItem="bZE-f6-CEb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bpx-hM-yWF"/>
-                    <constraint firstItem="iJ5-9Q-yc4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ce3-qL-VGU"/>
+                    <constraint firstAttribute="trailing" secondItem="JCp-MH-jng" secondAttribute="trailing" id="DkT-4d-l03"/>
+                    <constraint firstItem="tIs-YE-lzd" firstAttribute="top" secondItem="JCp-MH-jng" secondAttribute="bottom" constant="2" id="Fqi-Sw-ahJ"/>
+                    <constraint firstItem="bZE-f6-CEb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bpx-hM-yWF"/>
+                    <constraint firstItem="iJ5-9Q-yc4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ce3-qL-VGU"/>
                     <constraint firstItem="iJ5-9Q-yc4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eL1-Fd-bgA"/>
                     <constraint firstItem="cB9-ql-TZi" firstAttribute="top" secondItem="iJ5-9Q-yc4" secondAttribute="top" id="iEW-Vu-Xlg"/>
+                    <constraint firstItem="tIs-YE-lzd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jm3-JL-NAK"/>
+                    <constraint firstAttribute="bottom" secondItem="tIs-YE-lzd" secondAttribute="bottom" constant="25" id="kzL-VH-IKB"/>
                     <constraint firstAttribute="trailing" secondItem="bZE-f6-CEb" secondAttribute="trailing" id="v5N-LP-LZb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="createdLabel" destination="tIs-YE-lzd" id="HHy-km-ooM"/>
                 <outlet property="recipeImageView" destination="iJ5-9Q-yc4" id="E3Q-n8-HFA"/>
                 <outlet property="recipeImageView1" destination="cB9-ql-TZi" id="dFf-O8-VG4"/>
                 <outlet property="recipeImageView2" destination="bZE-f6-CEb" id="LZb-na-wXF"/>
                 <outlet property="recipeTitleLabel" destination="JCp-MH-jng" id="6YX-aK-bRf"/>
             </connections>
-            <point key="canvasLocation" x="44" y="175.5"/>
+            <point key="canvasLocation" x="70.5" y="204.5"/>
         </tableViewCell>
     </objects>
 </document>
