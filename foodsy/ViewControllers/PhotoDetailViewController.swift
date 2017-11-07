@@ -20,7 +20,7 @@ class PhotoDetailViewController: UIViewController {
     var ingredient: Ingredient!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ingredient.getImage(success: { (image) in
+        ingredient?.getImage(success: { (image) in
             if image != nil {
                 self.photoImageView.image = image
             } else if self.ingredient.image != nil {
@@ -32,7 +32,9 @@ class PhotoDetailViewController: UIViewController {
     }
     
     @IBAction func onDone(_ sender: UIBarButtonItem) {
-        self.delegate.onAddedNewPhoto(ingredient: self.ingredient, changed: changedImage, image: photoImageView.image!)
+        if self.ingredient != nil {
+            self.delegate.onAddedNewPhoto(ingredient: self.ingredient, changed: changedImage, image: photoImageView.image!)
+        }
         self.ingredient = nil
         self.dismiss(animated: true, completion: nil)
     }
