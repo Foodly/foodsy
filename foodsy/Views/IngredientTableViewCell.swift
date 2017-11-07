@@ -58,6 +58,11 @@ class IngredientTableViewCell: SwipeTableViewCell {
         let addIngredientRecognizer = UITapGestureRecognizer(target: self, action: #selector(onAddIngredient(tapGestureRecognizer:)))
         addButton.isUserInteractionEnabled = true
         addButton.addGestureRecognizer(addIngredientRecognizer)
+        layer.masksToBounds = true
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 2.0
     }
     
     @objc func onAddIngredient(tapGestureRecognizer: UITapGestureRecognizer) {

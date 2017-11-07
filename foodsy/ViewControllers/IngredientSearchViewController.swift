@@ -32,7 +32,7 @@ class IngredientSearchViewController: UIViewController {
         ingredientsTable.delegate = self
         ingredientsTable.dataSource = self
         ingredientsTable.rowHeight = UITableViewAutomaticDimension
-        ingredientsTable.estimatedRowHeight = 300
+        ingredientsTable.rowHeight = 110
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,7 +106,8 @@ extension IngredientSearchViewController: UITableViewDelegate, UITableViewDataSo
 
 extension IngredientSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        IngredientClient.SharedInstance.fetchIngredients(name: searchText, success: { (ingredients) in
+        let escapedString = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        IngredientClient.SharedInstance.fetchIngredients(name: escapedString!, success: { (ingredients) in
             self.ingredients = ingredients
             self.ingredientsTable.reloadData()
         }) { (error) in

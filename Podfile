@@ -12,6 +12,7 @@ target 'foodsy' do
   pod 'Parse'
   pod 'AnimatedCollectionViewLayout'
   pod 'SwipeCellKit', '2.0'
+  pod "TTGSnackbar"
 
   target 'foodsyTests' do
     inherit! :search_paths
