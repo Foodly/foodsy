@@ -22,6 +22,7 @@ PODS:
   - Parse (1.15.2):
     - Bolts/Tasks (~> 1.8)
   - SwipeCellKit (2.0.0)
+  - TTGSnackbar (1.7.0)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - Parse
   - SwipeCellKit (= 2.0)
+  - TTGSnackbar
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
@@ -39,7 +41,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: 7daa8804b876d250a65420534c97d2d786c3b0b4
   SwipeCellKit: 349c61ffde96ac3ae51c2691a03e421b5b29ee98
+  TTGSnackbar: 058485c43a1cdbdfc988d41cb23c23f008df958d
 
-PODFILE CHECKSUM: d5b346c8ee8c9d5723ce5d234df4935a8132c303
+PODFILE CHECKSUM: e1ef24e0eeea1c282394d690a5e087cc539caef0
 
 COCOAPODS: 1.3.1

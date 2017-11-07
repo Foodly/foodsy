@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import SwipeCellKit
 import MBProgressHUD
+import TTGSnackbar
 
 class IngredientsListViewController: UIViewController {
 
@@ -37,11 +38,10 @@ class IngredientsListViewController: UIViewController {
         if self.vcIdentifier == "ingredient" {
             self.navigationItem.leftBarButtonItem = nil
         }
+        tableView.rowHeight = 110
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        emptyStateView.isHidden = true
-        emptyStateView1.isHidden = true
         fetchIngredientsAndUpdateTable();
         setTitleBasedOnIdentifier()
     }
@@ -247,7 +247,9 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                 // handle action by updating model with deletion
                 ingredient.deleteInBackground()
                 self.ingredients.remove(at: indexPath.row)
-                
+                let snackbar = TTGSnackbar(message: "Item Deleted", duration: .middle)
+                snackbar.bottomMargin = 45.0
+                snackbar.show()
                 if (self.ingredients.count == 0) {
                     if self.vcIdentifier == "ingredient" {
                         self.emptyStateView.isHidden = false;
@@ -259,17 +261,22 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
             return [deleteAction]
         } else if orientation == .left {
             let completedAction = SwipeAction(style: .default, title: "Done", handler: { (action, indexPath) in
+                var destination = String()
                 if self.vcIdentifier == "shopping" {
                     ingredient.type = "ingredient"
                     ingredient.reminderDays = 0
                     ingredient.saveInBackground()
+                    destination = "Kitchen"
                 } else {
                     ingredient.type = "shopping"
                     ingredient.reminderDays = 0
                     ingredient.saveInBackground()
+                    destination = "Cart"
                 }
                 self.ingredients.remove(at: indexPath.row)
-                
+                let snackbar = TTGSnackbar(message: "Item moved to " + destination, duration: .middle)
+                snackbar.bottomMargin = 45.0
+                snackbar.show()
                 if (self.ingredients.count == 0) {
                     if self.vcIdentifier == "ingredient" {
                         self.emptyStateView.isHidden = false;
@@ -277,7 +284,6 @@ extension IngredientsListViewController: SwipeTableViewCellDelegate {
                         self.emptyStateView1.isHidden = false;
                     }
                 }
-                self.tableView.reloadData()
             })
             completedAction.backgroundColor = UIColor(red: 0/255, green: 178/255, blue: 29/255, alpha: 1.0)
             return [completedAction]
