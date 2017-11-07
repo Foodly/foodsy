@@ -66,6 +66,17 @@ class RecipeDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @objc func onShareRecipe(_ sender: UIBarButtonItem) {
+        let textToShare = "Discovered on Crave"
+        
+        if let myWebsite = NSURL(string: (recipe?.sourceUrl)!) {
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     @objc func onAddNewPhoto(_ sender: UIBarButtonItem) {
         let vc = UIImagePickerController()
         vc.delegate = self

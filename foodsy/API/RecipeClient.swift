@@ -47,8 +47,6 @@ class RecipeClient: NSObject {
                             recipes.append(Recipe(className: "Recipe", dictionary: recipe as? [String : Any]))
                         }
                     }
-                    
-                    
                 }
                 success(recipes)
             }
