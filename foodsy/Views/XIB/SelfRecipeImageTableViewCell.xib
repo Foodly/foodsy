@@ -28,7 +28,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZE-f6-CEb">
                         <rect key="frame" x="265" y="0.0" width="110" height="110"/>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="110" id="7wN-V1-vsy"/>
                             <constraint firstAttribute="width" constant="110" id="WCi-CR-G34"/>
@@ -36,7 +35,6 @@
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJ5-9Q-yc4">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="110" id="ARg-eb-233"/>
                             <constraint firstAttribute="width" constant="110" id="MYY-KY-9Js"/>
@@ -50,7 +48,6 @@
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-ql-TZi">
                         <rect key="frame" x="133" y="0.0" width="110" height="110"/>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="0kO-iq-8Dg"/>
                             <constraint firstAttribute="height" constant="110" id="V5W-iV-f4Q"/>

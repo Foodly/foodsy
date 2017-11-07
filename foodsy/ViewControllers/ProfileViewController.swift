@@ -65,6 +65,8 @@ class ProfileViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -176,9 +178,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     let dateString = dateFormatter.string(from: date) // Jan 2, 2001
                     cell.createdLabel.text = "BEAUTIFULLY CREATED ON \(dateString.uppercased())"
                     cell.createdLabel.addTextSpacing(spacing: 1.2)
+                    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(tapGestureRecognizer:)))
                     selfRecipeImage?.getImage(index: 0, success: { (image) in
                         if let image = image {
                             cell.recipeImageView.image = image
+                            cell.recipeImageView.isUserInteractionEnabled = true
+                            cell.recipeImageView.addGestureRecognizer(tapGestureRecognizer)
+                        } else {
+                            cell.recipeImageView.isUserInteractionEnabled = false
                         }
                     }, failure: { (error) in
                         print("error")
@@ -187,6 +194,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     selfRecipeImage?.getImage(index: 1, success: { (image) in
                         if let image = image {
                             cell.recipeImageView1.image = image
+                            cell.recipeImageView1.isUserInteractionEnabled = true
+                            cell.recipeImageView1.addGestureRecognizer(tapGestureRecognizer)
+                        } else {
+                            cell.recipeImageView1.isUserInteractionEnabled = false
                         }
                     }, failure: { (error) in
                         print("error")
@@ -195,6 +206,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     selfRecipeImage?.getImage(index: 2, success: { (image) in
                         if let image = image {
                             cell.recipeImageView2.image = image
+                            cell.recipeImageView2.isUserInteractionEnabled = true
+                            cell.recipeImageView2.addGestureRecognizer(tapGestureRecognizer)
+                        } else {
+                            cell.recipeImageView2.isUserInteractionEnabled = false
                         }
                     }, failure: { (error) in
                         print("error")
@@ -239,7 +254,17 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deselectRow(at: indexPath, animated: true)
             self.show(navController, sender: self)
         }
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
         
+        let storyboard = UIStoryboard(name: "PhotoView", bundle: nil)
+        let photoViewNavigationController = storyboard.instantiateViewController(withIdentifier: "PhotoViewNavigationController") as! UINavigationController
+        let photoViewController = photoViewNavigationController.topViewController as! PhotoViewController
+        photoViewController.image = tappedImage.image
+        self.show(photoViewNavigationController, sender: self)
     }
     
     @objc func goBack(_ sender: UIBarButtonItem){

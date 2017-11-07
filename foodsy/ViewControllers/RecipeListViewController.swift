@@ -205,7 +205,6 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         recipeDetailsViewController.navigationItem.leftBarButtonItem?.tintColor = .white
         let navController = UINavigationController(rootViewController: recipeDetailsViewController)
         recipeDetailsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< RECIPES", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack(_:)))
-        navController.navigationBar.isTranslucent = false
         
         //var buttons = [UIBarButtonItem]()
         let button = UIButton(type: .system)

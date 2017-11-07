@@ -34,6 +34,8 @@
 		821FB4641F8CBEFE00722263 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4631F8CBEFE00722263 /* Constants.swift */; };
 		821FB4661F8CC00500722263 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821FB4651F8CC00500722263 /* ProfileViewController.swift */; };
 		822126EB1FAA928700A39652 /* MainDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822126EA1FAA928700A39652 /* MainDisplay.swift */; };
+		827767F91FB237B700B927F9 /* PhotoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827767F71FB237B700B927F9 /* PhotoView.storyboard */; };
+		827767FB1FB237D700B927F9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827767FA1FB237D700B927F9 /* PhotoViewController.swift */; };
 		82893BCE1F8CB505000193A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCD1F8CB505000193A5 /* AppDelegate.swift */; };
 		82893BD01F8CB505000193A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82893BCF1F8CB505000193A5 /* LoginViewController.swift */; };
 		82893BD31F8CB505000193A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82893BD11F8CB505000193A5 /* Main.storyboard */; };
@@ -130,6 +132,8 @@
 		821FB4631F8CBEFE00722263 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		821FB4651F8CC00500722263 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		822126EA1FAA928700A39652 /* MainDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDisplay.swift; sourceTree = "<group>"; };
+		827767F81FB237B700B927F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PhotoView.storyboard; sourceTree = "<group>"; };
+		827767FA1FB237D700B927F9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		82893BCA1F8CB505000193A5 /* foodsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82893BCD1F8CB505000193A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82893BCF1F8CB505000193A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 				82B264171F99FED700668662 /* FavoritesViewController.swift */,
 				6864E99A1F9B0B6D00C9A5D4 /* AddCustomViewController.swift */,
 				681BF70E1FA036BE000FC75A /* PhotoDetailViewController.swift */,
+				827767FA1FB237D700B927F9 /* PhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				829C45241F9475FE001B3439 /* Recipe.storyboard */,
 				829C45371F94A9E3001B3439 /* RecipeList.storyboard */,
 				82B264121F99FE2100668662 /* Favorites.storyboard */,
+				827767F71FB237B700B927F9 /* PhotoView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 			files = (
 				829C45391F94A9E3001B3439 /* RecipeList.storyboard in Resources */,
 				68243AFE1F943FF70016F9F8 /* IngredientTableViewCell.xib in Resources */,
+				827767F91FB237B700B927F9 /* PhotoView.storyboard in Resources */,
 				829C44FE1F90A940001B3439 /* ProfileSetupView.xib in Resources */,
 				829C45211F929017001B3439 /* FiltersCollapsedCell.xib in Resources */,
 				829C45151F928F42001B3439 /* FiltersSwitchCell.xib in Resources */,
@@ -759,6 +766,7 @@
 				68243AFA1F943FCD0016F9F8 /* IngredientsListViewController.swift in Sources */,
 				82893BD61F8CB505000193A5 /* foodsy.xcdatamodeld in Sources */,
 				820A41741FA9BDEA00B96093 /* SelfRecipeImageTableViewCell.swift in Sources */,
+				827767FB1FB237D700B927F9 /* PhotoViewController.swift in Sources */,
 				829C45411F94B4FB001B3439 /* RecipeTableView.swift in Sources */,
 				829C45201F929017001B3439 /* FiltersCollapsedCell.swift in Sources */,
 				687770D41FA6CBE3000B0D72 /* MapItem.swift in Sources */,
@@ -822,6 +830,14 @@
 				821FB45B1F8CB9E400722263 /* Base */,
 			);
 			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		827767F71FB237B700B927F9 /* PhotoView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				827767F81FB237B700B927F9 /* Base */,
+			);
+			name = PhotoView.storyboard;
 			sourceTree = "<group>";
 		};
 		82893BD11F8CB505000193A5 /* Main.storyboard */ = {
