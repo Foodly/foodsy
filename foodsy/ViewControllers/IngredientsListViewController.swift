@@ -42,9 +42,14 @@ class IngredientsListViewController: UIViewController {
             self.navigationItem.leftBarButtonItem = nil
         }
         tableView.estimatedRowHeight = 70
+        if self.vcIdentifier == "ingredient" {
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"KITCHEN", style:.plain, target:nil, action:nil)
+        } else {
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"CART", style:.plain, target:nil, action:nil)
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         fetchIngredientsAndUpdateTable();
         setTitleBasedOnIdentifier()
     }
@@ -73,8 +78,10 @@ class IngredientsListViewController: UIViewController {
                 
                 if self.vcIdentifier == "ingredient" {
                     self.emptyStateView.isHidden = false;
+                    self.emptyStateView1.isHidden = true;
                 } else {
                     self.emptyStateView1.isHidden = false;
+                    self.emptyStateView.isHidden = true;
                 }
             }
             
@@ -125,7 +132,7 @@ class IngredientsListViewController: UIViewController {
         emptyStateView1.isHidden = true;
         if isMapViewShowing {
             UIView.transition(with: self.view, duration: 1.0, options: .transitionFlipFromLeft, animations: {
-                self.mapButton.title = "Map"
+                self.mapButton.title = "MAP"
                 self.mapView.isHidden = true
                 self.isMapViewShowing = false
                 self.tableView.isHidden = false
@@ -133,10 +140,20 @@ class IngredientsListViewController: UIViewController {
                 self.navigationItem.titleView = nil
                 self.openMapsButton.isHidden = true
                 self.setTitleBasedOnIdentifier()
+                
+                if self.vcIdentifier == "ingredient" {
+                    if (self.ingredients.count == 0) {
+                        self.emptyStateView.isHidden = false;
+                    }
+                } else {
+                    if (self.ingredients.count == 0) {
+                        self.emptyStateView1.isHidden = false;
+                    }
+                }
             }, completion: nil)            
         } else {
             UIView.transition(with: self.view, duration: 1.0, options: .transitionFlipFromLeft, animations: {
-                self.mapButton.title = "List"
+                self.mapButton.title = "LIST"
                 self.navigationItem.titleView = self.searchBar
                 self.mapView.isHidden = false
                 self.isMapViewShowing = true

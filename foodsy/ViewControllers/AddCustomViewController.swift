@@ -18,6 +18,7 @@ protocol EditCustomViewControllerDelegate {
 
 class AddCustomViewController: UIViewController {
 
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var ingredientImage: UIImageView!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var name: UITextField!
@@ -33,11 +34,13 @@ class AddCustomViewController: UIViewController {
     var index: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
+        footerView.backgroundColor = Utils.getSecondaryColor()
+        searchAmazon.backgroundColor = Utils.getPrimaryColor()
         if let ingredient = self.ingredient {
             if self.mode == "create" {
-                addIngredientItem.title = "Add"
+                addIngredientItem.title = "ADD"
             } else if self.mode == "edit" {
-                addIngredientItem.title = "Save"
+                addIngredientItem.title = "SAVE"
             }
             name.text = ingredient.name
             if let quant = ingredient.quantity {
@@ -58,10 +61,12 @@ class AddCustomViewController: UIViewController {
             }
             searchAmazon.isHidden = false
         } else {
+            ingredientImage.backgroundColor = Utils.getSecondaryColor()
             searchAmazon.isHidden = true
         }
         ingredientImage.isUserInteractionEnabled = true
         name.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        self.navigationController?.view.backgroundColor = Utils.getPrimaryColor()
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
