@@ -14,6 +14,7 @@ class RecipeListViewController: UIViewController {
 
     @IBOutlet weak var tableView: RecipeTableView!
     @IBOutlet weak var searchBtn: UIBarButtonItem!
+    var myRecipes = [Int: Recipe]()
     var selectedRecipe: Recipe?
     var searchParams = [String:[String]]()
     override func viewDidLoad() {
@@ -109,6 +110,7 @@ class RecipeListViewController: UIViewController {
                     for recipe in recipes {
                         let recipeID = recipe.id as! Int
                         self.tableView.recipeFavorites[recipeID] = true
+                        self.myRecipes[recipeID] = recipe
                         self.tableView.reloadData()
                     }
                 }
@@ -135,15 +137,18 @@ class RecipeListViewController: UIViewController {
         }
         
         if tableView.recipeFavorites[recipeID]! {
+            myRecipes[recipeID] = recipe
             recipe.favoriteForUser()
             let snackbar = TTGSnackbar(message: "Recipe moved to Favorites", duration: .middle)
             snackbar.bottomMargin = 45.0
             snackbar.show()
         } else {
-            let snackbar = TTGSnackbar(message: "Recipe removed from Favorites", duration: .middle)
-            snackbar.bottomMargin = 45.0
-            snackbar.show()
-            recipe.unfavoriteForUser()
+            if let recipe = myRecipes[recipeID] {
+                let snackbar = TTGSnackbar(message: "Recipe removed from Favorites", duration: .middle)
+                snackbar.bottomMargin = 45.0
+                snackbar.show()
+                recipe.unfavoriteForUser()
+            }
         }
     }
     

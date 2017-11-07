@@ -45,20 +45,6 @@ class RecipeMainIngredientsCardCell: UICollectionViewCell {
             titleLabel.text = recipe.title
             servingsLabel.text = "\(recipe.servings!) servings"
             preptimeLabel.text = "\(recipe.readyInMinutes!) min"
-            
-            /*var recipeIndicatorsCount = 0
-            if recipe.dairyFree == 1 {
-                recipeIndicatorsCount = recipeIndicatorsCount + 1
-                infoImageView.image = UIImage(named: "no-dairy")
-            }
-            if recipe.glutenFree == 1 {
-                if recipeIndicatorsCount == 1 {
-                    infoImageView1.image = UIImage(named: "no-gluten")
-                } else {
-                    infoImageView.image = UIImage(named: "no-gluten")
-                    infoImageView1.isHidden = true
-                }
-            }*/
         }
     }
     
