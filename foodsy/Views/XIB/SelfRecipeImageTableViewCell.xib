@@ -43,7 +43,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-MH-jng">
-                        <rect key="frame" x="0.0" y="118" width="375" height="35.5"/>
+                        <rect key="frame" x="0.0" y="118" width="375" height="30.5"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-YE-lzd">
-                        <rect key="frame" x="0.0" y="155.5" width="375" height="14"/>
+                        <rect key="frame" x="0.0" y="150.5" width="375" height="14"/>
                         <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                     <constraint firstItem="iJ5-9Q-yc4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eL1-Fd-bgA"/>
                     <constraint firstItem="cB9-ql-TZi" firstAttribute="top" secondItem="iJ5-9Q-yc4" secondAttribute="top" id="iEW-Vu-Xlg"/>
                     <constraint firstItem="tIs-YE-lzd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jm3-JL-NAK"/>
-                    <constraint firstAttribute="bottom" secondItem="tIs-YE-lzd" secondAttribute="bottom" constant="25" id="kzL-VH-IKB"/>
+                    <constraint firstAttribute="bottom" secondItem="tIs-YE-lzd" secondAttribute="bottom" constant="30" id="kzL-VH-IKB"/>
                     <constraint firstAttribute="trailing" secondItem="bZE-f6-CEb" secondAttribute="trailing" id="v5N-LP-LZb"/>
                 </constraints>
             </tableViewCellContentView>

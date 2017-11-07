@@ -189,6 +189,10 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         
         setRecipeBtnImageState(recipeCell: cell, recipeID: recipeID)
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = Utils.getTransparentWhiteColor()
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     
@@ -209,13 +213,7 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         button.sizeToFit()
         button.addTarget(recipeDetailsViewController, action: #selector(recipeDetailsViewController.onAddNewPhoto(_:)), for: .touchUpInside)
         navController.childViewControllers[0].navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-        /*let shareButton = UIButton(type: .system)
-        shareButton.setImage(UIImage(named: "share-arrow"), for: .normal)
-        shareButton.sizeToFit()
-        shareButton.addTarget(recipeDetailsViewController, action: #selector(recipeDetailsViewController.onShareRecipe(_:)), for: .touchUpInside)
-        buttons.append(UIBarButtonItem(customView: shareButton))
-        navController.childViewControllers[0].navigationItem.rightBarButtonItems = buttons*/
-
+        tableView.deselectRow(at: indexPath, animated: true)
         self.show(navController, sender: self)
     }
     
