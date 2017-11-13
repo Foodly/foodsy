@@ -24,9 +24,19 @@ class RecipeClient: NSObject {
             for key in params.allKeys {
                 let valueCollections = params.value(forKey: key as! String) as! [String]
                 
-                for value in valueCollections {
-                    queryItems.append(URLQueryItem(name: key as! String, value:value))
+                if valueCollections.count > 0 {
+                    var queryString = ""
+                    
+                    for (index, value) in valueCollections.enumerated() {
+                        if (index == 0) {
+                            queryString = queryString + value
+                        } else {
+                            queryString = "\(queryString) \(value)"
+                        }
+                    }
+                    queryItems.append(URLQueryItem(name: key as! String, value:queryString))
                 }
+                
                 
             }
         }
