@@ -71,3 +71,35 @@ extension UIImage {
         return image
     }
 }
+
+extension UIView {
+    func addShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 2.0
+    }
+    
+    func addCornerRadius(radius: CGFloat) {
+        self.layer.cornerRadius = radius
+    }
+}
+
+extension UIImageView {
+    func roundSpecificCorners(_ corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
