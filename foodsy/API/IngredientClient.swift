@@ -42,7 +42,9 @@ class IngredientClient: NSObject {
                     NSLog("response: \(responseDictionary)")
                     var ingredients = [Ingredient]()
                     for ingredient in responseDictionary {
-                        ingredients.append(Ingredient(className: "Ingredient", dictionary: ingredient as? [String : Any]))
+                        let ingredient = Ingredient(className: "Ingredient", dictionary: ingredient as? [String : Any])
+                        ingredient.name = ingredient.name.capitalized
+                        ingredients.append(ingredient)
                     }
                     success(ingredients)
                 }

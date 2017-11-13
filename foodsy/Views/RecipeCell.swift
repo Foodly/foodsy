@@ -16,9 +16,6 @@ class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var servingsTitleLabel: UILabel!
     @IBOutlet weak var preptimeTitleLabel: UILabel!
-    @IBOutlet weak var mealColor: UIView!
-    @IBOutlet weak var infoImageView1: UIImageView!
-    @IBOutlet weak var infoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     
@@ -36,26 +33,14 @@ class RecipeCell: UITableViewCell {
             }
             self.preptimeLabel.text = getFormattedTime(timeInMin: recipe.readyInMinutes!)
             self.servingsLabel.text = "\(recipe.servings!)"
-            
-            if recipe.vegetarian != nil {
-                if recipe.vegetarian == 0 {
-                    mealColor.backgroundColor = Utils.getMeatColor()
-                } else {
-                    mealColor.backgroundColor = Utils.getVegetarianColor()
-                }
-            } else {
-                mealColor.backgroundColor = Utils.getNeutralColor()
-            }
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         favoriteBtn.addTarget(self, action: #selector(favoriteBtnClicked), for: UIControlEvents.touchDown)
-        layer.masksToBounds = true
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
-        layer.shadowOpacity = 0.3
-        layer.shadowRadius = 2.0
+        foodImageView.roundSpecificCorners([.topLeft, .bottomLeft], radius: 4.0)
+        cardView.addCornerRadius(radius: 4.0)
+        cardView.addShadow()
         
         
         servingsTitleLabel.addTextSpacing(spacing: 1.5)
